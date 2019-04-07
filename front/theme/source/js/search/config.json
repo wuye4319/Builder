@@ -1,0 +1,10 @@
+{
+  "name": "search",
+  "title": "Search",
+  "module": [
+    {
+      "name": "Search",
+      "key": 1
+    }
+  ]
+}

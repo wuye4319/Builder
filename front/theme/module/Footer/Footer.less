@@ -1,0 +1,150 @@
+/** footer **/
+@import "../../source/class.less";
+.m-footer{
+  text-align: center;
+  border-top-width: 1px;
+  border-top-style: solid;
+
+  &-width-1, &-width-2, &-width-3{
+    //.l-centerBlock{
+    //  padding-left: 0;
+    //  padding-right: 0;
+    //}
+  }
+
+  &-width-1{
+    .m-footer-message{
+      width: 50% !important;
+    }
+
+  }
+
+  &-width-2{
+    .m-footer-message{
+      width: 66% !important;
+    }
+
+  }
+
+  &-top {
+    &-width{
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+
+      .m-footer-nav{
+        float: left;
+        width: 25%;
+        border: 0;
+        padding-top: 30*@px;
+
+        li{
+          display: block;
+          margin-left: 0;
+          text-align: left;
+          margin-bottom: 10px;
+        }
+      }
+      .m-footer-message{
+        float: left;
+        width: 75%;
+        border: 0;
+        padding-top: 30*@px;
+      }
+    }
+  }
+
+  &-nav{
+    padding: 20*@px 0;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+
+    li{
+      display: inline-block;
+      margin: 0 20*@px;
+
+      a{
+        display: inline-block;
+        height: 30*@px;
+        line-height: 30*@px;
+      }
+    }
+  }
+
+  &-message{
+    padding: 36*@px 0;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+
+    h3{
+      margin: 0 0 12*@px 0;
+      font-size: 20*@px;
+    }
+
+    p{
+      font-size: 14*@px;
+    }
+
+    &-small{
+      h3{
+        font-size: 16*@px;
+      }
+      p{
+        font-size: 12px;
+      }
+    }
+
+    &-large{
+      h3{
+        font-size: 24*@px;
+      }
+      p{
+        font-size: 18*@px;
+      }
+    }
+
+
+  }
+
+  &-copyright{
+    padding: 36*@px 0 60*@px 0;
+  }
+}
+
+@media screen and (max-width: 1340px){
+  .m-footer{
+    &-main{
+      width: @pageWidth;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media screen and (max-width: 1240px){
+  .m-footer{
+    &-main{
+      width: auto;
+      margin: 0 20px;
+    }
+  }
+}
+
+.l-mobile{
+  .m-footer{
+    &-nav{
+      li{
+        margin: 0 12*@px;
+      }
+    }
+    &-message{
+
+      .l-centerBlock{
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+    &-copyright{
+      padding-bottom: 36*@px;
+    }
+  }
+}
+

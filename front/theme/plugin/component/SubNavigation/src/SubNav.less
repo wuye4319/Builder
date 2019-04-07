@@ -1,0 +1,27 @@
+@px: 1/100rem;
+.bc-subnav-container {
+  display: flex;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 40*@px 0;
+  a {
+    display: block;
+    color: #302E2F;
+    text-decoration: underline;
+    border: none;
+    outline: 0;
+    &.arr {
+      padding: 0 8*@px;
+      text-decoration: none;
+      i {
+        font-size: 14*@px;
+        color: #8B8185;
+      }
+    }
+    &:nth-last-of-type(1) {
+      color: #8B8185;
+      text-decoration: none;
+    }
+  }
+}

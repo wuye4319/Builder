@@ -1,0 +1,5 @@
+func (a, b) {
+    let c, e = [], f = []
+    for (c in a) e.push(c), f.push(a[c])
+    return new Function(e, b).apply(a, f)
+  }

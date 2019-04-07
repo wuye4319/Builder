@@ -1,0 +1,9 @@
+{
+  "name": "pay_result",
+  "module": [
+    {
+      "name": "PayResult",
+      "key": 1
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+@import "../../../../source/common";
+
+.bc-modal-wrapper{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+
+  &.bc-modal-hidden{
+    display: none;
+  }
+
+  .bc-modal-mask{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.6);
+  }
+
+  .bc-modal-inner{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 100px 0 30px 0;
+  }
+
+  .bc-modal-fill{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+
+.bc-modal{
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,.3);
+  position: relative;
+  margin-left: 50%;
+
+  &-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+    font-size: 26px;
+    color: @text-light;
+  }
+
+  &-header{
+    padding: 18px 20px 18px 22px;
+    border-bottom: 1px solid @border;
+
+    h3{
+      font-size: 16px;
+      color: @text;
+      line-height: 24px;
+      font-weight: bold;
+      padding-right: 40px;
+    }
+  }
+
+  &-body{
+    padding: 20px 20px 20px 22px;
+  }
+
+  &-footer{
+    padding: 10px 20px 10px 22px;
+    text-align: right;
+    border-top: 1px solid @border;
+
+    .bc-button{
+      margin-left: 10px;
+    }
+  }
+
+  &-fadeIn{
+    animation: fadeIn 330ms ease;
+
+    .bc-modal{
+      animation: show 330ms ease;
+    }
+  }
+
+  &-fadeOut{
+    animation: fadeOut 330ms ease;
+
+    .bc-modal{
+      animation: hide 330ms ease;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes show {
+  from {
+    transform: translate3D(0, 70px, 0) scale(.85);
+  }
+
+  to {
+    transform: translate3D(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes hide {
+  from {
+    transform: translate3D(0, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3D(0, 70px, 0) scale(.85);
+  }
+}

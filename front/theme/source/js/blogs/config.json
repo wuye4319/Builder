@@ -1,0 +1,12 @@
+{
+  "name": "blogs",
+  "module": [
+    {
+      "name": "Blogs",
+      "key": 1,
+      "blogStyle": "Small",
+      "cols": 3,
+      "rows": 3
+    }
+  ]
+}

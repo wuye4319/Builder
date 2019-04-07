@@ -1,0 +1,60 @@
+@import '../../source/class.less';
+
+.m-register-wrap {
+  .register-start {
+    width: 600*@px;
+    margin: 0 auto;
+    .register-title {
+      text-align: center;
+      margin: 80*@px 0 42*@px;
+    }
+    .warn-info {
+      margin: 0 auto;
+      margin-bottom: 20*@px;
+      color: #FF6158;
+      height: 24*@px;
+      line-height: 24*@px;
+    }
+    h3 {
+      margin-bottom: 10*@px;
+      span {
+        margin-left: 10*@px;
+      }
+    }
+    .bc-input {
+      width: 100%;
+      margin-bottom: 20*@px;
+    }
+    input.warning{
+      border: 1px solid #D1343E;
+    }
+    .create {
+      width: 100%;
+      margin-bottom: 20*@px;
+      -webkit-tap-highlight-color: transparent;
+      -moz-tap-highlight-color: transparent;
+    }
+    .to-login {
+      margin-bottom: 20*@px;
+      text-align: center;
+      a {
+        text-align: center;
+        text-decoration: underline;
+        -webkit-tap-highlight-color: transparent;
+        -moz-tap-highlight-color: transparent;
+      }
+    }
+  }
+}
+@media screen and (max-width: 749px) {
+  .m-register-wrap {
+    .register-start {
+      width: 100%;
+      padding: 0 20*@px;
+      .box();
+      .register-title {
+        margin: 40*@px 0 22*@px;
+      }
+    }
+  }
+}

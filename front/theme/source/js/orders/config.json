@@ -1,0 +1,10 @@
+{
+  "name": "orders",
+  "userCenter": "orders",
+  "module": [
+    {
+      "name": "Orders",
+      "key": 1
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+@import "../../../../source/common";
+
+//select
+.bc-select {
+  display: inline-block;
+  position: relative;
+  width: 180px;
+  height: 40px;
+
+  //清楚select默认样式
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  &::-ms-expand { display: none; } //兼容IE
+
+  &.small{
+    width:124px;
+  }
+  &.large{
+    width: 280px;
+  }
+  &-btn {
+    display: block;
+    width: 100%;
+    height: 100%;
+    outline: 0;
+    border: 1px solid #DBD8D9;
+    padding: 0 30px 0 8px;
+    font-size: 14px;
+    color: #302E2F;
+    cursor: pointer;
+    text-align: left;
+    letter-spacing: 0;
+    background: #FBFAFA;
+    .radius(3px);
+    &.bc-select-disabled {
+      background: #f5f5f5;
+      cursor: not-allowed;
+    }
+  }
+  &-arr {
+    position: absolute;
+    display: block;
+    width: 10px;
+    height: 10px;
+    top: 50%;
+    right: 20px;
+    margin-top: -5px;
+    font-size: 12px;
+    -webkit-transform: scale(0.82);
+    -moz-transform: scale(0.82);
+    -ms-transform: scale(0.82);
+    -o-transform: scale(0.82);
+    transform: scale(0.82);
+    &.bc-icon{
+      font-size: 12px;
+      line-height: 10px;
+    }
+  }
+  // 点击下拉菜单
+  &.focus{
+    .bc-select-btn{
+      border-color: #B2AFB0;
+      //.shadow(0, 0, 0, 1px, #B2AFB0);
+    }
+  }
+}
+
+.bc-select-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  .bc-select-option {
+    position: absolute;
+    left: 0;
+    top: 0;
+    max-width: 300px;
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
+    .shadow(0, 0, 4px, rgba(0, 1px, 0, 0.11));
+    .box;
+    &-ul {
+      display: block;
+      width: 100%;
+      max-height: 280px;
+      list-style: none;
+      background: #FFFFFF;
+      overflow-x: hidden;
+      overflow-y: auto;
+      border:1px solid #DBD8D9;
+      transition: opacity 500ms linear;
+      .radius(4px);
+      .bc-select-option-item {
+        a {
+          display:inline-block;
+          width: 100%;
+          text-decoration: none;
+          font-size: 14px;
+          color: #302E2F;
+          letter-spacing: 0;
+          border: none;
+          outline: 0;
+          line-height: 1.5;
+          padding:10px 0 10px 8px;
+          vertical-align: middle;
+          word-wrap:break-word;
+          &:hover{
+            background: #EBE6E7;
+          }
+          overflow: hidden;
+          &.disabled {
+
+            cursor: not-allowed;
+            &:hover{
+              background: #f5f5f5;
+            }
+          }
+        }
+
+      }
+    }
+    &-arr{
+      position: absolute;
+      display: block;
+      background: #fff;
+      width: 7px;
+      height: 7px;
+      left: 50%;
+      margin-left: -4px;
+      box-shadow: -3px -3px 7px rgba(0, 0, 0, 0.08), -1px -1px 0 1px rgba(0,0,0,.06);
+    }
+    &.top {
+      .bc-select-option-ul {
+        padding-bottom: 5px;
+      }
+      .bc-select-option-arr{
+        bottom: -3px;
+        ._rotate(225deg);
+      }
+    }
+    &.bottom {
+      .bc-select-option-ul {
+        padding-top: 5px;
+      }
+      .bc-select-option-arr{
+        top: -3.5px;
+        ._rotate(45deg);
+      }
+    }
+    &.bc-select-show {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

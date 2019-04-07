@@ -1,0 +1,53 @@
+@import "../../../../source/class.less";
+
+.bc-input{
+  border-width: 1px;
+  border-style: solid;
+  height: 48*@px;
+  border-radius: @radius;
+  background: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  padding: 9*@px 20*@px;
+  line-height: 30*@px;
+
+  &::-webkit-input-placeholder { /* WebKit browsers */
+    color: #B2AFB0;
+    font-size: 14*@px;
+  }
+  &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #B2AFB0;
+    font-size: 14*@px;
+  }
+  &::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #B2AFB0;
+    font-size: 14*@px;
+  }
+  &:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #B2AFB0;
+    font-size: 14*@px;
+  }
+
+  &:focus{
+    outline: 0;
+  }
+
+  &:disabled{
+    //opacity: .6;
+    cursor: not-allowed;
+  }
+
+  &-hasClear{
+    padding-right: 40*@px;
+  }
+
+  &-clear{
+    cursor: pointer;
+    width: 30*@px;
+    display: inline-block;
+    text-align: left;
+    margin-left: -30*@px;
+  }
+
+}

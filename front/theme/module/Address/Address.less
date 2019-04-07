@@ -1,0 +1,376 @@
+@import '../../source/class.less';
+@px : 1/100rem;
+a,button{
+  -webkit-tap-highlight-color: transparent;
+  -moz-tap-highlight-color: transparent;
+}
+.m-address-centerBlock {
+  &-title {
+    display: none;
+    font-size: 32*@px;
+    color: #302E2F;
+    letter-spacing: 0;
+    line-height: 1;
+    text-align: center;
+  }
+  &-content {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    .address-null {
+      float: left;
+      padding-top: 120*@px;
+      padding-left: 213*@px;
+      .logo{
+        width:200*@px;
+        height: 200*@px;
+        margin:0 auto;
+        background-color: #F4F2F3;
+        .radius(50%)
+      }
+      p {
+        font-size: 20px;
+        color: #302E2F;
+        letter-spacing: 0;
+        text-align: center;
+        line-height: 20*@px;
+        padding:40*@px 0
+      }
+      button {
+        display: block;
+        width: 296*@px;
+        background: transparent;
+        color: #302E2F;
+        margin: 0 auto;
+      }
+    }
+    .address-container {
+      height: 40*@px;
+      margin-bottom: 40*@px;
+      overflow: hidden;
+      ul {
+        li {
+          display: block;
+          padding: 40*@px 10*@px;
+          border-bottom: 1px solid #ece7e9;
+          .user-phone {
+            span {
+              display: inline-block;
+              font-size: 18*@px;
+              color: #302E2F;
+              letter-spacing: 0;
+              line-height: 1;
+              &:nth-of-type(2) {
+                padding-left: 20*@px;
+              }
+            }
+          }
+          .address-details {
+            font-size: 16*@px;
+            color: #302E2F;
+            letter-spacing: 0;
+            line-height: 24*@px;
+            padding: 16*@px 0;
+            word-break: break-all;
+          }
+          .user-action {
+            display: flex;
+            align-items: center;
+            flex-flow:wrap;
+            justify-content: space-between;
+            &>a{
+              font-size: 16*@px;
+              color: #B2AFB0;
+              letter-spacing: 0;
+              line-height: 16*@px;
+              span {
+                i {
+                  color: #B2AFB0;
+                }
+                &:nth-of-type(2) {
+                  padding-left: 10*@px;
+                }
+                &.default {
+                  color: #302E2F;
+                }
+              }
+            }
+            .edit {
+              a {
+                font-size: 16*@px;
+                color: #B2AFB0;
+                &:nth-of-type(2){
+                  padding-left:40*@px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//add new address
+.m-address-mod {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+  z-index: 100;
+  .address-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 700 * @px;
+    height: 620 *@px;
+    padding: 40*@px;
+    margin: -310*@px 0 0 -350*@px;
+    background: #ffffff;
+    .box();
+    .form-item {
+      width: 100%;
+      margin: 18*@px 0;
+      overflow: hidden;
+      input {
+        &:nth-of-type(1) {
+          float: left;
+        }
+        &:nth-of-type(2) {
+          float: right;
+        }
+      }
+      &.name {
+        input {
+          width: 300 *@px
+        }
+      }
+      &.address {
+        input:nth-of-type(1) {
+          width: 360*@px;
+        }
+        input:nth-of-type(2) {
+          width: 240*@px;
+        }
+      }
+      &.city, &.iphone {
+        input {
+          width: 100%;
+        }
+      }
+      &.stateInfo {
+        .country, .state, .zipCode {
+          float: left;
+        }
+        .country {
+          width: 230 *@px;
+          select {
+            width: 100%;
+          }
+        }
+        .state {
+          width: 230*@px;
+          margin: 0 20*@px;
+          select {
+            width: 100%;
+          }
+        }
+        .zipCode {
+          width: 120*@px;
+          input {
+            width: 100%;
+          }
+        }
+      }
+      &.set {
+        margin: 18*@px 0 38*@px;
+        span {
+          color: #B2AFB0;
+          padding-left: 15*@px;
+        }
+      }
+    }
+  }
+  .close {
+    display: block;
+    position: absolute;
+    top: 20*@px;
+    right: 20*@px;
+    width: 20*@px;
+    height: 20*@px;
+    line-height:20*@px;
+    i {
+      font-size: 20*@px;
+      color: #302E2F;
+    }
+  }
+}
+
+//delete confirm
+.bc-modal-wrapper {
+  .bc-modal-header h3 {
+    p {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      i{
+        font-size:32*@px;
+        color:#ff6158;
+      }
+      span{
+        font-size: 20*@px;
+        color: #302E2F;
+        margin: 0 15*@px;
+      }
+    }
+  }
+  .bc-modal-body {
+    p {
+      font-size: 16*@px;
+      color: #8B8185;
+    }
+  }
+}
+
+@media screen and (min-width:320px) and (max-width:751px) {
+  .m-address-centerBlock {
+    &-title {
+      display: block;
+    }
+    &-content {
+      .address-null{
+        width:100%;
+        padding: 120*@px 0 0 0;
+        button{
+          width:320*@px;
+        }
+      }
+      .address-container {
+        ul {
+          li {
+            padding:40*@px 0;
+            .address-details {
+              padding: 18*@px 0 30*@px;
+            }
+            .user-action {
+              .edit {
+                a:nth-of-type(2) {
+                  padding-left: 25*@px;
+                }
+              }
+            }
+          }
+        }
+
+      }
+      button {
+        width: 100%;
+      }
+    }
+  }
+
+  //add new address
+  .m-address-mod {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background: rgba(0, 0, 0, .5);
+    z-index: 100;
+    opacity: 1;
+    will-change: opacity;
+    ._transition(opacity,.3s);
+    .address-form {
+      position: absolute;
+      height: 75%;
+      top: auto;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      padding:20*@px 0 0 0;
+      margin: 0;
+      will-change: translate;
+      -webkit-transform: translate(0, 100%);
+      transform: translate(0, 100%);
+      ._transition(transform,.3s,ease);
+      .form-container{
+        height: 100%;
+        overflow: hidden;
+        -webkit-overflow-scrolling : touch;
+        h2 {
+          padding:0 40*@px;
+        }
+        form{
+          height: 100%;
+        }
+        .input-area{
+          height: 69%;
+          padding: 0 40*@px;
+          overflow-x: hidden;
+          overflow-y: auto;
+        }
+        .form-item {
+          &>input {
+            float: none;
+            display: block;
+            width: 100% !important;
+          }
+          &.name, &.address, &.city{
+            input+input{
+              margin-top: 20*@px;
+            }
+          }
+          &.stateInfo {
+            div {
+              width: 100%;
+              margin: 0;
+            }
+            div+div{
+              margin-top: 20*@px;
+            }
+          }
+          &.set {
+            margin: 10*@px 0;
+            padding:0 40*@px;
+          }
+        }
+
+        .addBtn {
+          padding: 0 40*@px;
+          &.no-set {
+            margin-top: 15*@px;
+          }
+          button {
+            width: 100%;
+          }
+        }
+      }
+    }
+    &.show {
+      opacity: 1;
+      .address-form {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+      }
+    }
+  }
+
+  //delete confirm
+  .bc-modal-wrapper {
+    .bc-modal-header h3 {
+      p {
+        i{
+          font-size: 28*@px;
+        }
+        span{
+          margin: 0 5*@px;
+        }
+      }
+    }
+  }
+}

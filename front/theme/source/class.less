@@ -1,0 +1,84 @@
+/** 变量定义 **/
+@px : 1/100rem;
+@radius: 2px;
+@pageWidth: 1200px;
+
+@color-link: #1890FF;
+@color-success: #29CA40;
+@color-error: #FF6158;
+@color-warning: #FFBD2F;
+
+/* 弹性盒子*/
+.box(){
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/*圆角*/
+.radius(@x:0) {
+  -webkit-border-radius: @x;
+  -moz-border-radius: @x;
+  border-radius: @x;
+}
+
+/* 文本溢出...*/
+.overText(){
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  text-overflow: ellipsis;/* IE/Safari */
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;/* Opera */
+  //-moz-binding: url("ellipsis.xml#ellipsis");/*FireFox*/
+}
+
+/* 限制文本行数*/
+.overLine(@x:1){
+  display: -webkit-box;
+  -webkit-line-clamp: @x;
+  line-clamp:@x ;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  overflow: hidden;
+}
+
+/* 阴影 */
+.shadow(@x:0, @y:0, @blur:5px, @ex:0, @color:#000) {
+  -moz-box-shadow: @arguments;
+  -webkit-box-shadow: @arguments;
+  box-shadow: @arguments;
+}
+
+/*旋转函数*/
+._rotate(@deg:0) {
+  -webkit-transform: rotate(@deg);
+  -moz-transform: rotate(@deg);
+  -ms-transform: rotate(@deg);
+  -o-transform: rotate(@deg);
+  transform: rotate(@deg);
+}
+
+/*过度动画*/
+._transition(@props:all, @time: 100ms, @fn: linear, @delay: 1ms) {
+  -webkit-transition: @arguments;
+  -moz-transition: @arguments;
+  -ms-transition: @arguments;
+  -o-transition: @arguments;
+  transition: @arguments;
+}
+
+/*css3 动画*/
+._animate (@name:'', @dur:100ms, @fn:linear, @delay: 0, @times:1, @dir:normal) {
+  -webkit-animation: @arguments;
+  -o-animation: @arguments;
+  animation: @arguments;
+}
+
+/*css3 transform*/
+._transform(@props){
+  -webkit-transform: @props;
+  -moz-transform: @props;
+  -ms-transform: @props;
+  -o-transform: @props;
+  transform: @props;
+}

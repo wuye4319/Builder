@@ -1,0 +1,16 @@
+{
+  "default": {
+    "construct": [
+      {
+        "title": "标题",
+        "keyword": "关键字",
+        "description": "描述"
+      },
+      {
+        "title": "title",
+        "keyword": "keyword",
+        "description": "description"
+      }
+    ]
+  }
+}

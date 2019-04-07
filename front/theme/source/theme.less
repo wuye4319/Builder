@@ -1,0 +1,223 @@
+@charset "utf-8";
+@import "./class.less";
+/**
+ * 样式命名规范(样式名前缀定义)
+ * t- 主题级(theme)
+ * p- 页面级(page)
+ * l- 布局结构(layout)
+ * m- 模块级(module)
+ * c- 颜色定义(color)
+ * f- 字体大小(font size)
+ *
+ * @author MG Ding (丁文强)
+**/
+
+/* css reset */
+* {
+  margin: 0;
+  padding:0;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+  //font-size: 16*@px;
+}
+@webpath: '/source/font/';
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url('@{webpath}Roboto-Regular.eot?t=1521182512654#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('@{webpath}Roboto-Regular.ttf?t=1521182512654') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+}
+
+html,body{
+  height: 100%;
+  width: 100%;
+  font: 100px/26px Roboto-Regular,'PingFang SC',microsoft yahei,'STHeitiSC-Light',simsun,sans-serif;
+  color: #302E2F;
+}
+
+h1{
+  font-size: 32*@px; letter-spacing: 0.07em;
+}
+
+h2{
+  font-size: 20*@px; letter-spacing: 0.06em;
+}
+
+h3{
+  font-size: 18*@px;
+}
+
+h4, h5, h6{
+  font-size: 16@px;
+}
+
+body, ul, ol, li, dl, dt, dd, p{
+  margin: 0; padding: 0;
+}
+
+input::-ms-clear,input::-ms-reveal{display:none;}
+select::-ms-expand { display: none; }
+button{
+  background: transparent;
+}
+
+ol,ul,dl,li,dt{ list-style-type: none;}
+
+a{
+  text-decoration: none;
+  cursor: pointer;
+  color: #1890FF;
+
+  &:hover, &:active, &:visited{
+    text-decoration: none;
+  }
+}
+
+/* oo css */
+.fl{float:left;}
+.fr{float:right;}
+.li-el{ word-break:keep-all;white-space:nowrap;text-overflow:ellipsis; overflow:hidden;}
+.cb{clear: both}
+.clearfix:after{content:'.';display:block;height:0;clear:both;visibility:hidden}
+.clearfix{display:block;}
+
+.hidden{visibility:hidden;}
+.none{display:none;}
+.pr{position: relative}
+.pa{position: absolute}
+
+
+
+
+/** 颜色定义 **/
+//品牌色
+.c-brand{
+  color: #302E2F; &-border{ border-color: #302E2F }; &-bg{ background-color: #302E2F }
+}
+//标题色
+.c-title{
+  color: #302E2F; &-border{ border-color: #302E2F }; &-bg{ background-color: #302E2F }
+}
+//主文本色
+.c-text{
+  color: #302E2F; &-border{ border-color: #302E2F }; &-bg{ background-color: #302E2F }
+}
+//副文本色
+.c-subText{
+  color: #8B8185; &-border{ border-color: #8B8185 }; &-bg{ background-color: #8B8185 }
+}
+//提示文本色
+.c-prompt{
+  color: #B2AFB0; &-border{ border-color: #B2AFB0 }; &-bg{ background-color: #B2AFB0 }
+}
+//按钮文本
+.c-button{
+  color: #FFFFFF; &-border{ border-color: #FFFFFF }; &-bg{ background-color: #FFFFFF }
+}
+//链接色
+.c-link{
+  color: #1890FF; &-border{ border-color: #1890FF }; &-bg{ background-color: #1890FF }
+}
+//价格色
+.c-price{
+  color: #302E2F; &-border{ border-color: #302E2F }; &-bg{ background-color: #302E2F }
+}
+//公告文本色
+.c-anno{
+  color: #FFBD2F; &-border{ border-color: #FFBD2F }; &-bg{ background-color: #FFBD2F }
+}
+//页脚文本色
+.c-footer{
+  color: #302E2F; &-border{ border-color: #302E2F }; &-bg{ background-color: #302E2F }
+}
+//图标色
+.c-icon{
+  color: #302E2F; &-border{ border-color: #302E2F }; &-bg{ background-color: #302E2F }
+}
+//分割线色
+.c-hr{
+  color: #EBE5E7; &-border{ border-color: #EBE5E7 }; &-bg{ background-color: #EBE5E7 }
+}
+//表单边框色
+.c-border{
+  color: #DBD8D9; &-border{ border-color: #DBD8D9 }; &-bg{ background-color: #DBD8D9 }
+}
+//公告背景色
+.c-annoBg{
+  color: #FFFCF5; &-border{ border-color: #FFFCF5 }; &-bg{ background-color: #FFFCF5 }
+}
+//主背景色
+.c-bg{
+  color: #FFFFFF; &-border{ border-color: #FFFFFF }; &-bg{ background-color: #FFFFFF }
+}
+//次要背景色
+.c-subBg{
+  color: #FBFAFA; &-border{ border-color: #FBFAFA }; &-bg{ background-color: #FBFAFA }
+}
+//页脚背景色
+.c-footerBg{
+  color: #FBFAFA; &-border{ border-color: #FBFAFA }; &-bg{ background-color: #FBFAFA }
+}
+
+/** 字体大小 **/
+.f-title{ font-size: 26*@px}    //主标题
+.f-subTitle{ font-size: 18*@px} //副标题
+.f-secTitle{ font-size: 16*@px} //次级标题
+.f-text{ font-size: 14*@px}     //主文本
+.f-subText{ font-size: 12*@px}  //副文本
+.f-button{ font-size: 16*@px}   //按钮
+.f-price{ font-size: 22*@px}    //价格
+
+@media screen and (max-width: 749px){
+  html,body{
+    font-size: 90px;
+  }
+}
+@media screen and (max-width: 360px){
+  html,body{
+    font-size: 88px;
+  }
+}
+@media screen and (max-width: 320px){
+  html,body{
+    font-size: 85px;
+  }
+}
+
+/** 布局样式 **/
+#container{
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.l-wrap{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.l-main{
+  flex-grow: 1;
+}
+.l-header, .l-footer{
+  flex-grow: 0;
+}
+
+// .l-centerBlock 移动版下无padding
+// .l-centerBlock2 移动版下有padding
+.l-centerBlock, .l-centerBlock2{
+  max-width: 1240px;
+  min-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.l-mobile{
+  .l-centerBlock{
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

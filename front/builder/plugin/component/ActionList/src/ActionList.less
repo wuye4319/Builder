@@ -1,0 +1,102 @@
+@import "../../../../source/common";
+
+.bc-actionList{
+  background: #ffff;
+  border-top: 1px solid #e3e3e3;
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  margin-bottom: 15px;
+
+  &-item{
+    position: relative;
+    background: #fff;
+    //transition: top .1s linear;
+
+    &-header{
+      height: 40px;
+      padding: 10px 20px;
+      line-height: 40px;
+      color: #333;
+      border: 1px solid #e3e3e3;
+      border-left: 0;
+      border-right: 0;
+      margin-top: -1px;
+      font-size: 14px;
+      display: flex;
+    }
+
+    &-left{
+      flex-grow: 1;
+      vertical-align: top;
+      display: flex;
+      overflow: hidden;
+
+      .left-icon{
+        display: inline-block;
+        width: 30px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 20px;
+        flex-shrink: 0;
+      }
+
+      .left-arrow{
+        display: inline-block;
+        width: 20px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 12px;
+        transform: scale(0.8);
+        transform-origin: left center;
+        vertical-align: top;
+      }
+
+      & > span{
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        vertical-align: top;
+        text-transform: capitalize;
+      }
+    }
+
+    &-right{
+      text-align: right;
+      flex-shrink: 0;
+
+      .bc-icon{
+        display: inline-block;
+        width: 20px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 20px;
+
+        &.move-icon{
+          cursor: move;
+        }
+      }
+    }
+
+    &.isDrag{
+      z-index: 2;
+
+      .bc-actionList-item-header{
+        box-shadow: 0 0 5px rgba(0,0,0,.1);
+      }
+      .bc-actionList-collapse{
+        display: none;
+      }
+    }
+
+    &-collapse{
+      padding: 20px;
+      display: none;
+
+      &.expend{
+        display: block;
+      }
+    }
+  }
+}
+
+
+

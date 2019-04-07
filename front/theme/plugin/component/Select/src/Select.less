@@ -1,0 +1,25 @@
+@import "../../../../source/class.less";
+
+.bc-select{
+  display: inline-block;
+  border-width: 1px;
+  border-style: solid;
+  height: 48*@px;
+  border-radius: @radius;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  padding: 0 48*@px 0 20*@px;
+  position: relative;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAFAQMAAACKM9XAAAAABlBMVEUAAAAwLi8h2mgqAAAAAXRSTlMAQObYZgAAABlJREFUCNdj+N/AwMBQzwAEdiBCBkRwADEAMW4CYaYy38MAAAAASUVORK5CYII=") no-repeat scroll right center #fff;
+
+  &:focus{
+    outline: 0;
+  }
+
+  &:disabled{
+    //opacity: .6;
+    cursor: not-allowed;
+  }
+
+}

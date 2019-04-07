@@ -1,0 +1,9 @@
+{
+  "name": "email_result",
+  "module": [
+    {
+      "name": "EmailResult",
+      "key": 1
+    }
+  ]
+}

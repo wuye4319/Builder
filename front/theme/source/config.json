@@ -1,0 +1,37 @@
+{
+  "layout": {
+    "header": {
+      "name": "Header",
+      "key": 1,
+      "logo": "/source/img/logo.png",
+      "logoAlign": "left",
+      "menu": "main",
+      "menuAlign": "center",
+      "menuColors": 0,
+      "menuBg": "#FFFFFF",
+      "menuFont": "#302E2F",
+      "cartIcon": 0,
+      "messageVisible": false,
+      "messageOnlyAtHome": false,
+      "messageCanClose": true,
+      "message": "",
+      "messageLink": "",
+      "messageBg": "#FF6158",
+      "messageFont": "#FFFFFF"
+    },
+    "footer": {
+      "name": "Footer",
+      "key": 1,
+      "menu": "footer",
+      "showInfo": true,
+      "infoTitle": "Custom Content",
+      "infoContent": "Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.",
+      "infoWidth": 0,
+      "infoAlign": "center",
+      "infoFontSize": "medium",
+      "colors": 0,
+      "bgColor": "#FBFAFA",
+      "fontColor": "#302E2F"
+    }
+  }
+}

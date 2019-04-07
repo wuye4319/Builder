@@ -1,0 +1,10 @@
+{
+  "name": "account_information",
+  "userCenter": "account",
+  "module": [
+    {
+      "name": "AccountInformation",
+      "key": 1
+    }
+  ]
+}

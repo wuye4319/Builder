@@ -1,0 +1,9 @@
+{
+  "name": "blog_details",
+  "module": [
+    {
+      "name": "BlogDetails",
+      "key": 1
+    }
+  ]
+}

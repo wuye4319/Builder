@@ -1,0 +1,54 @@
+@import "../../../../source/class.less";
+
+.bc-button{
+  //font-size: 16px;
+  display: inline-block;
+  min-height: 48*@px;
+  padding: 8*@px 40*@px;
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+  border-radius: @radius;
+  vertical-align: bottom;
+  box-sizing: border-box;
+  text-align: center;
+  transition: border-color .2s ease, background-color .2s ease;
+
+
+  span{
+    display: inline-block;
+    line-height: 30*@px;
+    white-space: nowrap;
+    transition: color .2s ease;
+    vertical-align: middle;
+  }
+
+  &:focus{
+    outline: 0;
+  }
+
+  &[disabled] ,&.disabled{
+    cursor: not-allowed;
+    opacity: .5;
+  }
+
+  &-loading.bc-button{
+    cursor: wait;
+  }
+
+  &-ghost{
+    background-color: transparent;
+  }
+
+  & &-icon:not(&-icon-noChild){
+    margin-right: 8*@px;
+    font-size: inherit;
+  }
+}
+
+.l-mobile{
+  .bc-button{
+    padding-left: 20*@px;
+    padding-right: 20*@px;
+  }
+}

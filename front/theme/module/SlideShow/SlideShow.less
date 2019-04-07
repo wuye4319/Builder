@@ -1,0 +1,320 @@
+/** SliderShow **/
+@import "../../source/class.less";
+.m-slideShow{
+  width: 100%;
+  height: 560px;
+  position: relative;
+
+  &-nav{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 4.6%;
+    text-align: center;
+    z-index: 4;
+
+    li{
+      width: 32px;
+      height: 8px;
+      display: inline-block;
+      vertical-align: top;
+      margin: 0 7px;
+      background: #fff;
+      opacity: .5;
+      cursor: pointer;
+
+      &.active{
+        opacity: 1;
+        cursor: default;
+      }
+    }
+  }
+
+  &-btn{
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    top: 50%;
+    margin-top: -24px;
+    z-index: 4;
+    cursor: pointer;
+    border: 0;
+    background: rgba(0,0,0,.6);
+    opacity: .7;
+
+    &:focus{
+      outline: 0;
+    }
+
+    & > .bc-icon{
+      color: #fff;
+      font-size: 24px;
+    }
+
+    &:hover{
+      opacity: 1;
+    }
+  }
+
+  &-prev{
+    left: 2.5%;
+    text-indent: 7px;
+  }
+
+  &-next{
+    right: 2.5%;
+    text-indent: -7px;
+  }
+
+  &-listWrapper{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &-slideType{
+    &-1{
+      .m-slideShow-list{
+        &-slideTo{
+          &-next{
+            animation: slideShowToNext 1s ease;
+          }
+          &-prev{
+            animation: slideShowToPrev 1s ease;
+          }
+        }
+        .m-slideShow-item{
+          &.active{
+            animation: none;
+          }
+          &.lastActive{
+            position: absolute;
+            top: 0;
+            left: -100%;
+          }
+        }
+      }
+      .m-slideShow-list-slideTo-prev{
+        .m-slideShow-item{
+          &.lastActive{
+            left: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &-list{
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    .m-slideShow-item{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      &.active{
+        z-index: 3;
+        animation: slideShowFadeIn 1s ease-in;
+      }
+
+      &.lastActive{
+        z-index: 2;
+      }
+    }
+  }
+
+  &-imgContainer{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &-mask{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #000;
+    opacity: .5;
+  }
+
+  &-overlay{
+    width: 100%;
+    height: 100%;
+    padding: 0 30%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #fff;
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    margin-top: -2%;
+
+    & > div{
+      width: 100%;
+      text-align: center;
+    }
+
+    h2{
+      span{
+        font-size: 1.23em;
+      }
+
+      margin-bottom: 0.5em;
+    }
+
+    p{
+      span{
+        font-size: 1.14em;
+      }
+    }
+  }
+
+  &-height{
+    &-high{
+      height: 720px;
+    }
+    &-low{
+      height: 400px;
+    }
+  }
+
+  &-arrowStyle{
+    &-1{
+      .m-slideShow-btn{
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &-fontSize{
+    &-large{
+      .m-slideShow-overlay{
+        h2{
+          span{
+            font-size: 1.42em;
+          }
+        }
+
+        p{
+          span{
+            font-size: 1.34em;
+          }
+        }
+      }
+    }
+
+    &-small{
+      .m-slideShow-overlay{
+        h2{
+          span{
+            font-size: 1em;
+          }
+        }
+
+        p{
+          span{
+            font-size: 1em;
+          }
+        }
+      }
+    }
+  }
+
+  &-navStyle{
+    &-1{
+      .m-slideShow-nav{
+        li{
+          width: 14px;
+          height: 14px;
+          line-height: 14px;
+          border-radius: 50%;
+          border: 2px solid #fff;
+
+          &.active{
+            background: transparent;
+          }
+        }
+      }
+    }
+
+    &-2{
+      .m-slideShow-nav{
+        display: none;
+      }
+    }
+  }
+
+  @keyframes slideShowFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideShowToNext {
+    from {
+      transform: translate3D(100%, 0, 0);
+    }
+    to {
+      transform: translate3D(0, 0, 0);
+    }
+  }
+
+  @keyframes slideShowToPrev {
+    from {
+      transform: translate3D(-100%, 0, 0);
+    }
+    to {
+      transform: translate3D(0, 0, 0);
+    }
+  }
+
+}
+
+.l-mobile{
+
+  .m-slideShow{
+    height: 260px;
+
+    &-height{
+      &-high{
+        height: 320px;
+      }
+      &-low{
+        height: 220px;
+      }
+    }
+    &-nav{
+      bottom: 1%;
+    }
+    &-prev{
+      left: 0;
+    }
+
+    &-next{
+      right: 0;
+    }
+
+    &-overlay{
+      padding: 0 50px;
+      margin-top: -4%;
+
+      h2{
+        line-height: 1.3;
+      }
+    }
+  }
+}
+

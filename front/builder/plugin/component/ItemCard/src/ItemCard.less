@@ -1,0 +1,58 @@
+@import "../../../../plugin/less/class.less";
+.bc-item-card {
+  overflow: hidden;
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    a {
+      display:inline-block;
+      font-size: 14px;
+      height: auto;
+      padding: 0;
+      border: none;
+      outline: 0;
+      span {
+        color: inherit;
+        &:nth-of-type(1) {
+          padding:0 5px;
+        }
+        i {
+          font-size: 14px;
+        }
+      }
+    }
+    span {
+      font-size: 14px;
+      color: #302E2F;
+    }
+  }
+  &-action {
+    margin-top: 10px;
+    border: 1px solid #DBD8D9;
+    .radius(2px);
+    h3 {
+      height: 54px;
+      line-height: 54px;
+      font-size: 14px;
+      color: #302E2F;
+      background: #FBFAFA;
+      text-align: center;
+      border-bottom:1px solid #DBD8D9;
+    }
+    .bc-buttonGroup {
+      width: 100%;
+      .bc-button {
+        width: 50%;
+        border-top: none;
+        border-bottom:none;
+        &:nth-of-type(1){
+          border-left: none;
+        }
+        &:nth-of-type(2){
+          border-right: none;
+        }
+      }
+    }
+  }
+}

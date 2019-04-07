@@ -1,0 +1,9 @@
+{
+  "name": "order_confirm",
+  "module": [
+    {
+      "name": "OrderConfirm",
+      "key": 1
+    }
+  ]
+}

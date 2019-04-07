@@ -1,0 +1,11 @@
+{
+  "name": "cart",
+  "module": [
+    {
+      "name": "Cart",
+      "key": 1,
+      "selectAll": true,
+      "orderNote": true
+    }
+  ]
+}

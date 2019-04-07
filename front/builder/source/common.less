@@ -1,0 +1,54 @@
+@color-primary: #D1343E; // 主色
+@color-primary2: #C3232D; // hover色
+@color-primary3: rgba(209, 52, 62, .5);  // disabled色
+
+@color-sub: #fff; // 次要按钮色
+@color-sub2: #FBFAFA; // hover色
+@color-sub3: #F7F6F6; // disabled色
+
+// 功能色
+@color-link: #1890FF;
+@color-success: #29CA40;
+@color-error: #FF6158;
+@color-warning: #FFBD2F;
+
+// 边框色
+@border-strong: #B2AFB0;
+@border: #DBD8D9;
+
+// 文字色
+@text-strong: #000;
+@text: #302E2F;
+@text-light: #666;
+
+// 圆角
+@radius: 2px;
+
+// 圆角类
+.radius(@x:0){
+  -webkit-border-radius: @x;
+  -moz-border-radius: @x;
+  border-radius: @x;
+}
+/* 阴影 */
+.shadow(@x:0, @y:0, @blur:5px,@ex:0, @color:#000) {
+  -moz-box-shadow: @arguments;
+  -webkit-box-shadow: @arguments;
+  box-shadow: @arguments;
+}
+
+/**/
+.box(){
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*旋转类*/
+._rotate(@deg:0){
+  -webkit-transform: rotate(@deg);
+  -moz-transform: rotate(@deg);
+  -ms-transform: rotate(@deg);
+  -o-transform: rotate(@deg);
+  transform: rotate(@deg);
+}

@@ -1,0 +1,9 @@
+{
+  "name": "send_email",
+  "module": [
+    {
+      "name": "SendEmail",
+      "key": 1
+    }
+  ]
+}

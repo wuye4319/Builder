@@ -1,0 +1,67 @@
+/** userAside **/
+@import "../../source/class.less";
+.m-userAside{
+  &-header{
+    height: 80*@px;
+    background: url('/source/img/userCenter_title_bg.jpg') center no-repeat;
+    background-size: cover;
+
+    h2{
+      text-align: center;
+      font-weight: bold;
+      line-height: 80*@px;
+      color: #fff;
+    }
+  }
+
+  &-body{
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 80px;
+  }
+
+  &-aside{
+    width: 240px;
+    flex-shrink: 0;
+    margin-right: 40px;
+    div{
+      border-width: 1px;
+      border-style: solid;
+      border-bottom: 0;
+
+      a{
+        display: block;
+        height: 60*@px;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        padding: 20*@px;
+        line-height: 20*@px;
+
+        &.active{
+          border-right: 4px solid #D1343E;
+        }
+      }
+    }
+
+  }
+
+  &-main{
+    flex-grow: 1;
+  }
+}
+
+.l-mobile{
+  .m-userAside{
+    &-aside{
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px){
+  .m-userAside{
+    &-aside{
+      width: 200px;
+    }
+  }
+}

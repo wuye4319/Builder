@@ -1,0 +1,86 @@
+.bc-upload {
+    display: block;
+    position: relative;
+    width: 96px;
+    height: 96px;
+    border: 1px dashed #B2AFB0;
+    background: #FBFAFA;
+    border-radius: 1px;
+    overflow: hidden;
+    input {
+        position: absolute;
+        top: -100%;
+        display: block;
+        overflow: hidden;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    
+    .icon-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        i {
+            text-align: center;
+            padding: 5px;
+            &:nth-child(1) {
+                color: #ccc;
+                font-size: 36px;
+            }
+
+        }
+        &.padding {
+            i {
+                &:nth-child(1) {
+                    transform: rotate(45deg);
+                    animation: antRotate 1.2s infinite linear;
+                }
+            }
+        }
+        &.fail {
+            i {
+                color: #f5222d;
+                padding: 0;
+                &:nth-child(1) {
+                    font-size: 18px;
+                }
+            }
+        }
+        &.re-upload {
+            transition: all ease 150ms;
+            transform: translate3d(0, 0, 0);
+            background-color: rgba(0, 0, 0, .5);
+            will-change: translateY;
+            i {
+                padding:2px;
+                color: #ffffff;
+                font-size: 16px;
+                &:nth-child(1) {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+    &:hover {
+        .re-upload {
+            transform: translate3d(0, -100%, 0)
+        }
+    }
+}
+
+@-webkit-keyframes antRotate {
+    to {
+      -webkit-transform: rotate(405deg);
+              transform: rotate(405deg);
+    }
+  }
+  @keyframes antRotate {
+    to {
+      -webkit-transform: rotate(405deg);
+              transform: rotate(405deg);
+    }
+  }

@@ -1,0 +1,45 @@
+@import "../../../../source/common";
+
+.bc-spin{
+  display: inline-block;
+
+  i{
+    display: inline-block;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    vertical-align: middle;
+    background: url('./spin.png') ;
+    background-size: cover;
+    animation:  spin 1s linear infinite;
+  }
+
+
+  &-small i{
+
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+  }
+
+  &-large i{
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+  }
+
+  &-light i{
+    background-image: url('./spin_light.png');
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

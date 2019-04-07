@@ -1,0 +1,19 @@
+{
+  "name": "Header",
+  "key": 1,
+  "logo": "",
+  "logoAlign": "left",
+  "menu": "main",
+  "menuAlign": "center",
+  "menuColors": 0,
+  "menuBg": "#FFFFFF",
+  "menuFont": "#302E2F",
+  "cartIcon": 0,
+  "messageVisible": false,
+  "messageOnlyAtHome": true,
+  "messageCanClose": true,
+  "message": "",
+  "messageLink": "",
+  "messageBg": "#FF6158",
+  "messageFont": "#FFFFFF"
+}

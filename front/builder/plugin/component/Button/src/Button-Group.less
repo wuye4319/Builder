@@ -1,0 +1,48 @@
+@import "../../../../source/common";
+
+.bc-buttonGroup{
+  position: relative;
+  display: inline-block;
+
+  & > .bc-button{
+    border-radius: 0;
+    margin-left: -1px;
+
+    &.bc-button-primary{
+      border-left-color: @color-primary2;
+      border-right-color: @color-primary2;
+
+      &:disabled, &.disabled{
+        border-left-color: @color-primary3;
+        border-right-color: @color-primary3;
+      }
+    }
+
+    &:last-of-type{
+      border-radius: 0 @radius @radius 0;
+      &.bc-button-primary{
+        border-right-color: @color-primary;
+        &:disabled, &.disabled{
+          border-right-color: transparent;
+        }
+      }
+
+    }
+
+    &:first-of-type{
+      border-radius: @radius 0 0 @radius;
+      margin-left: 0;
+      &.bc-button-primary{
+        border-left-color: @color-primary;
+        &:disabled, &.disabled{
+          border-left-color: transparent;
+        }
+      }
+    }
+
+    &:hover{
+      position: relative;
+      z-index: 2;
+    }
+  }
+}

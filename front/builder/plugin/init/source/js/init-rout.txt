@@ -1,0 +1,9 @@
+import '<%= myless %>'
+
+const <%= modulename %> = React.createClass({
+  render () {
+    return <div><%= modulename %></div>
+  }
+})
+
+module.exports = <%= modulename %>;

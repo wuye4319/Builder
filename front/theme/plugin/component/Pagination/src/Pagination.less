@@ -1,0 +1,163 @@
+@px: 1/100rem;
+.m-pagination {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  & > * {
+    display: inline-block;
+  }
+  button {
+    height: 30*@px;
+    min-width: 30*@px;
+    border-width: 1*@px;
+    border-style: solid;
+    text-align: center;
+    line-height: 30*@px;
+    cursor: pointer;
+    box-sizing: content-box;
+    position: relative;
+
+    &:focus {
+      outline: 0;
+    }
+
+    &:hover {
+      border-color: #ccc;
+      z-index: 2;
+    }
+
+    &:disabled {
+      color: #ccc;
+      cursor: default;
+      border-color: #eee;
+      z-index: 1;
+    }
+
+    &.active {
+      color: #fff;
+      background: #302E2F;
+      border-color: #302E2F;
+      z-index: 3;
+      cursor: default;
+    }
+
+
+  }
+
+  .button-prev {
+    padding: 0 15*@px;
+
+    //&:disabled {
+    //  .bc-icon{
+    //    color: #ccc;
+    //  }
+    //}
+  }
+
+  .button-next {
+    padding: 0 15*@px ;
+    background-position: right 0;
+    //margin-right: 10*@px;
+    //&:disabled {
+    //  .bc-icon{
+    //    color: #ccc;
+    //  }
+    //}
+  }
+  .button-prev, .button-next{
+    .bc-icon{
+      font-size: 12px;
+    }
+  }
+  .button-group {
+    margin-left: 11*@px;
+    margin-right: 9*@px;
+    vertical-align: top;
+
+    li {
+      display: inline-block;
+      margin-left: -1*@px;
+      vertical-align: top;
+      button {
+        display: inline-block;
+        min-width: 30*@px;
+      }
+
+      span {
+        display: block;
+        min-width: 30*@px;
+        height: 30*@px;
+        text-align: center;
+        border: 1*@px solid transparent;
+        box-sizing: content-box;
+      }
+    }
+  }
+
+  &.m-pagination-loading {
+    opacity: .5;
+
+    .m-pagination-mask {
+      display: block;
+    }
+  }
+
+  .m-pagination-mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    background: transparent;
+    display: none;
+  }
+
+  &.m-pagination-sm {
+    height: 30*@px;
+
+    & > * {
+      height: 30*@px;
+      line-height: 30*@px;
+      vertical-align: middle;
+    }
+
+    button {
+      height: 28*@px;
+      line-height: 28*@px;
+      font-size: 12*@px;
+    }
+
+    input {
+      width: 40*@px;
+      height: 28*@px;
+      line-height: 28*@px;
+    }
+
+    .button-confirm {
+      padding: 0 10*@px;
+      font-size: 12*@px;
+    }
+
+    .button-group {
+      li {
+        button {
+          min-width: 20*@px;
+        }
+      }
+    }
+
+    .button-prev {
+      padding: 0 16*@px;
+
+    }
+
+    .button-next {
+      padding: 0 16*@px;
+    }
+  }
+
+  &-noMore{
+    text-align: center;
+  }
+}

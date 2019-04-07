@@ -1,0 +1,96 @@
+@import '../../source/class.less';
+
+.m-account-information-wrap {
+  width: 100%;
+  .border-line {
+    border-bottom-width: 1*@px;
+    border-bottom-style: solid;
+    padding: 40*@px 20*@px;
+    h3 {
+      margin-bottom: 10*@px;
+    }
+  }
+  .username-box {
+    .username {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .username-input {
+        //width: 63%;
+        //max-width: 600*@px;
+        flex: 1;
+        max-width: 600*@px;
+        .bc-input {
+          width: 100%;
+        }
+      }
+      .bc-button {
+        margin-left: 14%;
+      }
+    }
+  }
+  .password-box {
+    .modify-password {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      span {
+        cursor: pointer;
+      }
+      .password-list {
+        flex: 1;
+        max-width: 600*@px;
+        .warn-info {
+          margin-bottom: 10*@px;
+          color: #FF6158;
+          height: 24*@px;
+          line-height: 24*@px;
+        }
+        .bc-input {
+          width: 100%;
+          margin-bottom: 20*@px;
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+        }
+      }
+      .operate-section {
+        margin-left: 14%;
+        height: 218*@px;
+        .box();
+        padding-top: 34*@px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .m-account-information-wrap {
+    h2{
+      text-align: center;
+      padding-top: 40*@px;
+    }
+    .border-line {
+      padding: 40*@px 0;
+    }
+    .username-box {
+      .username {
+        .bc-button {
+          margin-left: 11%;
+        }
+      }
+    }
+    .password-box {
+      .modify-password {
+
+        .operate-section {
+          margin-left: 11%;
+        }
+      }
+    }
+  }
+}

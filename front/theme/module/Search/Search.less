@@ -1,0 +1,88 @@
+/** Search **/
+@import '../../source/class.less';
+
+.m-search{
+  padding-bottom: 50*@px;
+
+  &-search{
+    text-align: center;
+    margin-top: 80*@px;
+
+    input{
+      width: 40%;
+      border-radius: @radius 0 0 @radius;
+
+      &.error{
+        color: @color-error;
+      }
+    }
+
+    button{
+      border-radius: 0 @radius @radius 0;
+    }
+  }
+
+  &-toolbar{
+    margin-top: 80*@px;
+    padding-bottom: 40*@px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    line-height: 40*@px;
+
+    & > h3{
+      float: left;
+    }
+
+    & > span{
+      float: right;
+      .bc-select{
+        height: 40*@px;
+        margin-left: 12*@px;
+      }
+      i{
+        font-style: normal;
+      }
+    }
+  }
+
+  &-none{
+    margin: 60*@px 24.6% 0 24.6%;
+
+    h3{
+      text-align: center;
+    }
+
+    dl{
+      list-style: disc;
+      margin-top: 30*@px;
+      //line-height: 1.6em;
+
+      dt{
+        margin-bottom: 12*@px;
+      }
+      dd{
+        list-style: disc;
+
+      }
+    }
+  }
+}
+
+.l-mobile{
+  .m-search{
+    &-search{
+      display: none;
+    }
+    &-toolbar{
+      margin-top: 20px;
+      padding-bottom: 30*@px;
+    }
+    &.l-centerBlock{
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    &-none{
+      margin: 40*@px 0 0 0;
+    }
+  }
+}

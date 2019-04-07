@@ -1,0 +1,9 @@
+{
+  "name": "order_details",
+  "module": [
+    {
+      "name": "OrderDetails",
+      "key": 1
+    }
+  ]
+}

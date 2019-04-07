@@ -1,0 +1,9 @@
+{
+  "name": "register",
+  "module": [
+    {
+      "name": "Register",
+      "key": 1
+    }
+  ]
+}

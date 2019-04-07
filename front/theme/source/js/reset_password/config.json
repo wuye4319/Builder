@@ -1,0 +1,9 @@
+{
+  "name": "reset_password",
+  "module": [
+    {
+      "name": "ResetPassword",
+      "key": 1
+    }
+  ]
+}

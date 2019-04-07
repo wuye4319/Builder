@@ -1,0 +1,14 @@
+{
+  "name": "Footer",
+  "key": 1,
+  "menu": "footer",
+  "showInfo": true,
+  "infoTitle": "Custom Content",
+  "infoContent": "Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.",
+  "infoWidth": 0,
+  "infoAlign": "center",
+  "infoFontSize": "medium",
+  "colors": 0,
+  "bgColor": "#FBFAFA",
+  "fontColor": "#302E2F"
+}

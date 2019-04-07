@@ -1,0 +1,10 @@
+{
+  "name": "address",
+  "userCenter": "address",
+  "module": [
+    {
+      "name": "Address",
+      "key": 1
+    }
+  ]
+}

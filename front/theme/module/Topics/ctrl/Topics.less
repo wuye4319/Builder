@@ -1,0 +1,54 @@
+@import '../../../../builder/plugin/less/class.less';
+.topics-ctrl {
+  width: 100%;
+  background: #ffffff;
+  padding:20px;
+  overflow: hidden;
+  .box();
+  header {
+    display:block;
+    width: 100%;
+    h2 {
+      font-size: 14px;
+      color: #302E2F;
+    }
+    p {
+      font-size: 14px;
+      color: #8B8185;
+      padding:16px 0;
+    }
+  }
+  &-panel {
+    .bc-radio-group-wrapper {
+      label {
+        margin-bottom: 20px;
+      }
+    }
+    .select-height {
+      margin-bottom: 20px;
+      overflow: hidden;
+      span {
+        display: block;
+        font-size: 14px;
+        color: #302E2F;
+        padding: 10px 0;
+      }
+      .bc-selection {
+        width: 100%;
+        border: 1px solid #DBD8D9;
+      }
+    }
+    .bc-checkbox-wrapper {
+      display: flex;
+    }
+  }
+  &-content {
+    height: 54px;
+    padding: 20px;
+    font-size: 14px;
+    color: #8B8185;
+    background: #F7F6F6;
+    //line-height: 54px;
+    .box();
+  }
+}

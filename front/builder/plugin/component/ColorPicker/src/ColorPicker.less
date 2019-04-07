@@ -1,0 +1,43 @@
+@import "../../../../source/common";
+
+.bc-colorPicker{
+  &-popover{
+    z-index: 100;
+    .bc-popover-inner{
+      padding: 6px !important;
+    }
+    .chrome-picker{
+      box-shadow: none !important;
+    }
+  }
+
+  &-inner{
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  &-preview-real{
+    width: 0;
+    height: 0;
+  }
+
+  &-preview{
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    border-radius: @radius;
+    box-sizing: border-box;
+    border: 1px solid rgba(0,0,0,.06);
+    line-height: 20px;
+    vertical-align: top;
+  }
+
+  &-label{
+    display: inline-block;
+    line-height: 20px;
+    vertical-align: top;
+    margin-left: 10px;
+    font-size: 14px;
+    color: @text;
+  }
+}

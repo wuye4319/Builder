@@ -1,0 +1,93 @@
+@import "../../../../source/common";
+.bc-messageItem{
+  width: 0;
+  text-align: center;
+  margin-left: 50%;
+  white-space: nowrap;
+
+  & > div{
+    display: inline-block;
+    background: rgba(0,0,0,.8);
+    padding: 18px 20px;
+    border-radius: 3px;
+    box-shadow: 0 0 7px rgba(0,0,0,.3);
+    margin-bottom: 20px;
+    transform: translateX(-50%);
+
+    span{
+      display: inline-block;
+      font-size: 16px;
+      color: #fff;
+      line-height: 22px;
+      white-space: nowrap;
+      vertical-align: top;
+    }
+  }
+
+  &-icon{
+    color: #fff;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 1px 10px 1px 0;
+    border-radius: 50%;
+
+    &-info{
+      background-color: @color-link;
+    }
+    &-success{
+      background-color: @color-success;
+    }
+    &-error{
+      background-color: @color-error;
+    }
+    &-warning{
+      background-color: @color-warning;
+    }
+  }
+
+  &-fadeIn{
+    animation: fadeIn 330ms ease;
+
+  }
+
+  &-fadeOut{
+    animation: fadeOut 330ms ease;
+
+  }
+
+  .bc-icon{
+    display: inherit;
+    vertical-align: top;
+    line-height: 20px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    height: 0;
+    transform: translate3D(0, -20px, 0) scale(.8);
+
+  }
+
+  to {
+    opacity: 1;
+    height: 58px;
+    transform: translate3D(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    height: 58px;
+    transform: translate3D(0,0, 0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    height: 0;
+    transform: translate3D(0, -20px, 0) scale(.8);
+  }
+}

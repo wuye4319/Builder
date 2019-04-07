@@ -1,0 +1,33 @@
+@import "../../../../source/common";
+
+.bc-tabs{
+
+  &-tabs{
+    border-bottom: 1px solid @border;
+    padding: 0 5px;
+    //margin-bottom: -1px;
+    & > li{
+      height: 50px;
+      line-height: 50px;
+      font-size: 14px;
+      display: inline-block;
+      margin: 0 5px;
+      color: @text-light;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      padding: 0 20px;
+      text-align: center;
+
+      &:hover{
+        border-bottom-color: @border;
+        color: @text;
+      }
+
+      &.active{
+        border-bottom-color: @color-primary;
+        color: @text;
+        cursor: default;
+      }
+    }
+  }
+}

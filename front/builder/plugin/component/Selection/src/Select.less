@@ -1,0 +1,26 @@
+@import "../../../../source/common";
+
+.bc-selection{
+  display: inline-block;
+  border: 1px solid @border;
+  height: 38px;
+  border-radius: @radius;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  padding: 0 30px 0 10px;
+  position: relative;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAFAQMAAACKM9XAAAAABlBMVEUAAAAwLi8h2mgqAAAAAXRSTlMAQObYZgAAABlJREFUCNdj+N/AwMBQzwAEdiBCBkRwADEAMW4CYaYy38MAAAAASUVORK5CYII=") no-repeat scroll right center #fff;
+
+  &:focus{
+    outline: 0;
+    border: 1px solid @border-strong;
+    box-shadow: 0 0 0 1px @border-strong;
+  }
+
+  &:disabled{
+    //opacity: .6;
+    cursor: not-allowed;
+  }
+
+}

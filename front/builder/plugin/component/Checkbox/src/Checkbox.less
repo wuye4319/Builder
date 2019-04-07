@@ -1,0 +1,73 @@
+@import "../../../../source/common";
+
+.bc-checkbox{
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 20px;
+
+  //&:not(&-disabled){
+  //
+  //  cursor: pointer;
+  //
+  //  &-inner{
+  //    cursor: pointer;
+  //  }
+  //}
+
+  &-wrapper{
+    display: block;
+
+    &:hover{
+      .bc-checkbox-icon{
+        color: @color-primary;
+        transition: color .3s ease;
+      }
+    }
+
+  }
+
+  &-checked{
+    .bc-checkbox-icon{
+      color: @color-primary;
+    }
+  }
+
+  &-disabled{
+    .bc-checkbox-icon{
+      color: @border !important;
+      background-color: @color-sub3;
+    }
+  }
+
+  &-inner{
+    display: inline-block;
+    height: 0;
+    width: 0;
+  }
+
+  &-icon{
+    color: @border-strong;
+    transition: color .3s ease;
+    background: #fff;
+    border-radius: 5px;
+  }
+
+  &-input{
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &-label{
+    display: inline-block;
+    line-height: 20px;
+    padding: 0 10px;
+    color: @text;
+    cursor: pointer;
+    vertical-align: middle;
+  }
+
+}

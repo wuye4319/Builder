@@ -36,6 +36,9 @@ var server = {
   },
   close: () => {
     lis.close()
+  },
+  redirect: (i, o) => {
+    router.redirect(i, o);
   }
 }
 

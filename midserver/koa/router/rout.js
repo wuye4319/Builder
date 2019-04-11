@@ -12,7 +12,7 @@ let basemysql = new Basemysql()
 require('../../admin/base/rout')
 
 class rout {
-  closeall () {
+  closeall() {
     koa.close()
     launcher.close()
     basemysql.endconn()
@@ -39,5 +39,6 @@ launcher.addrouter(/^\/builder(?:\/|$)/, async (ctx) => {
 launcher.addrouter(/^\/(\w+)(?:\/|$)/, async (ctx) => {
   await staticFiles.getfile(ctx, '', './static/theme')
 })
+launcher.redirect('/', '/home')
 
 module.exports = rout

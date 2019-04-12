@@ -1668,7 +1668,7 @@ var Blogs = function (_React$Component) {
                       'div',
                       { className: 'blog-rows', key: index, onClick: _this2.goDetails.bind(_this2, val.id) },
                       _react2.default.createElement('div', { className: 'blog-img ' + blogStyle,
-                        style: { backgroundImage: 'url(' + val['main_img'] + ')' } }),
+                        style: { backgroundImage: 'url(' + val['main_img'] + '_400x400)' } }),
                       _react2.default.createElement(
                         'div',
                         { className: 'content-wrap' },
@@ -3714,7 +3714,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; /**
-                                                                                                                                                                                                                                                                   * @author MG Ding (丁文强)
+                                                                                                                                                                                                                                                                   * @author nero
                                                                                                                                                                                                                                                                    * @date 2018/9/26
                                                                                                                                                                                                                                                                    * @desc 数据接口-主题页面
                                                                                                                                                                                                                                                                    */
@@ -3902,12 +3902,12 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 /**
- * @author MG Ding (丁文强)
+ * @author nero
  * @date 2018/9/26
  * @desc service config
  */
-// const APIRoot = 'http://192.168.0.38/web/v1'
-var APIRoot = 'http://builder.test.com:8080/web/v1';
+var APIRoot = 'http://www.' + window.supervar.domain + ':8080/web/v1';
+
 exports.APIRoot = APIRoot;
 
 /***/ }),

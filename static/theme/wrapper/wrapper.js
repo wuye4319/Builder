@@ -1354,7 +1354,7 @@ Object.defineProperty(exports, "__esModule", {
  * @desc service config
  */
 // const APIRoot = 'http://192.168.0.38/web/v1'
-var APIRoot = 'http://builder.test.com:8080/web/v1';
+var APIRoot = 'http://www.wssso.com:8080/web/v1';
 exports.APIRoot = APIRoot;
 
 /***/ }),

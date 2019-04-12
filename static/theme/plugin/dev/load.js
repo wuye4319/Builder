@@ -7,7 +7,7 @@
     var port = location.port ? ':' + location.port : ''
     if (hostname === 'localhost' || /^(\d+\.){3}\d+$/.test(hostname)) {
       // console.warn('请通过域名访问页面!');
-      return 'super.com' + port
+      return 'test.com' + port
     } else {
       var domain = hostname.match(/^(?:.*\.)?(\w*\.\w*)$/)[1]
       document.domain = domain

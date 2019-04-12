@@ -15,7 +15,7 @@ app.use(async (ctx, next) => {
   const ms = Date.now() - start
   let myurl = ctx.url.substr(0, ctx.url.indexOf('http'))
   logger.myconsole(`${ctx.method} ${myurl || ctx.url} - ${ms}ms`)
-  ctx.response.set('Access-Control-Allow-Origin', 'http://builder.test.com')
+  ctx.response.set('Access-Control-Allow-Origin', 'http://www.wssso.com')
   ctx.response.set('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE')
   ctx.response.set('Access-Control-Max-Age', '0')
   ctx.response.set('Access-Control-Allow-Headers', 'X-Requested-With,Content-Type,Access-Token,Origin-Host')
@@ -34,9 +34,6 @@ app.on('error', function (err, ctx) {
 })
 var lis = app.listen(8080)
 console.log('The server is started!!!'.green)
-// console.log('http://localhost:8080/builder/test/')
-// console.log('http://localhost:8080/wrapper/')
-// console.log('http://localhost:8080/create/shop/')
 
 var server = {
   addrouter: (url, fn) => {

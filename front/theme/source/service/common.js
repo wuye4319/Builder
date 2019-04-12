@@ -1,8 +1,8 @@
 /**
- * @author MG Ding (丁文强)
+ * @author nero
  * @date 2018/9/26
  * @desc service config
  */
-// const APIRoot = 'http://192.168.0.38/web/v1'
-const APIRoot = 'http://builder.test.com:8080/web/v1'
-export { APIRoot }
+const APIRoot = 'http://www.' + window.supervar.domain + ':8080/web/v1'
+
+export { APIRoot } 

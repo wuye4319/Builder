@@ -1,5 +1,5 @@
 /**
- * @author MG Ding (丁文强)
+ * @author nero
  * @date 2018/9/26
  * @desc 数据接口-购买流程
  */

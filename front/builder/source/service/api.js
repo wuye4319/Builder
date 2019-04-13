@@ -4,7 +4,7 @@
  */
 
 import {fetch} from '../../source/util'
-const APIRoot = 'http://buckydrop.test.com/supersell/rest/php/bs/admin/'
+const APIRoot = 'http://www.test.com/supersell/rest/php/bs/admin/'
 
 /** 获取全部的上架集合**/
 export function getCtrlCollection ({ page = 1, pageSize = 1000 } = {}) {

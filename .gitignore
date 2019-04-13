@@ -6,7 +6,6 @@
 
 /static/release/
 /static/excel/
-/excel/
 
 /.babelrc
 /package_bak.json

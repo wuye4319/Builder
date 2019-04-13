@@ -1,134 +1,134 @@
 [
   {
-    "title":"Home page",
+    "title": "Home page",
     "name": "home",
     "path": "/home/",
     "sort": 0
   },
   {
-    "title":"Product pages",
+    "title": "Product pages",
     "name": "products",
     "path": "/products/",
-    "sort": 1
+    "sort": -1
   },
   {
-    "title":"Order confirm page",
+    "title": "Order confirm page",
     "name": "order_confirm",
     "path": "/order_confirm/",
     "sort": -1
   },
   {
-    "title":"Cart",
+    "title": "Cart",
     "name": "cart",
     "path": "/cart/",
-    "sort": 4
+    "sort": -1
   },
   {
-    "title":"Payment",
+    "title": "Payment",
     "name": "payment",
     "path": "/payment/",
     "sort": -1
   },
   {
-    "title":"Pay Result",
+    "title": "Pay Result",
     "name": "pay_result",
     "path": "/pay_result/",
     "sort": -1
   },
   {
-    "title":"Search page",
+    "title": "Search page",
     "name": "search",
     "path": "/search/",
     "sort": -1
   },
   {
-    "title":"Collection list",
+    "title": "Collection list",
     "name": "topics",
     "path": "/topics/",
     "sort": 3
   },
   {
-    "title":"Collections pages",
+    "title": "Collections pages",
     "name": "topics_details",
     "path": "/topics_details/",
-    "sort": 2
+    "sort": -1
   },
   {
-    "title":"Blogs",
+    "title": "Blogs",
     "name": "blogs",
     "path": "/blogs/",
     "sort": -1
   },
   {
-    "title":"Error page",
+    "title": "Error page",
     "name": "error_page",
     "path": "error_page",
     "sort": -1
   },
   {
-    "title":"Blog page",
+    "title": "Blog page",
     "name": "blog_details",
     "path": "/blog_details/",
     "sort": -1
   },
   {
-    "title":"Rgister page",
+    "title": "Rgister page",
     "name": "register",
     "path": "/register/",
     "sort": -1
   },
   {
-    "title":"Login page",
+    "title": "Login page",
     "name": "login",
     "path": "/login/",
     "sort": -1
   },
   {
-    "title":"Send email",
+    "title": "Send email",
     "name": "send_email",
     "path": "/send_email/",
     "sort": -1
   },
   {
-    "title":"Emainl result",
+    "title": "Emainl result",
     "name": "email_result",
     "path": "/email_result/",
     "sort": -1
   },
   {
-    "title":"Rest password",
+    "title": "Rest password",
     "name": "reset_password",
     "path": "/reset_password/",
     "sort": -1
   },
   {
-    "title":"Orders",
+    "title": "Orders",
     "name": "orders",
     "path": "/orders/",
     "sort": -1
   },
   {
-    "title":"Order details",
+    "title": "Order details",
     "name": "order_details",
     "path": "/order_details/",
     "sort": -1
   },
   {
-    "title":"Address",
+    "title": "Address",
     "name": "address",
     "path": "/address/",
     "sort": -1
   },
   {
-    "title":"Account information",
+    "title": "Account information",
     "name": "account_information",
     "path": "/account_information/",
     "sort": -1
   },
   {
-    "title":"Coustom page",
+    "title": "Coustom page",
     "name": "single",
     "path": "/single/",
-    "sort": 6
+    "sort": -1
   }
 ]

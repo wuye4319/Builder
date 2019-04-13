@@ -32,7 +32,7 @@ app.use(router.routes())
 app.on('error', function (err, ctx) {
   console.log('server error', err, ctx)
 })
-var lis = app.listen(8080)
+var lis = app.listen(8686)
 console.log('The server is started!!!'.green)
 
 var server = {

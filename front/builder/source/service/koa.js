@@ -3,7 +3,8 @@
  * @desc koa接口
  */
 // import {fetch} from '../../../../source/util'
-const APIRoot = 'http://builder.test.com:8080/shopbuilder/'
+// const APIRoot = 'http://builder.test.com:8080/shopbuilder/'
+const APIRoot = 'http://www.' + window.supervar.domain + ':8686/shopbuilder/'
 
 export function getPageConfig (shop) {
     return window.fetch(`${APIRoot}userpageconfig/get/${shop}/`).then(response => response.json())

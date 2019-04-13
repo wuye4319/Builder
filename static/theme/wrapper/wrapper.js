@@ -1349,12 +1349,12 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 /**
- * @author MG Ding (丁文强)
+ * @author nero
  * @date 2018/9/26
  * @desc service config
  */
-// const APIRoot = 'http://192.168.0.38/web/v1'
-var APIRoot = 'http://www.wssso.com:8080/web/v1';
+var APIRoot = 'http://www.' + window.supervar.domain + ':8686/web/v1';
+
 exports.APIRoot = APIRoot;
 
 /***/ }),
@@ -4390,7 +4390,7 @@ var _common = __webpack_require__(11);
 
 /** 登录 **/
 /**
- * @author MG Ding (丁文强)
+ * @author nero
  * @date 2018/9/26
  * @desc 数据接口-用户中心
  */
@@ -5008,7 +5008,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; /**
-                                                                                                                                                                                                                                                                   * @author MG Ding (丁文强)
+                                                                                                                                                                                                                                                                   * @author nero
                                                                                                                                                                                                                                                                    * @date 2018/9/26
                                                                                                                                                                                                                                                                    * @desc 数据接口-主题页面
                                                                                                                                                                                                                                                                    */

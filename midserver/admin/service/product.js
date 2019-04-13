@@ -10,11 +10,11 @@ const Util = require('../util')
 let util = new Util()
 
 class mysql {
-  addPro (data) {
-    let {pro_id, main_img, code, name, href, sell_price, topic_id} = data
+  addPro(data) {
+    let { pro_id, main_img, code, name, href, sell_price, sales_volume, taoword, coupon, couponhref, topic_id } = data
     return new Promise((resolve) => {
-      basemysql.myquery(`insert into product set pro_id=?,main_img=?,code=?,name=?,href=?,sell_price=?,topic_id=?`,
-        [pro_id, main_img, code, name, href, sell_price, topic_id],
+      basemysql.myquery(`insert into product set pro_id=?,main_img=?,code=?,name=?,href=?,sell_price=?,sales_volume=?,taoword=?,coupon=?,couponhref=?,topic_id=?`,
+        [pro_id, main_img, code, name, href, sell_price, sales_volume, taoword, coupon, couponhref, topic_id],
         function (results) {
           if (results.insertId) {
             console.log('data insert success! insertid is : '.green + results.insertId)
@@ -27,7 +27,24 @@ class mysql {
     })
   }
 
-  getProID () {
+  updatePro(data) {
+    let { pro_id, main_img, name, href, sell_price, sales_volume, taoword, coupon, couponhref } = data
+    return new Promise((resolve) => {
+      basemysql.myquery(`update product set main_img=?,name=?,href=?,sell_price=?,sales_volume=?,taoword=?,coupon=?,couponhref=? where pro_id=?`,
+        [main_img, name, href, sell_price, sales_volume, taoword, coupon, couponhref, pro_id],
+        function (results) {
+          if (results.insertId) {
+            console.log('data update success! id is : '.green + results.insertId)
+            resolve(results.insertId)
+          } else {
+            console.log('data update failed!'.red + JSON.stringify(results))
+            resolve(false)
+          }
+        })
+    })
+  }
+
+  getProID() {
     // 获取商品信息
     return new Promise((resolve) => {
       basemysql.myquery('SELECT id FROM product ORDER BY id DESC', '', function (results) {
@@ -37,7 +54,7 @@ class mysql {
     })
   }
 
-  getPro (id) {
+  getPro(id) {
     // 获取商品信息
     return new Promise((resolve) => {
       basemysql.myquery('select * from product where id=?', id, function (results) {
@@ -47,7 +64,7 @@ class mysql {
     })
   }
 
-  hasPro (id) {
+  hasPro(id) {
     // 获取商品信息
     return new Promise((resolve) => {
       basemysql.myquery('select * from product where pro_id=?', id, function (results) {
@@ -57,7 +74,7 @@ class mysql {
     })
   }
 
-  getProCount (key) {
+  getProCount(key) {
     // 获取博客数量
     return new Promise((resolve) => {
       basemysql.myquery('SELECT COUNT(*) AS total FROM product WHERE name LIKE ? AND is_pub=1', '%' + key + '%', function (results) {
@@ -67,12 +84,12 @@ class mysql {
     })
   }
 
-  getProListByKey (page, size, key) {
+  getProListByKey(page, size, key) {
     // 根据关键词搜索商品
     return new Promise((resolve) => {
       basemysql.myquery('SELECT * FROM product WHERE name LIKE ? AND is_pub=1 ORDER BY edit_date LIMIT ?,?', [
-          '%' + key + '%', page, size
-        ],
+        '%' + key + '%', page, size
+      ],
         function (results) {
           let data = util.getarrt(results, [
             'main_img', 'name', 'href', 'sell_price', 'currency'

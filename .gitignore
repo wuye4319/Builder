@@ -4,7 +4,9 @@
 /node_modules/*
 !/node_modules/data-marauder/
 
-/static/release
+/static/release/
+/static/excel/
+/excel/
 
 /.babelrc
 /package_bak.json

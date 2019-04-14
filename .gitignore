@@ -5,8 +5,6 @@
 !/node_modules/data-marauder/
 
 /static/release/
-/static/excel/
-
 /.babelrc
 /package_bak.json
 /package-lock.json

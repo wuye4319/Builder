@@ -591,7 +591,8 @@ var Link = function Link(_ref) {
   var children = _ref.children,
       onClick = _ref.onClick,
       href = _ref.href,
-      rest = _objectWithoutProperties(_ref, ['children', 'onClick', 'href']);
+      target = _ref.target,
+      rest = _objectWithoutProperties(_ref, ['children', 'onClick', 'href', 'target']);
 
   var handleClick = function handleClick(e) {
     var flag = false;
@@ -603,7 +604,7 @@ var Link = function Link(_ref) {
   };
   return React.createElement(
     'a',
-    _extends({}, rest, { href: href, onClick: handleClick }),
+    _extends({}, rest, { href: href, target: target, onClick: handleClick }),
     children
   );
 };
@@ -3008,7 +3009,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, "/** 变量定义 **/\n/* 弹性盒子*/\n/*圆角*/\n/* 文本溢出...*/\n/* 限制文本行数*/\n/* 阴影 */\n/*旋转函数*/\n/*过度动画*/\n/*css3 动画*/\n/*css3 transform*/\n@font-face {\n  font-family: \"bcicon\";\n  src: url('/source/font/iconfont.eot?t=1522204678250');\n  /* IE9*/\n  src: url('/source/font/iconfont.eot?t=1522204678250#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('/source/font/iconfont.ttf?t=1522204678250') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/ url('/source/font/iconfont.svg?t=1522204678250#bcicon') format('svg');\n  /* iOS 4.1- */\n}\n.bc-icon {\n  font-family: \"bcicon\" !important;\n  font-size: 0.16rem;\n  line-height: 1;\n  font-style: normal;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n.bc-icon-close:before {\n  content: \"\\E605\";\n}\n.bc-icon-search:before {\n  content: \"\\E60B\";\n}\n.bc-icon-edit:before {\n  content: \"\\E60F\";\n}\n.bc-icon-delete:before {\n  content: \"\\E61D\";\n}\n.bc-icon-checkbox:before {\n  content: \"\\E61F\";\n}\n.bc-icon-radio:before {\n  content: \"\\E620\";\n}\n.bc-icon-checkbox-checked:before {\n  content: \"\\E622\";\n}\n.bc-icon-radio-checked:before {\n  content: \"\\E623\";\n}\n.bc-icon-arrow-right:before {\n  content: \"\\E624\";\n}\n.bc-icon-arrow-down:before {\n  content: \"\\E625\";\n}\n.bc-icon-no-filling:before {\n  content: \"\\E62A\";\n}\n.bc-icon-yes-filling:before {\n  content: \"\\E62B\";\n}\n.bc-icon-info-filling:before {\n  content: \"\\E62C\";\n}\n.bc-icon-info:before {\n  content: \"\\E62D\";\n}\n.bc-icon-yes:before {\n  content: \"\\E62E\";\n}\n.bc-icon-no:before {\n  content: \"\\E62F\";\n}\n.bc-icon-menu:before {\n  content: \"\\E61A\";\n}\n.bc-icon-user:before {\n  content: \"\\E61B\";\n}\n.bc-icon-forward:before {\n  content: \"\\E626\";\n}\n.bc-icon-back:before {\n  content: \"\\E627\";\n}\n.bc-icon-unfold:before {\n  content: \"\\E61C\";\n}\n.bc-icon-cart-o:before {\n  content: \"\\E621\";\n}\n.bc-icon-addto:before {\n  content: \"\\E629\";\n}\n.bc-icon-fullscreen:before {\n  content: \"\\E628\";\n}\n.bc-icon-view:before {\n  content: \"\\E630\";\n}\n.bc-icon-bag:before {\n  content: \"\\E631\";\n}\n.bc-icon-add:before {\n  content: \"\\E632\";\n}\n", ""]);
+exports.push([module.i, "/** 变量定义 **/\n/* 弹性盒子*/\n/*圆角*/\n/* 文本溢出...*/\n/* 限制文本行数*/\n/* 阴影 */\n/*旋转函数*/\n/*过度动画*/\n/*css3 动画*/\n/*css3 transform*/\n@font-face {\n  font-family: \"bcicon\";\n  src: url('/source/font/iconfont.eot?t=1542080293133');\n  /* IE9*/\n  src: url('/source/font/iconfont.eot?t=1542080293133#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('data:application/x-font-woff;charset=utf-8;base64,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') format('woff'), url('/source/font/iconfont.ttf?t=1542080293133') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/ url('/source/font/iconfont.svg?t=1542080293133#bcicon') format('svg');\n  /* iOS 4.1- */\n}\n.bc-icon {\n  font-family: \"bcicon\" !important;\n  font-size: 16px;\n  font-style: normal;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n.bc-icon-close:before {\n  content: \"\\E605\";\n}\n.bc-icon-search:before {\n  content: \"\\E60B\";\n}\n.bc-icon-edit:before {\n  content: \"\\E60F\";\n}\n.bc-icon-delete:before {\n  content: \"\\E61D\";\n}\n.bc-icon-checkbox:before {\n  content: \"\\E61F\";\n}\n.bc-icon-radio:before {\n  content: \"\\E620\";\n}\n.bc-icon-checkbox-checked:before {\n  content: \"\\E622\";\n}\n.bc-icon-radio-checked:before {\n  content: \"\\E623\";\n}\n.bc-icon-arrow-right:before {\n  content: \"\\E624\";\n}\n.bc-icon-arrow-down:before {\n  content: \"\\E625\";\n}\n.bc-icon-no-filling:before {\n  content: \"\\E62A\";\n}\n.bc-icon-yes-filling:before {\n  content: \"\\E62B\";\n}\n.bc-icon-info-filling:before {\n  content: \"\\E62C\";\n}\n.bc-icon-info:before {\n  content: \"\\E62D\";\n}\n.bc-icon-yes:before {\n  content: \"\\E62E\";\n}\n.bc-icon-no:before {\n  content: \"\\E62F\";\n}\n.bc-icon-menu:before {\n  content: \"\\E61A\";\n}\n.bc-icon-user:before {\n  content: \"\\E61B\";\n}\n.bc-icon-forward:before {\n  content: \"\\E626\";\n}\n.bc-icon-back:before {\n  content: \"\\E627\";\n}\n.bc-icon-unfold:before {\n  content: \"\\E61C\";\n}\n.bc-icon-cart-o:before {\n  content: \"\\E621\";\n}\n.bc-icon-addto:before {\n  content: \"\\E629\";\n}\n.bc-icon-fullscreen:before {\n  content: \"\\E628\";\n}\n.bc-icon-view:before {\n  content: \"\\E630\";\n}\n.bc-icon-bag:before {\n  content: \"\\E631\";\n}\n.bc-icon-add:before {\n  content: \"\\E632\";\n}\n.bc-icon-icon-test:before {\n  content: \"\\E613\";\n}\n.bc-icon-Receiveaddress:before {\n  content: \"\\E615\";\n}\n.bc-icon-newwindow:before {\n  content: \"\\E616\";\n}\n.bc-icon-more:before {\n  content: \"\\E617\";\n}\n", ""]);
 
 // exports
 
@@ -3796,7 +3797,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author MG Ding (丁文强)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author Nero
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * @desc 产品列表
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
 /* eslint-disable camelcase */
@@ -3826,20 +3827,19 @@ var ItemsList = function (_React$Component) {
         data.map(function (_ref, index) {
           var sell_price = _ref.sell_price,
               href = _ref.href,
+              couponhref = _ref.couponhref,
               name = _ref.name,
               main_img = _ref.main_img,
-              currency = _ref.currency;
+              currency = _ref.currency,
+              sales_volume = _ref.sales_volume,
+              coupon = _ref.coupon;
           return _react2.default.createElement(
             'li',
             { key: index },
             _react2.default.createElement(
               _Link2.default,
-              { href: href },
-              _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement('img', { src: main_img })
-              ),
+              { href: couponhref || href, target: '_blank' },
+              _react2.default.createElement('div', { style: { backgroundImage: 'url(' + main_img + '_300x300)' } }),
               _react2.default.createElement(
                 'p',
                 { className: (0, _util.color)('text') + ' ' + (0, _util.font)('secTitle') },
@@ -3847,10 +3847,26 @@ var ItemsList = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'p',
-                { className: (0, _util.color)('price') + ' ' + (0, _util.font)('price') },
+                null,
+                '\u5238\uFF1A',
+                coupon
+              )
+            ),
+            _react2.default.createElement(
+              'p',
+              { className: (0, _util.color)('price') + ' ' + (0, _util.font)('price') },
+              _react2.default.createElement(
+                'label',
+                null,
                 currency,
                 ' ',
                 sell_price
+              ),
+              _react2.default.createElement(
+                'label',
+                { className: (0, _util.font)('secTitle') + ' fr' },
+                '\u6708\u9500\uFF1A',
+                sales_volume
               )
             )
           );
@@ -3868,7 +3884,7 @@ ItemsList.propTypes = {
 };
 ItemsList.defaultProps = {
   data: [],
-  column: 4
+  column: 5
 };
 ItemsList.classPrefix = 'm-search-itemsList';
 exports.default = ItemsList;
@@ -3913,7 +3929,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, "/** 产品列表 **/\n/** 变量定义 **/\n/* 弹性盒子*/\n/*圆角*/\n/* 文本溢出...*/\n/* 限制文本行数*/\n/* 阴影 */\n/*旋转函数*/\n/*过度动画*/\n/*css3 动画*/\n/*css3 transform*/\n.m-search-itemsList {\n  margin-top: 0.4rem;\n  margin-bottom: 0.1rem;\n}\n.m-search-itemsList li {\n  display: inline-block;\n  vertical-align: top;\n  margin-bottom: 0.3rem;\n  width: 22.5%;\n  margin-right: 3.3%;\n}\n.m-search-itemsList li:nth-child(4n) {\n  margin-right: 0;\n}\n.m-search-itemsList li a {\n  display: inline-block;\n}\n.m-search-itemsList li a > div {\n  width: 100%;\n  text-align: center;\n  vertical-align: top;\n  line-height: 0;\n}\n.m-search-itemsList li a > div img {\n  max-width: 100%;\n  height: auto;\n}\n.m-search-itemsList li p {\n  line-height: 1.4em;\n  margin-top: 0.1rem;\n}\n.m-search-itemsList li p:first-of-type {\n  max-height: 2.8em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  display: -webkit-box;\n  -webkit-line-clamp: 2;\n  -webkit-box-orient: vertical;\n}\n.m-search-itemsList.column-2 li {\n  width: 45%;\n  margin-right: 10%;\n  margin-bottom: 0.35rem;\n}\n.m-search-itemsList.column-2 li:nth-child(2n) {\n  margin-right: 0;\n}\n.m-search-itemsList.column-3 li {\n  width: 31%;\n  margin-right: 3.5%;\n}\n.m-search-itemsList.column-3 li:nth-child(4n) {\n  margin-right: 3.5%;\n}\n.m-search-itemsList.column-3 li:nth-child(3n) {\n  margin-right: 0;\n}\n.m-search-itemsList.column-3 li p {\n  line-height: 1.5em;\n  margin-top: 0.15rem;\n}\n.m-search-itemsList.column-5 li {\n  width: 18%;\n  margin-right: 2.5%;\n}\n.m-search-itemsList.column-5 li:nth-child(5n) {\n  margin-right: 0;\n}\n.l-mobile .m-search-itemsList li {\n  width: 47% !important;\n  margin-right: 0 !important;\n}\n.l-mobile .m-search-itemsList li:nth-child(2n) {\n  margin-left: 3% !important;\n}\n.l-mobile .m-search-itemsList li:nth-child(2n + 1) {\n  margin-right: 3% !important;\n}\n", ""]);
+exports.push([module.i, "/** 产品列表 **/\n/** 变量定义 **/\n/* 弹性盒子*/\n/*圆角*/\n/* 文本溢出...*/\n/* 限制文本行数*/\n/* 阴影 */\n/*旋转函数*/\n/*过度动画*/\n/*css3 动画*/\n/*css3 transform*/\n.m-search-itemsList {\n  margin-top: 0.4rem;\n  margin-bottom: 0.1rem;\n}\n.m-search-itemsList li {\n  display: inline-block;\n  vertical-align: top;\n  margin-bottom: 0.3rem;\n  width: 22.5%;\n  margin-right: 3.3%;\n}\n.m-search-itemsList li:nth-child(4n) {\n  margin-right: 0;\n}\n.m-search-itemsList li a {\n  display: inline-block;\n  width: 100%;\n}\n.m-search-itemsList li a > div {\n  width: 100%;\n  text-align: center;\n  vertical-align: top;\n  line-height: 0;\n  max-width: 100%;\n  background-position: center;\n  background-size: cover;\n  height: 270px;\n}\n.m-search-itemsList li p {\n  line-height: 1.4em;\n  margin-top: 0.1rem;\n}\n.m-search-itemsList li p:first-of-type {\n  max-height: 2.8em;\n  overflow: hidden;\n  word-break: keep-all;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  display: -webkit-box;\n  -webkit-line-clamp: 2;\n  -webkit-box-orient: vertical;\n}\n.m-search-itemsList.column-2 li {\n  width: 45%;\n  margin-right: 10%;\n  margin-bottom: 0.35rem;\n}\n.m-search-itemsList.column-2 li:nth-child(2n) {\n  margin-right: 0;\n}\n.m-search-itemsList.column-3 li {\n  width: 31%;\n  margin-right: 3.5%;\n}\n.m-search-itemsList.column-3 li:nth-child(4n) {\n  margin-right: 3.5%;\n}\n.m-search-itemsList.column-3 li:nth-child(3n) {\n  margin-right: 0;\n}\n.m-search-itemsList.column-3 li p {\n  line-height: 1.5em;\n  margin-top: 0.15rem;\n}\n.m-search-itemsList.column-5 li {\n  width: 18%;\n  margin-right: 2.5%;\n}\n.m-search-itemsList.column-5 li:nth-child(5n) {\n  margin-right: 0;\n}\n.l-mobile .m-search-itemsList li {\n  width: 47% !important;\n  margin-right: 0 !important;\n}\n.l-mobile .m-search-itemsList li:nth-child(2n) {\n  margin-left: 3% !important;\n}\n.l-mobile .m-search-itemsList li:nth-child(2n + 1) {\n  margin-right: 3% !important;\n}\n", ""]);
 
 // exports
 
@@ -4402,7 +4418,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; /**
-                                                                                                                                                                                                                                                                   * @author MG Ding (丁文强)
+                                                                                                                                                                                                                                                                   * @author nero
                                                                                                                                                                                                                                                                    * @date 2018/9/26
                                                                                                                                                                                                                                                                    * @desc 数据接口-主题页面
                                                                                                                                                                                                                                                                    */
@@ -4418,6 +4434,7 @@ exports.getCartList = getCartList;
 exports.getCartSize = getCartSize;
 exports.addOrder = addOrder;
 exports.getBlogs = getBlogs;
+exports.getBlogDetails = getBlogDetails;
 exports.getCollections = getCollections;
 exports.getHomeCollections = getHomeCollections;
 exports.fetchTopicsDedails = fetchTopicsDedails;
@@ -4524,12 +4541,12 @@ function addOrder(params) {
 
 /** 获取博客列表 **/
 function getBlogs(pageNo, pageSize) {
-  return (0, _util.fetch)(_common.APIRoot + '/blog', {
-    query: {
-      page: pageNo,
-      per_pagesize: pageSize
-    }
-  });
+  return (0, _util.fetch)(_common.APIRoot + '/blog/' + pageSize + '/' + pageNo);
+}
+
+/** 获取博客列表 **/
+function getBlogDetails(id) {
+  return (0, _util.fetch)(_common.APIRoot + '/blog/' + id + '/');
 }
 
 /** 获取集合列表 **/
@@ -4561,8 +4578,7 @@ function getHomeCollections() {
 function fetchTopicsDedails() {
   var _ref4 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
       id = _ref4.id,
-      _ref4$pageSize = _ref4.pageSize,
-      pageSize = _ref4$pageSize === undefined ? 10 : _ref4$pageSize,
+      pageSize = _ref4.pageSize,
       _ref4$page = _ref4.page,
       page = _ref4$page === undefined ? 1 : _ref4$page;
 
@@ -4590,12 +4606,12 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 /**
- * @author MG Ding (丁文强)
+ * @author nero
  * @date 2018/9/26
  * @desc service config
  */
-// const APIRoot = 'http://192.168.0.38/web/v1'
-var APIRoot = 'http://builder.test.com:8080/web/v1';
+var APIRoot = 'http://www.' + window.supervar.domain + ':8686/web/v1';
+
 exports.APIRoot = APIRoot;
 
 /***/ })

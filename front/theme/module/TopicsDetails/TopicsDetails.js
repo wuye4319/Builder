@@ -1,5 +1,5 @@
 /**
- * @author：Gavin Yang (杨伟伟)
+ * @author：Nero
  * @desc：专题集合页面
  * @date：2018.4.11
  **/

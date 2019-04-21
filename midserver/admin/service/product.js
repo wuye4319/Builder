@@ -33,12 +33,10 @@ class mysql {
       basemysql.myquery(`update product set main_img=?,name=?,href=?,sell_price=?,sales_volume=?,taoword=?,coupon=?,couponhref=? where pro_id=?`,
         [main_img, name, href, sell_price, sales_volume, taoword, coupon, couponhref, pro_id],
         function (results) {
-          if (results.insertId) {
-            console.log('data update success! id is : '.green + results.insertId)
-            resolve(results.insertId)
-          } else {
-            console.log('data update failed!'.red + JSON.stringify(results))
-            resolve(false)
+          if (results) {
+            console.log('changed ' + results.changedRows + ' rows');
+            // console.log('deleted ' + results.affectedRows + ' rows');
+            resolve(results.changedRows)
           }
         })
     })
@@ -92,7 +90,7 @@ class mysql {
       ],
         function (results) {
           let data = util.getarrt(results, [
-            'main_img', 'name', 'href', 'sell_price', 'currency'
+            'main_img', 'name', 'href', 'sell_price', 'currency', 'sales_volume', 'taoword', 'coupon', 'couponhref'
           ])
           resolve(data)
         })

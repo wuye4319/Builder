@@ -1561,7 +1561,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author：Gavin Yang (杨伟伟)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author：Nero
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * @desc：专题集合页面
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * @date：2018.4.11
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 **/
@@ -1963,7 +1963,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, "/** 产品列表 **/\n/** 变量定义 **/\n/* 弹性盒子*/\n/*圆角*/\n/* 文本溢出...*/\n/* 限制文本行数*/\n/* 阴影 */\n/*旋转函数*/\n/*过度动画*/\n/*css3 动画*/\n/*css3 transform*/\n.m-search-itemsList {\n  margin-top: 0.4rem;\n  margin-bottom: 0.1rem;\n}\n.m-search-itemsList li {\n  display: inline-block;\n  vertical-align: top;\n  margin-bottom: 0.3rem;\n  width: 22.5%;\n  margin-right: 3.3%;\n}\n.m-search-itemsList li:nth-child(4n) {\n  margin-right: 0;\n}\n.m-search-itemsList li a {\n  display: inline-block;\n}\n.m-search-itemsList li a > div {\n  width: 100%;\n  text-align: center;\n  vertical-align: top;\n  line-height: 0;\n  max-width: 100%;\n  background-position: center;\n  background-size: cover;\n  height: 270px;\n}\n.m-search-itemsList li p {\n  line-height: 1.4em;\n  margin-top: 0.1rem;\n}\n.m-search-itemsList li p:first-of-type {\n  max-height: 2.8em;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  display: -webkit-box;\n  -webkit-line-clamp: 2;\n  -webkit-box-orient: vertical;\n}\n.m-search-itemsList.column-2 li {\n  width: 45%;\n  margin-right: 10%;\n  margin-bottom: 0.35rem;\n}\n.m-search-itemsList.column-2 li:nth-child(2n) {\n  margin-right: 0;\n}\n.m-search-itemsList.column-3 li {\n  width: 31%;\n  margin-right: 3.5%;\n}\n.m-search-itemsList.column-3 li:nth-child(4n) {\n  margin-right: 3.5%;\n}\n.m-search-itemsList.column-3 li:nth-child(3n) {\n  margin-right: 0;\n}\n.m-search-itemsList.column-3 li p {\n  line-height: 1.5em;\n  margin-top: 0.15rem;\n}\n.m-search-itemsList.column-5 li {\n  width: 18%;\n  margin-right: 2.5%;\n}\n.m-search-itemsList.column-5 li:nth-child(5n) {\n  margin-right: 0;\n}\n.l-mobile .m-search-itemsList li {\n  width: 47% !important;\n  margin-right: 0 !important;\n}\n.l-mobile .m-search-itemsList li:nth-child(2n) {\n  margin-left: 3% !important;\n}\n.l-mobile .m-search-itemsList li:nth-child(2n + 1) {\n  margin-right: 3% !important;\n}\n", ""]);
+exports.push([module.i, "/** 产品列表 **/\n/** 变量定义 **/\n/* 弹性盒子*/\n/*圆角*/\n/* 文本溢出...*/\n/* 限制文本行数*/\n/* 阴影 */\n/*旋转函数*/\n/*过度动画*/\n/*css3 动画*/\n/*css3 transform*/\n.m-search-itemsList {\n  margin-top: 0.4rem;\n  margin-bottom: 0.1rem;\n}\n.m-search-itemsList li {\n  display: inline-block;\n  vertical-align: top;\n  margin-bottom: 0.3rem;\n  width: 22.5%;\n  margin-right: 3.3%;\n}\n.m-search-itemsList li:nth-child(4n) {\n  margin-right: 0;\n}\n.m-search-itemsList li a {\n  display: inline-block;\n  width: 100%;\n}\n.m-search-itemsList li a > div {\n  width: 100%;\n  text-align: center;\n  vertical-align: top;\n  line-height: 0;\n  max-width: 100%;\n  background-position: center;\n  background-size: cover;\n  height: 270px;\n}\n.m-search-itemsList li p {\n  line-height: 1.4em;\n  margin-top: 0.1rem;\n}\n.m-search-itemsList li p:first-of-type {\n  max-height: 2.8em;\n  overflow: hidden;\n  word-break: keep-all;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  display: -webkit-box;\n  -webkit-line-clamp: 2;\n  -webkit-box-orient: vertical;\n}\n.m-search-itemsList.column-2 li {\n  width: 45%;\n  margin-right: 10%;\n  margin-bottom: 0.35rem;\n}\n.m-search-itemsList.column-2 li:nth-child(2n) {\n  margin-right: 0;\n}\n.m-search-itemsList.column-3 li {\n  width: 31%;\n  margin-right: 3.5%;\n}\n.m-search-itemsList.column-3 li:nth-child(4n) {\n  margin-right: 3.5%;\n}\n.m-search-itemsList.column-3 li:nth-child(3n) {\n  margin-right: 0;\n}\n.m-search-itemsList.column-3 li p {\n  line-height: 1.5em;\n  margin-top: 0.15rem;\n}\n.m-search-itemsList.column-5 li {\n  width: 18%;\n  margin-right: 2.5%;\n}\n.m-search-itemsList.column-5 li:nth-child(5n) {\n  margin-right: 0;\n}\n.l-mobile .m-search-itemsList li {\n  width: 47% !important;\n  margin-right: 0 !important;\n}\n.l-mobile .m-search-itemsList li:nth-child(2n) {\n  margin-left: 3% !important;\n}\n.l-mobile .m-search-itemsList li:nth-child(2n + 1) {\n  margin-right: 3% !important;\n}\n", ""]);
 
 // exports
 
@@ -2004,7 +2004,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author MG Ding (丁文强)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author Nero
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * @desc 产品列表
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
 /* eslint-disable camelcase */
@@ -2034,16 +2034,19 @@ var ItemsList = function (_React$Component) {
         data.map(function (_ref, index) {
           var sell_price = _ref.sell_price,
               href = _ref.href,
+              couponhref = _ref.couponhref,
               name = _ref.name,
               main_img = _ref.main_img,
-              currency = _ref.currency;
+              currency = _ref.currency,
+              sales_volume = _ref.sales_volume,
+              coupon = _ref.coupon;
           return _react2.default.createElement(
             'li',
             { key: index },
             _react2.default.createElement(
               _Link2.default,
-              { href: href, target: '_blank' },
-              _react2.default.createElement('div', { style: { backgroundImage: 'url(' + main_img + ')' } }),
+              { href: couponhref || href, target: '_blank' },
+              _react2.default.createElement('div', { style: { backgroundImage: 'url(' + main_img + '_300x300)' } }),
               _react2.default.createElement(
                 'p',
                 { className: (0, _util.color)('text') + ' ' + (0, _util.font)('secTitle') },
@@ -2051,10 +2054,26 @@ var ItemsList = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'p',
-                { className: (0, _util.color)('price') + ' ' + (0, _util.font)('price') },
+                null,
+                '\u5238\uFF1A',
+                coupon
+              )
+            ),
+            _react2.default.createElement(
+              'p',
+              { className: (0, _util.color)('price') + ' ' + (0, _util.font)('price') },
+              _react2.default.createElement(
+                'label',
+                null,
                 currency,
                 ' ',
                 sell_price
+              ),
+              _react2.default.createElement(
+                'label',
+                { className: (0, _util.font)('secTitle') + ' fr' },
+                '\u6708\u9500\uFF1A',
+                sales_volume
               )
             )
           );
@@ -4134,7 +4153,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; /**
-                                                                                                                                                                                                                                                                   * @author MG Ding (丁文强)
+                                                                                                                                                                                                                                                                   * @author nero
                                                                                                                                                                                                                                                                    * @date 2018/9/26
                                                                                                                                                                                                                                                                    * @desc 数据接口-主题页面
                                                                                                                                                                                                                                                                    */
@@ -4322,12 +4341,12 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 /**
- * @author MG Ding (丁文强)
+ * @author nero
  * @date 2018/9/26
  * @desc service config
  */
-// const APIRoot = 'http://192.168.0.38/web/v1'
-var APIRoot = 'http://builder.test.com:8080/web/v1';
+var APIRoot = 'http://www.' + window.supervar.domain + ':8686/web/v1';
+
 exports.APIRoot = APIRoot;
 
 /***/ })

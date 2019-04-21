@@ -23,6 +23,7 @@
     "koa-body": "^4.0.4",
     "koa-cors": "0.0.16",
     "koa-router": "^7.2.1",
+    "koa-sslify": "^4.0.3",
     "less": "^2.7.2",
     "less-loader": "^4.0.4",
     "mime": "^2.3.1",

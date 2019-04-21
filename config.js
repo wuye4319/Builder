@@ -5,9 +5,9 @@
  */
 const config = {
   version: '1.2.2',
-  myModule: 'builder', // myModule:1级目录
+  myModule: 'search', // myModule:1级目录
   childModule: '', // childModule:2级目录
-  currTheme: 'builder',
+  currTheme: 'theme',
   basepath: '',
   htmlbasepath: '', // html根目录，空则没有
   lang: '', // cn:中文，en:英文，all:中英文同时编译

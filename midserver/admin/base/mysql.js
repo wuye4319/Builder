@@ -6,7 +6,6 @@
 'use strict'
 const mysql = require('mysql')
 let config = {
-  // host: '120.78.121.179',
   host: 'localhost',
   port: '3306',
   user: 'root',
@@ -18,7 +17,7 @@ let config = {
 let pool = mysql.createPool(config)
 
 class basesql {
-  myquery (sql, param, fn) {
+  myquery(sql, param, fn) {
     pool.getConnection((err, connection) => {
       // Use the connection
       connection.query(sql, param, (error, results, fields) => {
@@ -32,7 +31,7 @@ class basesql {
     })
   }
 
-  endconn () {
+  endconn() {
     pool.end()
     console.log('mysql connection is cloes!'.red)
   }

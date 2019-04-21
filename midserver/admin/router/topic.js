@@ -41,6 +41,8 @@ koa.addrouter(globparam + 'collections/multiple', async (ctx) => {
 
   ctx.response.body = result
 })
+// 专题详情 搜索
+// 获取商品列表信息
 koa.addrouter(globparam + 'collections/:id/:pagesize/:page/', async (ctx) => {
   let id = ctx.params.id
   let page = parseInt(ctx.params.page)
@@ -57,7 +59,7 @@ koa.addrouter(globparam + 'collections/:id/:pagesize/:page/', async (ctx) => {
   }
   ctx.response.body = result
 })
-
+// 博客
 koa.addrouter(globparam + 'blog/:pagesize/:page', async (ctx) => {
   let id = ctx.params.id
   let page = parseInt(ctx.params.page)

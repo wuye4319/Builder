@@ -1,5 +1,5 @@
 /**
- * @author MG Ding (丁文强)
+ * @author Nero
  * @desc 产品列表
  */
 /* eslint-disable camelcase */
@@ -27,13 +27,17 @@ export default class ItemsList extends React.Component {
     return data && data.length
       ? (
         <ul className={`${classPrefix} column-${column}`}>
-          {data.map(({ sell_price, href, name, main_img, currency }, index) => (
+          {data.map(({ sell_price, href, couponhref, name, main_img, currency, sales_volume, coupon }, index) => (
             <li key={index}>
-              <Link href={href} target='_blank'>
+              <Link href={couponhref || href} target='_blank'>
                 <div style={{ backgroundImage: 'url(' + main_img + '_300x300)' }} />
                 <p className={`${color('text')} ${font('secTitle')}`}>{name}</p>
-                <p className={`${color('price')} ${font('price')}`}>{currency} {sell_price}</p>
+                <p>券：{coupon}</p>
               </Link>
+              <p className={`${color('price')} ${font('price')}`}>
+                <label>{currency} {sell_price}</label>
+                <label className={`${font('secTitle')} fr`}>月销：{sales_volume}</label>
+              </p>
             </li>
           ))}
         </ul>

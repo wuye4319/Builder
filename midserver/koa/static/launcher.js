@@ -5,6 +5,7 @@ const sslify = require('koa-sslify').default;
 const Koa = require('koa')
 const app = new Koa()
 var fs = require('fs');
+const http = require('http');
 var https = require('https');
 const router = require('koa-router')()
 const Logger = require('keeper-core')
@@ -39,7 +40,8 @@ app.on('error', function (err, ctx) {
   console.log('server error', err, ctx)
 })
 
-var lis = https.createServer(options, app.callback()).listen(80)
+http.createServer(app.callback()).listen(80);
+var lis = https.createServer(options, app.callback()).listen(443)
 console.log('Launcher is started!!!')
 
 var server = {

@@ -33,7 +33,7 @@ import './HomeTopicsModule.less'
 import Link from '../../plugin/component/Link/index'
 import { getHomeCollections } from '../../source/service/page'
 
-const {color, fetchLite} = window.supervar.util
+const { color, fetchLite } = window.supervar.util
 
 class HomeTopicsModule extends React.Component {
   static classPrefix = 'm-homeTopicsModule'
@@ -48,7 +48,7 @@ class HomeTopicsModule extends React.Component {
   //   return null
   // }
 
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       collectionIds: [], //查询集合数据的集合ID数组
@@ -58,11 +58,11 @@ class HomeTopicsModule extends React.Component {
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.getData(this.props.config.collectionIds)
   }
 
-  componentDidUpdate (prevProps, prevState) {
+  componentDidUpdate(prevProps, prevState) {
     let preStateIdsStr = prevState.collectionIds.join('-')
     let curStateIdsStr = this.state.collectionIds.join('-')
 
@@ -80,20 +80,20 @@ class HomeTopicsModule extends React.Component {
     }
     fetchLite(getHomeCollections.bind(null, collectionIds), {
       done: (res) => {
-        this.setState({collectionList: res.data})
+        this.setState({ collectionList: res.data })
       }
     })
   }
 
-  render () {
-    const {collectionList} = this.state
+  render() {
+    const { collectionList } = this.state
     if (!collectionList || collectionList.length === 0) {
       return null
     }
 
-    const {classPrefix} = HomeTopicsModule
-    const {initTitle, initDesTopics} = this.state
-    const {showMore, collectSize, showLine, title, desTopics, showDes} = this.props.config
+    const { classPrefix } = HomeTopicsModule
+    const { initTitle, initDesTopics } = this.state
+    const { showMore, collectSize, showLine, title, desTopics, showDes } = this.props.config
 
     return (
       <div className={`${classPrefix} ${color.bg('subBg')}`}>
@@ -102,7 +102,7 @@ class HomeTopicsModule extends React.Component {
             <div className={`${classPrefix}-header-title`}>
               <h2>{title || initTitle}</h2>
               {
-                showLine && <span className='line'/>
+                showLine && <span className='line' />
               }
               {
                 showDes && <p>{desTopics || initDesTopics}</p>
@@ -116,7 +116,7 @@ class HomeTopicsModule extends React.Component {
                   <li key={index}>
                     <Link href={`/topics_details/?id=${item.id}`}>
                       <div className={`topics-img ${collectSize}`}
-                           style={item.cover_img ? {'backgroundImage': `url(${item.cover_img})`} : null}/>
+                        style={item.cover_img ? { 'backgroundImage': `url(${item.main_img})` } : null} />
                       <div className='topics-des'>
                         <p>{item.title}</p>
                       </div>

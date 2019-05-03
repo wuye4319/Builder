@@ -16,7 +16,7 @@ export default class ItemsList extends React.Component {
   }
   static defaultProps = {
     data: [],
-    column: 5
+    column: 4
   }
   static classPrefix = 'm-search-itemsList'
 

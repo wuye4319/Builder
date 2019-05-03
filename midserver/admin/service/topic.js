@@ -53,7 +53,7 @@ class mysql {
     return new Promise((resolve) => {
       basemysql.myquery('SELECT * FROM topics WHERE id=?', id, function (results) {
         let data = util.getarrt(results, [
-          'title', 'cover_img', 'main_img', 'description'
+          'id', 'title', 'cover_img', 'main_img', 'description'
         ], 1)
         resolve(data)
       })
@@ -98,6 +98,7 @@ class mysql {
     })
   }
 
+  // robot
   getTopicIdByName(title) {
     // 通过名字获取专题信息
     return new Promise((resolve) => {
@@ -105,6 +106,20 @@ class mysql {
         let data = util.getarrt(results, [
           'id',
         ], 1)
+        resolve(data)
+      })
+    })
+  }
+
+  // robot
+  getTopicList() {
+    // 获取分类下的专题信息
+    return new Promise((resolve) => {
+      // SELECT * FROM topics WHERE kind=? 还没做
+      basemysql.myquery('SELECT * FROM topics', '', function (results) {
+        let data = util.getarrt(results, [
+          'id', 'title'
+        ])
         resolve(data)
       })
     })

@@ -28,10 +28,10 @@ class mysql {
   }
 
   updatePro(data) {
-    let { pro_id, main_img, name, href, sell_price, sales_volume, taoword, coupon, couponhref } = data
+    let { pro_id, main_img, name, href, sell_price, sales_volume, taoword, coupon, couponhref, topic_id } = data
     return new Promise((resolve) => {
-      basemysql.myquery(`update product set main_img=?,name=?,href=?,sell_price=?,sales_volume=?,taoword=?,coupon=?,couponhref=? where pro_id=?`,
-        [main_img, name, href, sell_price, sales_volume, taoword, coupon, couponhref, pro_id],
+      basemysql.myquery(`update product set main_img=?,name=?,href=?,sell_price=?,sales_volume=?,taoword=?,coupon=?,couponhref=?,topic_id=? where pro_id=?`,
+        [main_img, name, href, sell_price, sales_volume, taoword, coupon, couponhref, topic_id, pro_id],
         function (results) {
           if (results) {
             console.log('changed ' + results.changedRows + ' rows');

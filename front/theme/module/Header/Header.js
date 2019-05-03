@@ -1,5 +1,5 @@
 /**
- * @author MG Ding (丁文强)
+ * @author Nero
  * @desc 页头模块
  */
 import './Header.less'
@@ -14,9 +14,10 @@ import { logout } from '../../source/service/user'
 
 // import { getMenus } from '../../source/service/page'
 const mymenuList = [
-  {id: '01', title: '首页', menu_url: '/home'},
-  {id: '01', title: '专题', menu_url: '/topics'},
-  {id: '01', title: '美图', menu_url: '/blogs'}
+  { id: '01', title: '首页', menu_url: '/home' },
+  { id: '01', title: '专题', menu_url: '/topics' },
+  { id: '01', title: '美图', menu_url: '/blogs/?type=1' },
+  { id: '01', title: '博文', menu_url: '/blogs/?type=2' }
 ]
 
 class Header extends React.Component {
@@ -25,16 +26,16 @@ class Header extends React.Component {
   }
   static classPrefix = 'm-header'
 
-  static getDerivedStateFromProps (nextProps, prevState) {
-    const {menuId} = nextProps.config
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const { menuId } = nextProps.config
 
     if (menuId !== prevState.menuId) {
-      return {menuId}
+      return { menuId }
     }
     return null
   }
 
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       showDropDown: false,
@@ -49,7 +50,7 @@ class Header extends React.Component {
   }
 
   handleToggleDropDown = (cb) => {
-    this.setState(({showDropDown, moveIn, moveOut}) => {
+    this.setState(({ showDropDown, moveIn, moveOut }) => {
       if (moveIn || moveOut) return null
       if (showDropDown) {
         window.document.body.style.overflowY = 'auto'
@@ -58,7 +59,7 @@ class Header extends React.Component {
         window.document.body.style.overflowY = 'hidden'
         window.addEventListener('touchmove', this.preventTouch, false)
       }
-      return {showDropDown: !showDropDown, moveIn: !showDropDown, moveOut: showDropDown}
+      return { showDropDown: !showDropDown, moveIn: !showDropDown, moveOut: showDropDown }
     }, () => {
       if (typeof cb === 'function') {
         cb()
@@ -67,7 +68,7 @@ class Header extends React.Component {
   }
   handleToggleSearch = () => {
     let action = () => {
-      this.setState(({showSearch}) => {
+      this.setState(({ showSearch }) => {
         if (showSearch) {
           window.document.body.style.overflowY = 'auto'
           window.removeEventListener('touchmove', this.preventTouch, false)
@@ -75,7 +76,7 @@ class Header extends React.Component {
           window.document.body.style.overflowY = 'hidden'
           window.addEventListener('touchmove', this.preventTouch, false)
         }
-        return {showSearch: !showSearch}
+        return { showSearch: !showSearch }
       })
     }
 
@@ -103,11 +104,11 @@ class Header extends React.Component {
     })
   }
   renderName = () => {
-    const {userInfo} = this.props
+    const { userInfo } = this.props
     let res = ''
 
     if (userInfo && userInfo.login) {
-      const {first_name = '', last_name = '', email, phone} = userInfo
+      const { first_name = '', last_name = '', email, phone } = userInfo
       if (first_name || last_name) {
         res = `${first_name} ${last_name}`.trim()
       } else {
@@ -118,32 +119,32 @@ class Header extends React.Component {
     return res || ''
   }
   renderPc = (fontColor) => {
-    const {classPrefix} = Header
-    const {showSearch, menuList} = this.state
+    const { classPrefix } = Header
+    const { showSearch, menuList } = this.state
     // eslint-disable-next-line no-unused-vars
-    const {logo, logoAlign, menuAlign, cartIcon} = this.props.config
+    const { logo, logoAlign, menuAlign, cartIcon } = this.props.config
     const logged = this.props.userInfo.login
 
     return (
       <React.Fragment>
         {showSearch
-          ? <Search classPrefix={classPrefix} hideSearch={this.handleToggleSearch}/>
+          ? <Search classPrefix={classPrefix} hideSearch={this.handleToggleSearch} />
           : (
-            <div className={`${classPrefix}-main`} style={{justifyContent: 'space-between'}}>
+            <div className={`${classPrefix}-main`} style={{ justifyContent: 'space-between' }}>
               <h1 className={`${classPrefix}-logo`}>
                 <Link className={`${color('title')} ${font('title')}`} href='/home/'>
-                  {logo ? <img src={logo}/> : <span>微说说</span>}
+                  {logo ? <img src={logo} /> : <span>微说说</span>}
                 </Link>
               </h1>
-              <Nav classPrefix={classPrefix} align={menuAlign} fontColor={fontColor} menuList={menuList}/>
-              <div className={`${classPrefix}-toolbar`} style={menuList ? null : {flexGrow: 1}}>
+              <Nav classPrefix={classPrefix} align={menuAlign} fontColor={fontColor} menuList={menuList} />
+              <div className={`${classPrefix}-toolbar`} style={menuList ? null : { flexGrow: 1 }}>
                 {!!logged && (
                   <Link className={`${color('icon')} ${font('text')}`} href='/orders/' style={fontColor}> Orders </Link>
                 )}
                 <a className={`${color('icon')} ${font('text')}`} href='javascript:;' onClick={() => {
                   // Link.goTo('/home/?1=2#asd')
                 }} style={fontColor}>
-                  <Icon type='search' style={fontColor} onClick={this.handleToggleSearch}/>
+                  <Icon type='search' style={fontColor} onClick={this.handleToggleSearch} />
                 </a>
                 {/*<Link*/}
                 {/*className={`${color('icon')} ${font('text')}`}*/}
@@ -169,9 +170,9 @@ class Header extends React.Component {
     )
   }
   renderMobile = (fontColor, bgColor) => {
-    const {classPrefix} = Header
-    const {showDropDown, moveIn, moveOut, showSearch, menuList} = this.state
-    const {logo, cartIcon} = this.props.config
+    const { classPrefix } = Header
+    const { showDropDown, moveIn, moveOut, showSearch, menuList } = this.state
+    const { logo, cartIcon } = this.props.config
     const logged = this.props.userInfo.login
 
     return (
@@ -184,11 +185,11 @@ class Header extends React.Component {
       >
         <div className={`${classPrefix}-mobile-top ${color.bg('bg')} ${color.border('hr')}`} style={bgColor}>
           {showSearch
-            ? <Search classPrefix={classPrefix} hideSearch={this.handleToggleSearch}/>
+            ? <Search classPrefix={classPrefix} hideSearch={this.handleToggleSearch} />
             : (
               <React.Fragment>
                 <h1 className={`${classPrefix}-mobile-logo ${color('title')} ${font('title')}`}>
-                  {logo ? <img src={logo}/> : <span>SHOP NAME</span>}
+                  {logo ? <img src={logo} /> : <span>微说说</span>}
                 </h1>
                 <div className={`${classPrefix}-mobile-buttons`}>
                   <Icon
@@ -198,7 +199,7 @@ class Header extends React.Component {
                     style={fontColor}
                   />
                   <span className={`${classPrefix}-mobile-icon ${color('icon')}`}>
-                  <Icon type='search' style={fontColor} onClick={this.handleToggleSearch}/>
+                    <Icon type='search' style={fontColor} onClick={this.handleToggleSearch} />
                     {/*<Link*/}
                     {/*className={`${color('icon')}`}*/}
                     {/*style={fontColor}*/}
@@ -206,7 +207,7 @@ class Header extends React.Component {
                     {/*>*/}
                     {/*<Icon type={cartIcon ? 'bag' : 'cart-o'} style={fontColor}/>({this.props.cartInfo.size})*/}
                     {/*</Link>*/}
-                </span>
+                  </span>
                 </div>
               </React.Fragment>
             )
@@ -218,7 +219,7 @@ class Header extends React.Component {
           [`${classPrefix}-mobile-moveIn`]: moveIn,
           [`${classPrefix}-mobile-moveOut`]: moveOut
         })}
-             ref={this.getDropDown}
+          ref={this.getDropDown}
         >
           {/*{logged*/}
           {/*? (*/}
@@ -238,7 +239,7 @@ class Header extends React.Component {
           {/*)*/}
           {/*}*/}
           <div className='navBox'>
-            <Nav classPrefix={classPrefix} menuList={menuList}/>
+            <Nav classPrefix={classPrefix} menuList={menuList} />
           </div>
           <div className='btnWrapper'>{!!logged && <Button type='ghost' onClick={this.handleLogout}>LOG OUT</Button>}</div>
         </div>
@@ -259,10 +260,10 @@ class Header extends React.Component {
   //   })
   // }
 
-  componentDidMount () {
+  componentDidMount() {
     const animationend = (e) => {
       if (this.dropDown === e.srcElement) {
-        this.setState({moveIn: false, moveOut: false})
+        this.setState({ moveIn: false, moveOut: false })
       }
     }
     document.addEventListener('animationend', animationend, false)
@@ -270,15 +271,15 @@ class Header extends React.Component {
     // this.getClientMenu(this.state.menuId)
   }
 
-  componentDidUpdate (nextProps, prevState) {
+  componentDidUpdate(nextProps, prevState) {
     /**
      * 传入的menuId变化时，拉取最新导航信息
      * */
     if (prevState.menuId !== this.state.menuId) {
       if (this.state.menuId) {
-        this.setState({menuList: mymenuList})
+        this.setState({ menuList: mymenuList })
       } else {
-        this.setState({menuList: []})
+        this.setState({ menuList: [] })
       }
     }
 
@@ -288,17 +289,17 @@ class Header extends React.Component {
      * */
     if (this.props.pageMode === 1 && nextProps.pageMode === 0) {
       window.document.body.style.overflowY = 'auto'
-      this.setState({showDropDown: false})
+      this.setState({ showDropDown: false })
     }
   }
 
-  render () {
-    const {classPrefix} = Header
-    const {config, pageMode} = this.props
-    const {name, key, menuColors, menuFont, menuBg, messageVisible, messageOnlyAtHome, messageCanClose, message, messageLink, messageBg, messageFont} = config
-    const fontColor = menuColors ? {color: menuFont} : null
-    const bgColor = menuColors ? {backgroundColor: menuBg} : null
-    const {isHomePage, showSearch} = this.state
+  render() {
+    const { classPrefix } = Header
+    const { config, pageMode } = this.props
+    const { name, key, menuColors, menuFont, menuBg, messageVisible, messageOnlyAtHome, messageCanClose, message, messageLink, messageBg, messageFont } = config
+    const fontColor = menuColors ? { color: menuFont } : null
+    const bgColor = menuColors ? { backgroundColor: menuBg } : null
+    const { isHomePage, showSearch } = this.state
 
     const renderAnno = () => {
       return messageVisible && (messageOnlyAtHome ? isHomePage : true) && (
@@ -326,7 +327,7 @@ class Header extends React.Component {
             })} style={bgColor}>
             {pageMode ? this.renderMobile(fontColor, bgColor) : this.renderPc(fontColor)}
           </div>
-          {showSearch && <div className={`${classPrefix}-mask`} onClick={this.handleToggleSearch}/>}
+          {showSearch && <div className={`${classPrefix}-mask`} onClick={this.handleToggleSearch} />}
         </div>
         {pageMode === 1 && renderAnno()}
       </React.Fragment>
@@ -335,14 +336,14 @@ class Header extends React.Component {
 }
 
 const Nav = (props) => {
-  const {menuList} = props
+  const { menuList } = props
 
   if (!menuList || menuList.length === 0) {
     return null
   }
-  const {classPrefix, align, fontColor} = props
+  const { classPrefix, align, fontColor } = props
   return (
-    <div className={`${classPrefix}-nav`} style={{textAlign: align}}>
+    <div className={`${classPrefix}-nav`} style={{ textAlign: align }}>
       {
         menuList.map((item, index) => (
           <Link key={index} style={fontColor} href={item.menu_url} className={`${color('text')} ${font('text')}`}>
@@ -362,20 +363,20 @@ class Announcement extends React.Component {
   }
   handleClose = () => {
     if (window.editMod) return
-    this.setState({show: false})
+    this.setState({ show: false })
   }
 
-  render () {
-    const {classPrefix, messageCanClose, message, messageLink, messageBg, messageFont} = this.props
-    const {show} = this.state
+  render() {
+    const { classPrefix, messageCanClose, message, messageLink, messageBg, messageFont } = this.props
+    const { show } = this.state
     return show
       ? (
         <div
-          className={`${classPrefix}-anno ${setClass({[`${classPrefix}-anno-hasClose`]: messageCanClose})}`}
-          style={{backgroundColor: messageBg, color: messageFont}}
+          className={`${classPrefix}-anno ${setClass({ [`${classPrefix}-anno-hasClose`]: messageCanClose })}`}
+          style={{ backgroundColor: messageBg, color: messageFont }}
         >
           <Link href={messageLink || 'javascript:;'}>{message}</Link>
-          {messageCanClose && <Icon type='close' onClick={this.handleClose} style={{color: 'inherit'}}/>}
+          {messageCanClose && <Icon type='close' onClick={this.handleClose} style={{ color: 'inherit' }} />}
         </div>
       )
       : null
@@ -394,12 +395,12 @@ class Search extends React.Component {
   }
   getInput = (ref) => { this.input = ref }
 
-  render () {
-    const {classPrefix, hideSearch} = this.props
+  render() {
+    const { classPrefix, hideSearch } = this.props
     return (
       <div className={`${classPrefix}-search l-centerBlock`}>
         <div>
-          <Icon type='search' className={`${classPrefix}-search-icon`}/>
+          <Icon type='search' className={`${classPrefix}-search-icon`} />
           <Input
             getInput={this.getInput}
             onKeyPress={this.handleSearch}

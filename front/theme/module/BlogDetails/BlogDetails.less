@@ -1,40 +1,51 @@
 @px: 1/100rem;
+
 .m-BlogDetails-wrap {
   width: 100%;
+
   .nav-wrap {
     margin: 40*@px 0;
     line-height: 1;
+
     .sup-nav {
       text-decoration: underline;
     }
+
     i {
       margin-right: 8*@px;
     }
+
     .sub-nav {
       color: #8B8185;
     }
   }
+
   .blog-title {
     text-align: center;
     line-height: 1;
   }
+
   .blog-info {
     margin-top: 20*@px;
     line-height: 1;
     text-align: center;
+
     .date {
       margin-bottom: 20px;
       display: inline-block;
     }
+
     .author {
       margin-left: 20*@px;
     }
   }
+
   .blog-label {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     padding: 30*@px 0;
+
     span {
       display: block;
       line-height: 1;
@@ -44,6 +55,7 @@
       margin: 5*@px;
     }
   }
+
   .blog-content {
     width: 100%;
     max-width: 960*@px;
@@ -51,9 +63,11 @@
     padding: 40*@px 0;
     border-top: 1*@px solid #EDE9EA;
     border-bottom: 1*@px solid #EDE9EA;
+
     p {
       margin-bottom: 40*@px;
     }
+
     img {
       display: block;
       width: 600*@px;
@@ -61,24 +75,30 @@
       margin: 36*@px auto 0;
     }
   }
+
   .blog-bottom {
     width: 100%;
     max-width: 960*@px;
     margin: 0 auto;
     padding: 40*@px 0 80*@px;
+
     .previous-box {
       margin-bottom: 20*@px;
     }
+
     div {
       display: flex;
+
       span {
         display: block;
         width: 90*@px;
       }
+
       a.disable {
         color: #B2AFB0;
         cursor: not-allowed;
       }
+
       a {
         font-size: 16px;
         color: #302E2F;
@@ -92,22 +112,30 @@
   .m-BlogDetails-wrap.l-BlogDetails-wrap {
     padding: 0 20*@px;
     box-sizing: border-box;
+
+    .bc-subnav-container {
+      display: none !important;
+    }
+
     h2.blog-title {
       text-align: left;
       margin-top: 46*@px;
     }
+
     .blog-info {
       text-align: left;
     }
+
     .blog-label {
       justify-content: flex-start;
     }
+
     .blog-content {
-      border-bottom: 0;
       img {
         width: 80%;
         height: auto;
       }
+
       p {
         margin-bottom: 20*@px;
       }

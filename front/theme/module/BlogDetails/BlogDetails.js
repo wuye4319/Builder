@@ -1,18 +1,20 @@
 /**
- * @author Alan (曹昌盛)
+ * @author Nero
  * @desc 博客详情模块
  */
 import './BlogDetails.less'
 import React from 'react'
 import PropTypes from 'prop-types'
-import { color, font, query2Obj } from '../../source/util'
 import Message from '../../plugin/component/Message'
-import { getBlogDetails, getCollections } from '../../source/service/page'
+import ItemsList from '../Search/ItemsList'
+import { getBlogDetails, fetchRecommendTopic } from '../../source/service/page'
 import SubNavigation from '../../plugin/component/SubNavigation'
 
+const { font, color, fetchLite, query2Obj } = window.supervar.util
+
 const route = [
-  {name: '美图区', href: '/blogs/'},
-  {name: '详情', href: ''}
+  { name: '美图区', href: '/blogs/' },
+  { name: '详情', href: '' }
 ]
 
 class BlogDetails extends React.Component {
@@ -20,7 +22,7 @@ class BlogDetails extends React.Component {
     config: PropTypes.object.isRequired
   }
 
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       id: query2Obj()['id'],//专题ID
@@ -29,12 +31,30 @@ class BlogDetails extends React.Component {
           label: 'Simple'
         }
       ],
-      data: ''
+      data: '',
+      productList: null
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.handleBlogDetails()
+  }
+
+  fetchProductList = (kind) => {
+    fetchLite(fetchRecommendTopic.bind(null, {
+      kind: kind
+    }), {
+        done: (res) => {
+          let data = (res.data && res.data.product_list) || null
+          if (!data || data.length === 0) {
+            return
+          }
+
+          this.setState({
+            productList: data
+          })
+        }
+      })
   }
 
   handleBlogDetails = () => {
@@ -47,6 +67,8 @@ class BlogDetails extends React.Component {
             return
           }
 
+          // 获取关联专题
+          this.fetchProductList(res.data.kind)
           this.setState({
             data: res.data
           })
@@ -55,12 +77,12 @@ class BlogDetails extends React.Component {
     )
   }
 
-  render () {
-    const {pageMode} = this.props
-    const {labelList, data} = this.state
+  render() {
+    // const { pageMode } = this.props
+    const { labelList, data, productList } = this.state
     return (
       <div className={`m-BlogDetails-wrap l-BlogDetails-wrap l-centerBlock`}>
-        <SubNavigation route={route}/>
+        <SubNavigation route={route} />
         <h2 className={`blog-title ${color('title')} ${font('title')}`}>{data.title}</h2>
         <div className={`blog-info ${color('subText')} ${font('text')}`}>
           <span className='date'>{data.edit_date}</span>
@@ -76,7 +98,7 @@ class BlogDetails extends React.Component {
         <div className='blog-content'>
           {data.context}
         </div>
-        {
+        {/* {
           !pageMode && <div className='blog-bottom'>
             <div className={`previous-box ${color('text')} ${font('text')}`}>
               <span>Previous: </span>
@@ -87,7 +109,8 @@ class BlogDetails extends React.Component {
               <a href='javascript:void(0);' className={`${color('text')} ${font('text')}`}>Spring blossoms facing the sea</a>
             </div>
           </div>
-        }
+        } */}
+        <ItemsList data={productList} column={2} />
       </div>
     )
   }

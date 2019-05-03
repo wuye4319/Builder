@@ -5,3 +5,4 @@
 require('../router/builder')
 require('../router/product')
 require('../router/topic')
+require('../router/blog')

@@ -106,7 +106,8 @@ export default class Footer extends React.Component {
         </div>
         <div className={`${classPrefix}-copyright`}>
           <div className={`${classPrefix}-main`}>
-            <p className={`${color('footer')} ${font('text')}`}>© 2018 - 2019 copy right is wssso.com</p>
+            <p className={`${color('footer')} ${font('text')}`}>© 2018 - 2019 copy right wssso.com</p>
+            <p>网站备案：粤ICP备12040006号-1</p>
           </div>
         </div>
       </div>

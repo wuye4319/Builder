@@ -22,8 +22,8 @@ import Link from '../../plugin/component/Link/index'
 import { getCollections } from '../../source/service/page'
 
 const route = [
-  {name: 'Home', href: '/home/'},
-  {name: '推荐专题', href: ''}
+  { name: 'Home', href: '/home/' },
+  { name: '推荐专题', href: '' }
 ]
 
 class Topics extends React.Component {
@@ -34,13 +34,15 @@ class Topics extends React.Component {
     collectionList: null //集合列表数据
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.handleCollectionList()
   }
 
   handleCollectionList = (n) => {
+    const { pageMode } = this.props
+
     return (
-      getCollections({page: n}).then(res => {
+      getCollections({ page: n }).then(res => {
         if (res.state !== 0) {
           Message.error(res.msg)
         } else {
@@ -48,36 +50,42 @@ class Topics extends React.Component {
             return
           }
 
+          let alldata
+          if (pageMode === 1 && this.state.collectionList) {
+            alldata = this.state.collectionList.concat(res.data.collection)
+          }
+
           this.setState({
             page: res.current_page,
             totalPage: res.total_page,
-            collectionList: res.data.collection
+            collectionList: alldata || res.data.collection
           })
         }
       })
     )
   }
   goDetails = (id) => {
-    Link.goTo('/topics_details/?id=' + id, 'blank')
+    // Link.goTo('/topics_details/?id=' + id, 'blank')
+    Link.goTo('/topics_details/?id=' + id)
   }
 
-  render () {
-    const {collectionList} = this.state
+  render() {
+    const { collectionList } = this.state
     if (!collectionList || collectionList.length === 0) {
       return null
     }
 
-    const {classPrefix} = Topics
-    const {config, pageMode} = this.props
-    const {collectSize} = config
+    const { classPrefix } = Topics
+    const { config, pageMode } = this.props
+    const { collectSize } = config
 
-    const {page, totalPage} = this.state
+    const { page, totalPage } = this.state
     const isModile = pageMode === 1
 
     return (
       <React.Fragment>
         <div className={`${classPrefix}-centerBlock l-centerBlock`}>
-          <SubNavigation route={route}/>
+          <SubNavigation route={route} />
           <div className='m-topics-header'>
             <div className='m-topics-header-title'>
               <h2>推荐专题</h2>
@@ -92,7 +100,7 @@ class Topics extends React.Component {
                     <li key={index}>
                       <div className='item-box' onClick={this.goDetails.bind(this, item.id)}>
                         <div className={`topics-img ${collectSize}`}
-                             style={{backgroundImage: `url(${item.cover_img || '/source/img/default.png'})`}}>
+                          style={{ backgroundImage: `url(${item.main_img || '/source/img/default.png'})` }}>
                         </div>
                         <div className='topics-des'>
                           <p>{item.title}</p>
@@ -111,7 +119,7 @@ class Topics extends React.Component {
               </ul>
             }
             <Pagination pageNo={page} totalPage={totalPage} scrollLoad={isModile}
-                        handleChangePage={this.handleCollectionList}/>
+              handleChangePage={this.handleCollectionList} />
           </div>
         </div>
       </React.Fragment>

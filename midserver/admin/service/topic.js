@@ -10,57 +10,6 @@ const Util = require('../util')
 let util = new Util()
 
 class mysql {
-  addBlog(data) {
-    let { main_img, title, context, label } = data
-    return new Promise((resolve) => {
-      basemysql.myquery(`insert into blogs set main_img=?,title=?,context=?,label=?`,
-        [main_img, title, context, label],
-        function (results) {
-          if (results.insertId) {
-            console.log('data insert success! insertid is : '.green + results.insertId)
-            resolve(results.insertId)
-          } else {
-            console.log('data insert failed!'.red + results)
-            resolve(false)
-          }
-        })
-    })
-  }
-
-  getBlogCount() {
-    // 获取博客数量
-    return new Promise((resolve) => {
-      basemysql.myquery('SELECT COUNT(*) AS total FROM blogs WHERE is_pub=1', '', function (results) {
-        let data = util.getarrt(results, ['total'], 1)
-        resolve(data)
-      })
-    })
-  }
-
-  getBlogList(page, size) {
-    // 获取博客列表信息
-    return new Promise((resolve) => {
-      basemysql.myquery('SELECT * FROM blogs WHERE is_pub=1 LIMIT ?,?', [page, size], function (results) {
-        let data = util.getarrt(results, [
-          'id', 'title', 'main_img', 'edit_date'
-        ])
-        resolve(data)
-      })
-    })
-  }
-
-  getBlog(id) {
-    // 获取博客详情
-    return new Promise((resolve) => {
-      basemysql.myquery('SELECT * FROM blogs WHERE id=? and is_pub=1', id, function (results) {
-        let data = util.getarrt(results, [
-          'context', 'title', 'edit_date'
-        ], 1)
-        resolve(data)
-      })
-    })
-  }
-
   getProCountByTopic(id) {
     // 获取专题商品总数
     return new Promise((resolve) => {
@@ -74,8 +23,22 @@ class mysql {
   getProListByTopic(id, page, size) {
     // 获取专题的商品
     return new Promise((resolve) => {
-      basemysql.myquery('SELECT * FROM product WHERE topic_id=? AND is_pub=1 ORDER BY edit_date DESC LIMIT ?,?', [
+      basemysql.myquery('SELECT * FROM product WHERE topic_id=? AND is_pub=1 ORDER BY sales_volume DESC LIMIT ?,?', [
         id, page, size
+      ], function (results) {
+        let data = util.getarrt(results, [
+          'main_img', 'name', 'href', 'sell_price', 'currency', 'sales_volume', 'taoword', 'coupon', 'couponhref'
+        ])
+        resolve(data)
+      })
+    })
+  }
+
+  getRandProByTopic(id, size) {
+    // 获取专题的商品
+    return new Promise((resolve) => {
+      basemysql.myquery('SELECT * FROM product WHERE topic_id=? AND is_pub=1 ORDER BY RAND() LIMIT ?', [
+        id, size
       ], function (results) {
         let data = util.getarrt(results, [
           'main_img', 'name', 'href', 'sell_price', 'currency', 'sales_volume', 'taoword', 'coupon', 'couponhref'
@@ -90,15 +53,53 @@ class mysql {
     return new Promise((resolve) => {
       basemysql.myquery('SELECT * FROM topics WHERE id=?', id, function (results) {
         let data = util.getarrt(results, [
-          'id', 'title', 'cover_img', 'main_img', 'description'
+          'title', 'cover_img', 'main_img', 'description'
         ], 1)
         resolve(data)
       })
     })
   }
 
+  getTopicLastId() {
+    // 获取专题最后的ID
+    return new Promise((resolve) => {
+      basemysql.myquery('SELECT id FROM topics ORDER BY id DESC', '', function (results) {
+        let data = util.getarrt(results, ['id'], 1)
+        resolve(data)
+      })
+    })
+  }
+
+  getTopicIdListByKind(kind) {
+    // 根据类别获取专题的ID集
+    return new Promise((resolve) => {
+      basemysql.myquery('SELECT id FROM topics WHERE kind=? ORDER BY id ASC', kind, function (results) {
+        let data = util.getarrt(results, ['id'])
+        resolve(data)
+      })
+    })
+  }
+
+  addTopic(data) {
+    // 添加专题
+    let { title, code, main_img, description, kind } = data
+    return new Promise((resolve) => {
+      basemysql.myquery('insert into topics set title=?,code=?,main_img=?,description=?,kind=?',
+        [title, code, main_img, description, kind],
+        function (results) {
+          if (results.insertId) {
+            console.log('data insert success! insertid is : '.green + results.insertId)
+            resolve(results.insertId)
+          } else {
+            console.log('data insert failed!'.red + results)
+            resolve(false)
+          }
+        })
+    })
+  }
+
   getTopicIdByName(title) {
-    // 获取专题信息
+    // 通过名字获取专题信息
     return new Promise((resolve) => {
       basemysql.myquery('SELECT id FROM topics WHERE title=?', title, function (results) {
         let data = util.getarrt(results, [
@@ -122,7 +123,7 @@ class mysql {
   getTopicListByKind(page, size) {
     // 获取分类下的专题信息
     return new Promise((resolve) => {
-      // SELECT * FROM topics WHERE kind_id=?
+      // SELECT * FROM topics WHERE kind=? 还没做
       basemysql.myquery('SELECT * FROM topics WHERE is_pub=1 ORDER BY edit_date DESC LIMIT ?,?', [
         page, size
       ], function (results) {

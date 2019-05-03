@@ -1353,7 +1353,7 @@ Object.defineProperty(exports, "__esModule", {
  * @date 2018/9/26
  * @desc service config
  */
-var APIRoot = 'http://www.' + window.supervar.domain + ':8686/web/v1';
+var APIRoot = 'https://www.' + window.supervar.domain + ':8686/web/v1';
 
 exports.APIRoot = APIRoot;
 
@@ -1659,7 +1659,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, "@charset \"utf-8\";\n/** 变量定义 **/\n/* 弹性盒子*/\n/*圆角*/\n/* 文本溢出...*/\n/* 限制文本行数*/\n/* 阴影 */\n/*旋转函数*/\n/*过度动画*/\n/*css3 动画*/\n/*css3 transform*/\n/**\n * 样式命名规范(样式名前缀定义)\n * t- 主题级(theme)\n * p- 页面级(page)\n * l- 布局结构(layout)\n * m- 模块级(module)\n * c- 颜色定义(color)\n * f- 字体大小(font size)\n *\n * @author MG Ding (丁文强)\n**/\n/* css reset */\n* {\n  margin: 0;\n  padding: 0;\n}\n*,\n*:before,\n*:after {\n  box-sizing: border-box;\n}\n@font-face {\n  font-family: \"Roboto-Regular\";\n  src: url('/source/font/Roboto-Regular.eot?t=1521182512654#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('/source/font/Roboto-Regular.ttf?t=1521182512654') format('truetype');\n  /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/\n}\nhtml,\nbody {\n  height: 100%;\n  width: 100%;\n  font: 100px/26px Roboto-Regular, 'PingFang SC', microsoft yahei, 'STHeitiSC-Light', simsun, sans-serif;\n  color: #302E2F;\n}\nh1 {\n  font-size: 0.32rem;\n  letter-spacing: 0.07em;\n}\nh2 {\n  font-size: 0.2rem;\n  letter-spacing: 0.06em;\n}\nh3 {\n  font-size: 0.18rem;\n}\nh4,\nh5,\nh6 {\n  font-size: 16 0.01rem;\n}\nbody,\nul,\nol,\nli,\ndl,\ndt,\ndd,\np {\n  margin: 0;\n  padding: 0;\n}\ninput::-ms-clear,\ninput::-ms-reveal {\n  display: none;\n}\nselect::-ms-expand {\n  display: none;\n}\nbutton {\n  background: transparent;\n}\nol,\nul,\ndl,\nli,\ndt {\n  list-style-type: none;\n}\na {\n  text-decoration: none;\n  cursor: pointer;\n  color: #1890FF;\n}\na:hover,\na:active,\na:visited {\n  text-decoration: none;\n}\n/* oo css */\n.fl {\n  float: left;\n}\n.fr {\n  float: right;\n}\n.li-el {\n  word-break: keep-all;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n.cb {\n  clear: both;\n}\n.clearfix:after {\n  content: '.';\n  display: block;\n  height: 0;\n  clear: both;\n  visibility: hidden;\n}\n.clearfix {\n  display: block;\n}\n.hidden {\n  visibility: hidden;\n}\n.none {\n  display: none;\n}\n.pr {\n  position: relative;\n}\n.pa {\n  position: absolute;\n}\n/** 颜色定义 **/\n.c-brand {\n  color: #302E2F;\n}\n.c-brand-border {\n  border-color: #302E2F;\n}\n.c-brand-bg {\n  background-color: #302E2F;\n}\n.c-title {\n  color: #302E2F;\n}\n.c-title-border {\n  border-color: #302E2F;\n}\n.c-title-bg {\n  background-color: #302E2F;\n}\n.c-text {\n  color: #302E2F;\n}\n.c-text-border {\n  border-color: #302E2F;\n}\n.c-text-bg {\n  background-color: #302E2F;\n}\n.c-subText {\n  color: #8B8185;\n}\n.c-subText-border {\n  border-color: #8B8185;\n}\n.c-subText-bg {\n  background-color: #8B8185;\n}\n.c-prompt {\n  color: #B2AFB0;\n}\n.c-prompt-border {\n  border-color: #B2AFB0;\n}\n.c-prompt-bg {\n  background-color: #B2AFB0;\n}\n.c-button {\n  color: #FFFFFF;\n}\n.c-button-border {\n  border-color: #FFFFFF;\n}\n.c-button-bg {\n  background-color: #FFFFFF;\n}\n.c-link {\n  color: #1890FF;\n}\n.c-link-border {\n  border-color: #1890FF;\n}\n.c-link-bg {\n  background-color: #1890FF;\n}\n.c-price {\n  color: #302E2F;\n}\n.c-price-border {\n  border-color: #302E2F;\n}\n.c-price-bg {\n  background-color: #302E2F;\n}\n.c-anno {\n  color: #FFBD2F;\n}\n.c-anno-border {\n  border-color: #FFBD2F;\n}\n.c-anno-bg {\n  background-color: #FFBD2F;\n}\n.c-footer {\n  color: #302E2F;\n}\n.c-footer-border {\n  border-color: #302E2F;\n}\n.c-footer-bg {\n  background-color: #302E2F;\n}\n.c-icon {\n  color: #302E2F;\n}\n.c-icon-border {\n  border-color: #302E2F;\n}\n.c-icon-bg {\n  background-color: #302E2F;\n}\n.c-hr {\n  color: #EBE5E7;\n}\n.c-hr-border {\n  border-color: #EBE5E7;\n}\n.c-hr-bg {\n  background-color: #EBE5E7;\n}\n.c-border {\n  color: #DBD8D9;\n}\n.c-border-border {\n  border-color: #DBD8D9;\n}\n.c-border-bg {\n  background-color: #DBD8D9;\n}\n.c-annoBg {\n  color: #FFFCF5;\n}\n.c-annoBg-border {\n  border-color: #FFFCF5;\n}\n.c-annoBg-bg {\n  background-color: #FFFCF5;\n}\n.c-bg {\n  color: #FFFFFF;\n}\n.c-bg-border {\n  border-color: #FFFFFF;\n}\n.c-bg-bg {\n  background-color: #FFFFFF;\n}\n.c-subBg {\n  color: #FBFAFA;\n}\n.c-subBg-border {\n  border-color: #FBFAFA;\n}\n.c-subBg-bg {\n  background-color: #FBFAFA;\n}\n.c-footerBg {\n  color: #FBFAFA;\n}\n.c-footerBg-border {\n  border-color: #FBFAFA;\n}\n.c-footerBg-bg {\n  background-color: #FBFAFA;\n}\n/** 字体大小 **/\n.f-title {\n  font-size: 0.26rem;\n}\n.f-subTitle {\n  font-size: 0.18rem;\n}\n.f-secTitle {\n  font-size: 0.16rem;\n}\n.f-text {\n  font-size: 0.14rem;\n}\n.f-subText {\n  font-size: 0.12rem;\n}\n.f-button {\n  font-size: 0.16rem;\n}\n.f-price {\n  font-size: 0.22rem;\n}\n@media screen and (max-width: 749px) {\n  html,\n  body {\n    font-size: 90px;\n  }\n}\n@media screen and (max-width: 360px) {\n  html,\n  body {\n    font-size: 88px;\n  }\n}\n@media screen and (max-width: 320px) {\n  html,\n  body {\n    font-size: 85px;\n  }\n}\n/** 布局样式 **/\n#container {\n  height: 100%;\n  width: 100%;\n  font-size: 16px;\n  line-height: 1.5;\n}\n.l-wrap {\n  min-height: 100%;\n  display: flex;\n  flex-direction: column;\n}\n.l-main {\n  flex-grow: 1;\n}\n.l-header,\n.l-footer {\n  flex-grow: 0;\n}\n.l-centerBlock,\n.l-centerBlock2 {\n  max-width: 1240px;\n  min-width: 320px;\n  margin-left: auto;\n  margin-right: auto;\n  padding-left: 20px;\n  padding-right: 20px;\n}\n.l-mobile .l-centerBlock {\n  padding-left: 0;\n  padding-right: 0;\n}\n", ""]);
+exports.push([module.i, "@charset \"utf-8\";\n/** 变量定义 **/\n/* 弹性盒子*/\n/*圆角*/\n/* 文本溢出...*/\n/* 限制文本行数*/\n/* 阴影 */\n/*旋转函数*/\n/*过度动画*/\n/*css3 动画*/\n/*css3 transform*/\n/**\n * 样式命名规范(样式名前缀定义)\n * t- 主题级(theme)\n * p- 页面级(page)\n * l- 布局结构(layout)\n * m- 模块级(module)\n * c- 颜色定义(color)\n * f- 字体大小(font size)\n *\n * @author Nero\n**/\n/* css reset */\n* {\n  margin: 0;\n  padding: 0;\n}\n*,\n*:before,\n*:after {\n  box-sizing: border-box;\n}\n@font-face {\n  font-family: \"Roboto-Regular\";\n  src: url('/source/font/Roboto-Regular.eot?t=1521182512654#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('/source/font/Roboto-Regular.ttf?t=1521182512654') format('truetype');\n  /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/\n}\nhtml,\nbody {\n  height: 100%;\n  width: 100%;\n  font: 100px/26px Roboto-Regular, 'PingFang SC', microsoft yahei, 'STHeitiSC-Light', simsun, sans-serif;\n  color: #302E2F;\n}\nh1 {\n  font-size: 0.32rem;\n  letter-spacing: 0.07em;\n}\nh2 {\n  font-size: 0.2rem;\n  letter-spacing: 0.06em;\n}\nh3 {\n  font-size: 0.18rem;\n}\nh4,\nh5,\nh6 {\n  font-size: 16 0.01rem;\n}\nbody,\nul,\nol,\nli,\ndl,\ndt,\ndd,\np {\n  margin: 0;\n  padding: 0;\n}\ninput::-ms-clear,\ninput::-ms-reveal {\n  display: none;\n}\nselect::-ms-expand {\n  display: none;\n}\nbutton {\n  background: transparent;\n}\nol,\nul,\ndl,\nli,\ndt {\n  list-style-type: none;\n}\na {\n  text-decoration: none;\n  cursor: pointer;\n  color: #1890FF;\n}\na:hover,\na:active,\na:visited {\n  text-decoration: none;\n}\n/* oo css */\n.fl {\n  float: left;\n}\n.fr {\n  float: right;\n}\n.li-el {\n  word-break: keep-all;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n.cb {\n  clear: both;\n}\n.clearfix:after {\n  content: '.';\n  display: block;\n  height: 0;\n  clear: both;\n  visibility: hidden;\n}\n.clearfix {\n  display: block;\n}\n.hidden {\n  visibility: hidden;\n}\n.none {\n  display: none;\n}\n.pr {\n  position: relative;\n}\n.pa {\n  position: absolute;\n}\n/** 颜色定义 **/\n.c-brand {\n  color: #302E2F;\n}\n.c-brand-border {\n  border-color: #302E2F;\n}\n.c-brand-bg {\n  background-color: #302E2F;\n}\n.c-title {\n  color: #302E2F;\n}\n.c-title-border {\n  border-color: #302E2F;\n}\n.c-title-bg {\n  background-color: #302E2F;\n}\n.c-text {\n  color: #302E2F;\n}\n.c-text-border {\n  border-color: #302E2F;\n}\n.c-text-bg {\n  background-color: #302E2F;\n}\n.c-subText {\n  color: #8B8185;\n}\n.c-subText-border {\n  border-color: #8B8185;\n}\n.c-subText-bg {\n  background-color: #8B8185;\n}\n.c-prompt {\n  color: #B2AFB0;\n}\n.c-prompt-border {\n  border-color: #B2AFB0;\n}\n.c-prompt-bg {\n  background-color: #B2AFB0;\n}\n.c-button {\n  color: #FFFFFF;\n}\n.c-button-border {\n  border-color: #FFFFFF;\n}\n.c-button-bg {\n  background-color: #FFFFFF;\n}\n.c-link {\n  color: #1890FF;\n}\n.c-link-border {\n  border-color: #1890FF;\n}\n.c-link-bg {\n  background-color: #1890FF;\n}\n.c-price {\n  color: #302E2F;\n}\n.c-price-border {\n  border-color: #302E2F;\n}\n.c-price-bg {\n  background-color: #302E2F;\n}\n.c-anno {\n  color: #FFBD2F;\n}\n.c-anno-border {\n  border-color: #FFBD2F;\n}\n.c-anno-bg {\n  background-color: #FFBD2F;\n}\n.c-footer {\n  color: #302E2F;\n}\n.c-footer-border {\n  border-color: #302E2F;\n}\n.c-footer-bg {\n  background-color: #302E2F;\n}\n.c-icon {\n  color: #302E2F;\n}\n.c-icon-border {\n  border-color: #302E2F;\n}\n.c-icon-bg {\n  background-color: #302E2F;\n}\n.c-hr {\n  color: #EBE5E7;\n}\n.c-hr-border {\n  border-color: #EBE5E7;\n}\n.c-hr-bg {\n  background-color: #EBE5E7;\n}\n.c-border {\n  color: #DBD8D9;\n}\n.c-border-border {\n  border-color: #DBD8D9;\n}\n.c-border-bg {\n  background-color: #DBD8D9;\n}\n.c-annoBg {\n  color: #FFFCF5;\n}\n.c-annoBg-border {\n  border-color: #FFFCF5;\n}\n.c-annoBg-bg {\n  background-color: #FFFCF5;\n}\n.c-bg {\n  color: #FFFFFF;\n}\n.c-bg-border {\n  border-color: #FFFFFF;\n}\n.c-bg-bg {\n  background-color: #FFFFFF;\n}\n.c-subBg {\n  color: #FBFAFA;\n}\n.c-subBg-border {\n  border-color: #FBFAFA;\n}\n.c-subBg-bg {\n  background-color: #FBFAFA;\n}\n.c-footerBg {\n  color: #FBFAFA;\n}\n.c-footerBg-border {\n  border-color: #FBFAFA;\n}\n.c-footerBg-bg {\n  background-color: #FBFAFA;\n}\n/** 字体大小 **/\n.f-title {\n  font-size: 0.26rem;\n}\n.f-subTitle {\n  font-size: 0.18rem;\n}\n.f-secTitle {\n  font-size: 0.16rem;\n}\n.f-text {\n  font-size: 0.14rem;\n}\n.f-subText {\n  font-size: 0.12rem;\n}\n.f-button {\n  font-size: 0.16rem;\n}\n.f-price {\n  font-size: 0.22rem;\n}\n@media screen and (max-width: 749px) {\n  html,\n  body {\n    font-size: 90px;\n  }\n}\n@media screen and (max-width: 360px) {\n  html,\n  body {\n    font-size: 88px;\n  }\n}\n@media screen and (max-width: 320px) {\n  html,\n  body {\n    font-size: 85px;\n  }\n}\n/** 布局样式 **/\n#container {\n  height: 100%;\n  width: 100%;\n  font-size: 16px;\n  line-height: 1.5;\n}\n.l-wrap {\n  min-height: 100%;\n  display: flex;\n  flex-direction: column;\n}\n.l-main {\n  flex-grow: 1;\n}\n.l-header,\n.l-footer {\n  flex-grow: 0;\n}\n.l-centerBlock,\n.l-centerBlock2 {\n  max-width: 1240px;\n  min-width: 320px;\n  margin-left: auto;\n  margin-right: auto;\n  padding-left: 20px;\n  padding-right: 20px;\n}\n.l-mobile .l-centerBlock {\n  padding-left: 0;\n  padding-right: 0;\n}\n", ""]);
 
 // exports
 
@@ -1795,7 +1795,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author MG Ding (丁文强)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author Nero
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * @desc 页面基本布局
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
 
@@ -1828,6 +1828,11 @@ var Layout = function (_React$Component) {
                 userInfo = _props.userInfo,
                 cartInfo = _props.cartInfo;
 
+            if (pageMode === 1) {
+                document.getElementsByTagName('html')[0].style.fontSize = window.screen.width / 4.14 + 'px';
+            } else {
+                document.getElementsByTagName('html')[0].style.fontSize = null;
+            }
             return _react2.default.createElement(
                 'div',
                 { className: 'l-wrap ' + color.bg('bg') + ' ' + color('text') + ' ' + font('text') + ' ' + setClass({ 'l-mobile': pageMode === 1 }) },
@@ -1911,13 +1916,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author MG Ding (丁文强)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author Nero
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * @desc 页头模块
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
 
 
 // import { getMenus } from '../../source/service/page'
-var mymenuList = [{ id: '01', title: '首页', menu_url: '/home' }, { id: '01', title: '专题', menu_url: '/topics' }, { id: '01', title: '美图', menu_url: '/blogs' }];
+var mymenuList = [{ id: '01', title: '首页', menu_url: '/home' }, { id: '01', title: '专题', menu_url: '/topics' }, { id: '01', title: '美图', menu_url: '/blogs/?type=1' }, { id: '01', title: '博文', menu_url: '/blogs/?type=2' }];
 
 var Header = function (_React$Component) {
   _inherits(Header, _React$Component);
@@ -2116,7 +2121,7 @@ var Header = function (_React$Component) {
               logo ? _react2.default.createElement('img', { src: logo }) : _react2.default.createElement(
                 'span',
                 null,
-                'SHOP NAME'
+                '\u5FAE\u8BF4\u8BF4'
               )
             ),
             _react2.default.createElement(
@@ -4699,7 +4704,12 @@ var Footer = function (_React$Component) {
             _react2.default.createElement(
               'p',
               { className: (0, _util.color)('footer') + ' ' + (0, _util.font)('text') },
-              '\xA9 2018 - 2019 copy right is wssso.com'
+              '\xA9 2018 - 2019 copy right wssso.com'
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              '\u7F51\u7AD9\u5907\u6848\uFF1A\u7CA4ICP\u590712040006\u53F7-1'
             )
           )
         )
@@ -5028,6 +5038,7 @@ exports.getBlogDetails = getBlogDetails;
 exports.getCollections = getCollections;
 exports.getHomeCollections = getHomeCollections;
 exports.fetchTopicsDedails = fetchTopicsDedails;
+exports.fetchRecommendTopic = fetchRecommendTopic;
 exports.getSinglePage = getSinglePage;
 
 var _util = __webpack_require__(4);
@@ -5130,8 +5141,8 @@ function addOrder(params) {
 }
 
 /** 获取博客列表 **/
-function getBlogs(pageNo, pageSize) {
-  return (0, _util.fetch)(_common.APIRoot + '/blog/' + pageSize + '/' + pageNo);
+function getBlogs(type, pageNo, pageSize) {
+  return (0, _util.fetch)(_common.APIRoot + '/blog/' + type + '/' + pageSize + '/' + pageNo);
 }
 
 /** 获取博客列表 **/
@@ -5173,6 +5184,14 @@ function fetchTopicsDedails() {
       page = _ref4$page === undefined ? 1 : _ref4$page;
 
   return (0, _util.fetch)(_common.APIRoot + '/collections/' + id + '/' + pageSize + '/' + page + '/');
+}
+
+/** 获取随机专题推荐详情 **/
+function fetchRecommendTopic() {
+  var _ref5 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      kind = _ref5.kind;
+
+  return (0, _util.fetch)(_common.APIRoot + '/recommend/' + kind + '/');
 }
 
 /** 获取单页数据 **/

@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -198,7 +198,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(17);
+var	fixUrls = __webpack_require__(16);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -536,11 +536,11 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(20)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(17)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(23)();
+  module.exports = __webpack_require__(20)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
@@ -831,6 +831,132 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _Message = __webpack_require__(21);
+
+var _Message2 = _interopRequireDefault(_Message);
+
+var _reactDom = __webpack_require__(31);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * @author MG Ding (丁文强)
+ * @desc Message (全局提示)
+ */
+var container = document.createElement('div');
+var instant = null;
+var initMessage = function initMessage() {
+  document.body.appendChild(container);
+  instant = _reactDom2.default.render(React.createElement(_Message2.default, null), container);
+};
+var add = function add(type, content, duration) {
+  !instant && initMessage();
+  return instant.add(type, content, duration);
+};
+
+var message = {
+  info: function info() {
+    for (var _len = arguments.length, rest = Array(_len), _key = 0; _key < _len; _key++) {
+      rest[_key] = arguments[_key];
+    }
+
+    return add.apply(undefined, ['info'].concat(rest));
+  },
+  success: function success() {
+    for (var _len2 = arguments.length, rest = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      rest[_key2] = arguments[_key2];
+    }
+
+    return add.apply(undefined, ['success'].concat(rest));
+  },
+  error: function error() {
+    for (var _len3 = arguments.length, rest = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+      rest[_key3] = arguments[_key3];
+    }
+
+    return add.apply(undefined, ['error'].concat(rest));
+  },
+  warning: function warning() {
+    for (var _len4 = arguments.length, rest = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+      rest[_key4] = arguments[_key4];
+    }
+
+    return add.apply(undefined, ['warning'].concat(rest));
+  },
+  // loading: (...rest) => {
+  //   return add('loading', ...rest)
+  // },
+  hide: function hide(id) {
+    instant && instant.hide(id);
+  }
+
+};
+
+exports.default = message;
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _Icon = __webpack_require__(27);
+
+var _Icon2 = _interopRequireDefault(_Icon);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _Icon2.default; /**
+                                   * @author MG Ding (丁文强)
+                                   * @desc Icon (图标)
+                                   */
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = setClass;
+/**
+ * 类名格式化
+ * @author MG
+ * @param data Object
+ * @return String
+ * */
+function setClass(data) {
+  try {
+    return Object.keys(data).filter(function (item) {
+      return data[item];
+    }).join(' ');
+  } catch (e) {
+    console.error(e);
+    return '';
+  }
+}
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; /* eslint-disable no-param-reassign,prefer-destructuring */
@@ -855,7 +981,7 @@ exports._fetch = _fetch;
 exports.fetch = fetch;
 exports.fetchLite = fetchLite;
 
-var _index = __webpack_require__(10);
+var _index = __webpack_require__(7);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -1283,168 +1409,90 @@ function fetchLite(fetch) {
 }
 
 /***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _Icon = __webpack_require__(30);
-
-var _Icon2 = _interopRequireDefault(_Icon);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _Icon2.default; /**
-                                   * @author MG Ding (丁文强)
-                                   * @desc Icon (图标)
-                                   */
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(18);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(2)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/less-loader/dist/index.js!./ItemsList.less", function() {
-			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/less-loader/dist/index.js!./ItemsList.less");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _Message = __webpack_require__(24);
-
-var _Message2 = _interopRequireDefault(_Message);
-
-var _reactDom = __webpack_require__(34);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * @author MG Ding (丁文强)
- * @desc Message (全局提示)
- */
-var container = document.createElement('div');
-var instant = null;
-var initMessage = function initMessage() {
-  document.body.appendChild(container);
-  instant = _reactDom2.default.render(React.createElement(_Message2.default, null), container);
-};
-var add = function add(type, content, duration) {
-  !instant && initMessage();
-  return instant.add(type, content, duration);
-};
-
-var message = {
-  info: function info() {
-    for (var _len = arguments.length, rest = Array(_len), _key = 0; _key < _len; _key++) {
-      rest[_key] = arguments[_key];
-    }
-
-    return add.apply(undefined, ['info'].concat(rest));
-  },
-  success: function success() {
-    for (var _len2 = arguments.length, rest = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-      rest[_key2] = arguments[_key2];
-    }
-
-    return add.apply(undefined, ['success'].concat(rest));
-  },
-  error: function error() {
-    for (var _len3 = arguments.length, rest = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-      rest[_key3] = arguments[_key3];
-    }
-
-    return add.apply(undefined, ['error'].concat(rest));
-  },
-  warning: function warning() {
-    for (var _len4 = arguments.length, rest = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-      rest[_key4] = arguments[_key4];
-    }
-
-    return add.apply(undefined, ['warning'].concat(rest));
-  },
-  // loading: (...rest) => {
-  //   return add('loading', ...rest)
-  // },
-  hide: function hide(id) {
-    instant && instant.hide(id);
-  }
-
-};
-
-exports.default = message;
-
-/***/ }),
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+module.exports = __webpack_require__(12);
 
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = setClass;
-/**
- * 类名格式化
- * @author MG
- * @param data Object
- * @return String
- * */
-function setClass(data) {
-  try {
-    return Object.keys(data).filter(function (item) {
-      return data[item];
-    }).join(' ');
-  } catch (e) {
-    console.error(e);
-    return '';
-  }
-}
 
 /***/ }),
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(13);
+"use strict";
 
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _BlogDetails = __webpack_require__(13);
+
+var _BlogDetails2 = _interopRequireDefault(_BlogDetails);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author Nero
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @desc 博客详情
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+/** modules **/
+
+
+var _module = { BlogDetails: _BlogDetails2.default
+  /** modules **/
+  // const config = require('./config.json')
+
+};
+var Blogdetails = function (_React$Component) {
+  _inherits(Blogdetails, _React$Component);
+
+  function Blogdetails() {
+    _classCallCheck(this, Blogdetails);
+
+    return _possibleConstructorReturn(this, (Blogdetails.__proto__ || Object.getPrototypeOf(Blogdetails)).apply(this, arguments));
+  }
+
+  _createClass(Blogdetails, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var config = this.props.config;
+
+      return _react2.default.createElement(
+        'div',
+        null,
+        config.module.map(function (moduleConfig) {
+          var name = moduleConfig.name,
+              key = moduleConfig.key;
+
+          var id = name + '-' + key;
+          return _react2.default.createElement(
+            'div',
+            { id: id, key: id },
+            _react2.default.createElement(_module[name], _extends({}, _this2.props, {
+              config: moduleConfig
+            }))
+          );
+        })
+      );
+    }
+  }]);
+
+  return Blogdetails;
+}(_react2.default.Component);
+
+window.wrapper(Blogdetails);
 
 /***/ }),
 /* 13 */
@@ -1453,106 +1501,35 @@ module.exports = __webpack_require__(13);
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _TopicsDetails = __webpack_require__(14);
-
-var _TopicsDetails2 = _interopRequireDefault(_TopicsDetails);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author：Gavin Yang (杨伟伟)
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @desc：专题集合页
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @paramsDesc: 传入Topics的props说明
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  config: C端页面对应的builder配置文件
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  pageMode: C端页面模式 0 桌面版 1 移动版
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  userInfo: 用户信息
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @date：2018.4.11
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-var Page = function (_React$Component) {
-    _inherits(Page, _React$Component);
-
-    function Page() {
-        _classCallCheck(this, Page);
-
-        return _possibleConstructorReturn(this, (Page.__proto__ || Object.getPrototypeOf(Page)).apply(this, arguments));
-    }
-
-    _createClass(Page, [{
-        key: 'render',
-        value: function render() {
-            var moduleConfig = this.props.config.module[0];
-            var _props = this.props,
-                userInfo = _props.userInfo,
-                pageMode = _props.pageMode;
-
-            return _react2.default.createElement(_TopicsDetails2.default, {
-                userInfo: userInfo,
-                pageMode: pageMode,
-                config: moduleConfig
-            });
-        }
-    }]);
-
-    return Page;
-}(_react2.default.Component);
-
-window.wrapper(Page);
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(15);
-
-__webpack_require__(9);
+__webpack_require__(14);
 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _ItemsList = __webpack_require__(19);
+var _propTypes = __webpack_require__(3);
 
-var _ItemsList2 = _interopRequireDefault(_ItemsList);
+var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Select = __webpack_require__(35);
-
-var _Select2 = _interopRequireDefault(_Select);
-
-var _Message = __webpack_require__(10);
+var _Message = __webpack_require__(7);
 
 var _Message2 = _interopRequireDefault(_Message);
 
-var _Pagination = __webpack_require__(39);
+var _ItemsList = __webpack_require__(32);
 
-var _Pagination2 = _interopRequireDefault(_Pagination);
+var _ItemsList2 = _interopRequireDefault(_ItemsList);
 
-var _SubNavigation = __webpack_require__(42);
+var _page = __webpack_require__(35);
+
+var _SubNavigation = __webpack_require__(37);
 
 var _SubNavigation2 = _interopRequireDefault(_SubNavigation);
-
-var _util = __webpack_require__(7);
-
-var _page = __webpack_require__(46);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1561,233 +1538,132 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author：Nero
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @desc：专题集合页面
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @date：2018.4.11
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                **/
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author Nero
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @desc 博客详情模块
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
-var route = [{ name: '专题', href: '/topics/' }, { name: '详情', href: '' }];
 
-var TopicsDetails = function (_React$Component) {
-  _inherits(TopicsDetails, _React$Component);
+var _window$supervar$util = window.supervar.util,
+    font = _window$supervar$util.font,
+    color = _window$supervar$util.color,
+    fetchLite = _window$supervar$util.fetchLite,
+    query2Obj = _window$supervar$util.query2Obj;
 
-  function TopicsDetails(props) {
-    _classCallCheck(this, TopicsDetails);
 
-    var _this = _possibleConstructorReturn(this, (TopicsDetails.__proto__ || Object.getPrototypeOf(TopicsDetails)).call(this, props));
+var route = [{ name: '美图区', href: '/blogs/' }, { name: '详情', href: '' }];
 
-    _this.getProductList = function (n) {
-      var _this$props = _this.props,
-          pageMode = _this$props.pageMode,
-          config = _this$props.config;
-      var cols = config.cols;
+var BlogDetails = function (_React$Component) {
+  _inherits(BlogDetails, _React$Component);
 
-      return (0, _page.fetchTopicsDedails)({ page: n, id: _this.state.id, pageSize: cols * 8 }).then(function (res) {
-        // 请求集合详情信息
+  function BlogDetails(props) {
+    _classCallCheck(this, BlogDetails);
+
+    var _this = _possibleConstructorReturn(this, (BlogDetails.__proto__ || Object.getPrototypeOf(BlogDetails)).call(this, props));
+
+    _this.fetchProductList = function (kind) {
+      fetchLite(_page.fetchRecommendTopic.bind(null, {
+        kind: kind
+      }), {
+        done: function done(res) {
+          var data = res.data && res.data.product_list || null;
+          if (!data || data.length === 0) {
+            return;
+          }
+
+          _this.setState({
+            productList: data
+          });
+        }
+      });
+    };
+
+    _this.handleBlogDetails = function () {
+      return (0, _page.getBlogDetails)(_this.state.id).then(function (res) {
         if (res.state !== 0) {
           _Message2.default.error(res.msg);
-          return;
-        }
+        } else {
+          if (!res.data) {
+            return;
+          }
 
-        if (!res.data || !res.data.product_list) {
-          return;
+          // 获取关联专题
+          _this.fetchProductList(res.data.kind);
+          _this.setState({
+            data: res.data
+          });
         }
-
-        var allproductlist = void 0;
-        if (pageMode === 1 && _this.state.product_list) {
-          allproductlist = _this.state.product_list.concat(res.data.product_list);
-        }
-
-        _this.setState({
-          product_list: allproductlist || res.data.product_list,
-          page: res.current_page,
-          totalPage: res.total_page,
-          collectionInfo: res.data.collection
-        });
       });
     };
 
     _this.state = {
-      page: 1, // 当前页码
-      totalPage: 1, //总页数
-      product_list: null, //商品列表数据
-      collectionInfo: null, //集合信息
-      id: (0, _util.query2Obj)()['id'] //专题ID
+      id: query2Obj()['id'], //专题ID
+      labelList: [{
+        label: 'Simple'
+      }],
+      data: '',
+      productList: null
     };
     return _this;
   }
 
-  _createClass(TopicsDetails, [{
+  _createClass(BlogDetails, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      this.getProductList();
+      this.handleBlogDetails();
     }
   }, {
     key: 'render',
     value: function render() {
-      var product_list = this.state.product_list;
-
-
-      if (!product_list || product_list.length === 0) {
-        return _react2.default.createElement(
-          'span',
-          { style: { color: '#ccc', display: 'block', margin: '80px auto', textAlign: 'center' } },
-          'no data~'
-        );
-      }
-
-      var classPrefix = TopicsDetails.classPrefix;
-      var _props = this.props,
-          pageMode = _props.pageMode,
-          config = _props.config;
+      // const { pageMode } = this.props
       var _state = this.state,
-          page = _state.page,
-          totalPage = _state.totalPage,
-          collectionInfo = _state.collectionInfo;
-      var checkbox = config.checkbox,
-          bgImg = config.bgImg,
-          cols = config.cols;
-
-      var isModile = pageMode === 1;
-
-      if (isModile) {
-        cols = 2;
-      }
+          labelList = _state.labelList,
+          data = _state.data,
+          productList = _state.productList;
 
       return _react2.default.createElement(
-        _react2.default.Fragment,
-        null,
+        'div',
+        { className: 'm-BlogDetails-wrap l-BlogDetails-wrap l-centerBlock' },
+        _react2.default.createElement(_SubNavigation2.default, { route: route }),
+        _react2.default.createElement(
+          'h2',
+          { className: 'blog-title ' + color('title') + ' ' + font('title') },
+          data.title
+        ),
         _react2.default.createElement(
           'div',
-          { className: 'l-centerBlock' },
-          _react2.default.createElement(_SubNavigation2.default, { route: route })
-        ),
-        checkbox['showTagCtrl'] && _react2.default.createElement(
-          'div',
-          { className: classPrefix + '-banner',
-            style: { backgroundImage: 'url(' + (collectionInfo.main_img || '/source/img/default.png') + ')' } },
+          { className: 'blog-info ' + color('subText') + ' ' + font('text') },
           _react2.default.createElement(
-            'div',
-            { className: 'banner-text' },
-            _react2.default.createElement(
-              'h2',
-              null,
-              collectionInfo.title
-            )
+            'span',
+            { className: 'date' },
+            data.edit_date
           )
         ),
         _react2.default.createElement(
           'div',
-          { className: classPrefix + '-centerBlock l-centerBlock' },
-          _react2.default.createElement(
-            'div',
-            { className: classPrefix + '-container' },
-            _react2.default.createElement(
-              'div',
-              { className: 'topics-header' },
-              _react2.default.createElement('h2', { dangerouslySetInnerHTML: { __html: collectionInfo.description } }),
-              _react2.default.createElement(
-                'div',
-                { className: 'topics-ctrl' },
-                checkbox['showCategoryCtrl'] && _react2.default.createElement(
-                  'div',
-                  { className: 'ctrl-item' },
-                  _react2.default.createElement(
-                    'span',
-                    null,
-                    'Category:'
-                  ),
-                  _react2.default.createElement(
-                    _Select2.default,
-                    null,
-                    _react2.default.createElement(
-                      'option',
-                      { value: 0 },
-                      'Small fresh style1'
-                    ),
-                    _react2.default.createElement(
-                      'option',
-                      { value: 1 },
-                      'Small fresh style2'
-                    ),
-                    _react2.default.createElement(
-                      'option',
-                      { value: 2 },
-                      'Small fresh style3'
-                    ),
-                    _react2.default.createElement(
-                      'option',
-                      { value: 3 },
-                      'Small fresh style4'
-                    )
-                  )
-                ),
-                checkbox['showSortCtrl'] && _react2.default.createElement(
-                  'div',
-                  { className: 'ctrl-item' },
-                  _react2.default.createElement(
-                    'span',
-                    null,
-                    'Sorting:'
-                  ),
-                  _react2.default.createElement(
-                    _Select2.default,
-                    null,
-                    _react2.default.createElement(
-                      'option',
-                      { value: 0 },
-                      'Small fresh style1'
-                    ),
-                    _react2.default.createElement(
-                      'option',
-                      { value: 1 },
-                      'Small fresh style2'
-                    ),
-                    _react2.default.createElement(
-                      'option',
-                      { value: 2 },
-                      'Small fresh style3'
-                    ),
-                    _react2.default.createElement(
-                      'option',
-                      { value: 3 },
-                      'Small fresh style4'
-                    )
-                  )
-                )
-              )
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'products-list' },
-              _react2.default.createElement(_ItemsList2.default, { data: product_list, column: cols }),
-              _react2.default.createElement(_Pagination2.default, {
-                pageNo: page,
-                totalPage: totalPage,
-                scrollLoad: isModile,
-                handleChangePage: this.getProductList
-              })
-            )
-          )
-        )
+          { className: 'blog-content' },
+          data.context
+        ),
+        _react2.default.createElement(_ItemsList2.default, { data: productList, column: 2 })
       );
     }
   }]);
 
-  return TopicsDetails;
+  return BlogDetails;
 }(_react2.default.Component);
 
-TopicsDetails.classPrefix = 'm-topicsDetails';
-exports.default = TopicsDetails;
+BlogDetails.propTypes = {
+  config: _propTypes2.default.object.isRequired
+};
+exports.default = BlogDetails;
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(16);
+var content = __webpack_require__(15);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -1801,8 +1677,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/less-loader/dist/index.js!./TopicsDetails.less", function() {
-			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/less-loader/dist/index.js!./TopicsDetails.less");
+		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/less-loader/dist/index.js!./BlogDetails.less", function() {
+			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/less-loader/dist/index.js!./BlogDetails.less");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -1812,7 +1688,7 @@ if(false) {
 }
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -1820,13 +1696,13 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n}\n/** 变量定义 **/\n/* 弹性盒子*/\n/*圆角*/\n/* 文本溢出...*/\n/* 限制文本行数*/\n/* 阴影 */\n/*旋转函数*/\n/*过度动画*/\n/*css3 动画*/\n/*css3 transform*/\n.m-topicsDetails-banner {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  overflow: hidden;\n}\n.m-topicsDetails-banner .banner-text {\n  display: flex;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.28);\n  justify-content: center;\n  align-items: center;\n}\n.m-topicsDetails-banner .banner-text h2 {\n  font-size: 0.48rem;\n  color: #FFFFFF;\n  text-align: center;\n}\n.m-topicsDetails-centerBlock .m-topicsDetails-container .topics-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0.4rem 0;\n  border-bottom: 1px solid #EDE9EA;\n}\n.m-topicsDetails-centerBlock .m-topicsDetails-container .topics-header .topics-ctrl {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.m-topicsDetails-centerBlock .m-topicsDetails-container .topics-header .topics-ctrl .ctrl-item span {\n  padding: 0 0.1rem 0 0.4rem;\n}\n.m-topicsDetails-centerBlock .m-topicsDetails-container .products-list {\n  padding-bottom: 0.15rem;\n}\n@media screen and (max-width: 750px) {\n  .m-topicsDetails-banner .banner-text h2 {\n    font-size: 0.32rem;\n  }\n  .bc-subnav-container {\n    display: none!important;\n  }\n  .l-mobile .l-centerBlock {\n    padding: 0 0.2rem;\n  }\n  .l-mobile .l-centerBlock .m-topicsDetails-container .topics-header {\n    display: block;\n    padding: 0.2rem 0;\n  }\n  .l-mobile .l-centerBlock .m-topicsDetails-container .topics-header h2 {\n    width: 100%;\n    text-align: center;\n    padding: 0.2rem 0;\n    overflow: hidden;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n    /* IE/Safari */\n    -ms-text-overflow: ellipsis;\n    -o-text-overflow: ellipsis;\n    /* Opera */\n  }\n  .l-mobile .l-centerBlock .m-topicsDetails-container .topics-header .topics-ctrl .ctrl-item {\n    width: 48.5%;\n  }\n  .l-mobile .l-centerBlock .m-topicsDetails-container .topics-header .topics-ctrl .ctrl-item span {\n    display: none;\n  }\n  .l-mobile .l-centerBlock .m-topicsDetails-container .topics-header .topics-ctrl .ctrl-item select {\n    width: 100%;\n  }\n}\n", ""]);
+exports.push([module.i, ".m-BlogDetails-wrap {\n  width: 100%;\n}\n.m-BlogDetails-wrap .nav-wrap {\n  margin: 0.4rem 0;\n  line-height: 1;\n}\n.m-BlogDetails-wrap .nav-wrap .sup-nav {\n  text-decoration: underline;\n}\n.m-BlogDetails-wrap .nav-wrap i {\n  margin-right: 0.08rem;\n}\n.m-BlogDetails-wrap .nav-wrap .sub-nav {\n  color: #8B8185;\n}\n.m-BlogDetails-wrap .blog-title {\n  text-align: center;\n  line-height: 1;\n}\n.m-BlogDetails-wrap .blog-info {\n  margin-top: 0.2rem;\n  line-height: 1;\n  text-align: center;\n}\n.m-BlogDetails-wrap .blog-info .date {\n  margin-bottom: 20px;\n  display: inline-block;\n}\n.m-BlogDetails-wrap .blog-info .author {\n  margin-left: 0.2rem;\n}\n.m-BlogDetails-wrap .blog-label {\n  display: flex;\n  justify-content: center;\n  flex-wrap: wrap;\n  padding: 0.3rem 0;\n}\n.m-BlogDetails-wrap .blog-label span {\n  display: block;\n  line-height: 1;\n  padding: 0.11rem 0.16rem;\n  border-width: 0.01rem;\n  border-style: solid;\n  margin: 0.05rem;\n}\n.m-BlogDetails-wrap .blog-content {\n  width: 100%;\n  max-width: 9.6rem;\n  margin: 0 auto;\n  padding: 0.4rem 0;\n  border-top: 0.01rem solid #EDE9EA;\n  border-bottom: 0.01rem solid #EDE9EA;\n}\n.m-BlogDetails-wrap .blog-content p {\n  margin-bottom: 0.4rem;\n}\n.m-BlogDetails-wrap .blog-content img {\n  display: block;\n  width: 6rem;\n  height: 6rem;\n  margin: 0.36rem auto 0;\n}\n.m-BlogDetails-wrap .blog-bottom {\n  width: 100%;\n  max-width: 9.6rem;\n  margin: 0 auto;\n  padding: 0.4rem 0 0.8rem;\n}\n.m-BlogDetails-wrap .blog-bottom .previous-box {\n  margin-bottom: 0.2rem;\n}\n.m-BlogDetails-wrap .blog-bottom div {\n  display: flex;\n}\n.m-BlogDetails-wrap .blog-bottom div span {\n  display: block;\n  width: 0.9rem;\n}\n.m-BlogDetails-wrap .blog-bottom div a.disable {\n  color: #B2AFB0;\n  cursor: not-allowed;\n}\n.m-BlogDetails-wrap .blog-bottom div a {\n  font-size: 16px;\n  color: #302E2F;\n}\n@media screen and (max-width: 749px) {\n  .m-BlogDetails-wrap.l-BlogDetails-wrap {\n    padding: 0 0.2rem;\n    box-sizing: border-box;\n  }\n  .m-BlogDetails-wrap.l-BlogDetails-wrap .bc-subnav-container {\n    display: none !important;\n  }\n  .m-BlogDetails-wrap.l-BlogDetails-wrap h2.blog-title {\n    text-align: left;\n    margin-top: 0.46rem;\n  }\n  .m-BlogDetails-wrap.l-BlogDetails-wrap .blog-info {\n    text-align: left;\n  }\n  .m-BlogDetails-wrap.l-BlogDetails-wrap .blog-label {\n    justify-content: flex-start;\n  }\n  .m-BlogDetails-wrap.l-BlogDetails-wrap .blog-content img {\n    width: 80%;\n    height: auto;\n  }\n  .m-BlogDetails-wrap.l-BlogDetails-wrap .blog-content p {\n    margin-bottom: 0.2rem;\n  }\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports) {
 
 
@@ -1921,149 +1797,7 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, "/** 产品列表 **/\n/** 变量定义 **/\n/* 弹性盒子*/\n/*圆角*/\n/* 文本溢出...*/\n/* 限制文本行数*/\n/* 阴影 */\n/*旋转函数*/\n/*过度动画*/\n/*css3 动画*/\n/*css3 transform*/\n.m-search-itemsList {\n  margin-top: 0.4rem;\n  margin-bottom: 0.1rem;\n}\n.m-search-itemsList li {\n  display: inline-block;\n  vertical-align: top;\n  margin-bottom: 0.3rem;\n  width: 22.5%;\n  margin-right: 3.3%;\n}\n.m-search-itemsList li:nth-child(4n) {\n  margin-right: 0;\n}\n.m-search-itemsList li a {\n  display: inline-block;\n  width: 100%;\n}\n.m-search-itemsList li a > div {\n  width: 100%;\n  text-align: center;\n  vertical-align: top;\n  line-height: 0;\n  max-width: 100%;\n  background-position: center;\n  background-size: cover;\n  height: 2.7rem;\n}\n.m-search-itemsList li p {\n  line-height: 1.4em;\n  margin-top: 0.1rem;\n}\n.m-search-itemsList li p:first-of-type {\n  max-height: 2.8em;\n  overflow: hidden;\n  word-break: keep-all;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  display: -webkit-box;\n  -webkit-line-clamp: 2;\n  -webkit-box-orient: vertical;\n}\n.m-search-itemsList.column-2 li {\n  width: 45%;\n  margin-right: 10%;\n  margin-bottom: 0.35rem;\n}\n.m-search-itemsList.column-2 li:nth-child(2n) {\n  margin-right: 0;\n}\n.m-search-itemsList.column-3 li {\n  width: 31%;\n  margin-right: 3.5%;\n}\n.m-search-itemsList.column-3 li:nth-child(4n) {\n  margin-right: 3.5%;\n}\n.m-search-itemsList.column-3 li:nth-child(3n) {\n  margin-right: 0;\n}\n.m-search-itemsList.column-3 li p {\n  line-height: 1.5em;\n  margin-top: 0.15rem;\n}\n.m-search-itemsList.column-5 li {\n  width: 18%;\n  margin-right: 2.5%;\n}\n.m-search-itemsList.column-5 li:nth-child(5n) {\n  margin-right: 0;\n}\n.l-mobile .m-search-itemsList li {\n  width: 47% !important;\n  margin-right: 0 !important;\n}\n.l-mobile .m-search-itemsList li:nth-child(2n) {\n  margin-left: 3% !important;\n}\n.l-mobile .m-search-itemsList li:nth-child(2n + 1) {\n  margin-right: 3% !important;\n}\n@media screen and (max-width: 750px) {\n  .m-search-itemsList li a > div {\n    height: 1.8rem;\n  }\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 19 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-__webpack_require__(9);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(3);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _Link = __webpack_require__(6);
-
-var _Link2 = _interopRequireDefault(_Link);
-
-var _util = __webpack_require__(7);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author Nero
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @desc 产品列表
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-/* eslint-disable camelcase */
-
-
-var ItemsList = function (_React$Component) {
-  _inherits(ItemsList, _React$Component);
-
-  function ItemsList() {
-    _classCallCheck(this, ItemsList);
-
-    return _possibleConstructorReturn(this, (ItemsList.__proto__ || Object.getPrototypeOf(ItemsList)).apply(this, arguments));
-  }
-
-  _createClass(ItemsList, [{
-    key: 'render',
-    value: function render() {
-      var classPrefix = ItemsList.classPrefix;
-      var _props = this.props,
-          data = _props.data,
-          column = _props.column;
-
-
-      return data && data.length ? _react2.default.createElement(
-        'ul',
-        { className: classPrefix + ' column-' + column },
-        data.map(function (_ref, index) {
-          var sell_price = _ref.sell_price,
-              href = _ref.href,
-              couponhref = _ref.couponhref,
-              name = _ref.name,
-              main_img = _ref.main_img,
-              currency = _ref.currency,
-              sales_volume = _ref.sales_volume,
-              coupon = _ref.coupon;
-          return _react2.default.createElement(
-            'li',
-            { key: index },
-            _react2.default.createElement(
-              _Link2.default,
-              { href: couponhref || href, target: '_blank' },
-              _react2.default.createElement('div', { style: { backgroundImage: 'url(' + main_img + '_300x300)' } }),
-              _react2.default.createElement(
-                'p',
-                { className: (0, _util.color)('text') + ' ' + (0, _util.font)('secTitle') },
-                name
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                '\u5238\uFF1A',
-                coupon
-              )
-            ),
-            _react2.default.createElement(
-              'p',
-              { className: (0, _util.color)('price') + ' ' + (0, _util.font)('price') },
-              _react2.default.createElement(
-                'label',
-                null,
-                currency,
-                ' ',
-                sell_price
-              ),
-              _react2.default.createElement(
-                'label',
-                { className: (0, _util.font)('secTitle') + ' fr' },
-                '\u6708\u9500\uFF1A',
-                sales_volume
-              )
-            )
-          );
-        })
-      ) : null;
-    }
-  }]);
-
-  return ItemsList;
-}(_react2.default.Component);
-
-ItemsList.propTypes = {
-  data: _propTypes2.default.array,
-  column: _propTypes2.default.number
-};
-ItemsList.defaultProps = {
-  data: [],
-  column: 5
-};
-ItemsList.classPrefix = 'm-search-itemsList';
-exports.default = ItemsList;
-
-/***/ }),
-/* 20 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2076,10 +1810,10 @@ exports.default = ItemsList;
 
 
 
-var assign = __webpack_require__(21);
+var assign = __webpack_require__(18);
 
 var ReactPropTypesSecret = __webpack_require__(5);
-var checkPropTypes = __webpack_require__(22);
+var checkPropTypes = __webpack_require__(19);
 
 var printWarning = function() {};
 
@@ -2626,7 +2360,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
-/* 21 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2723,7 +2457,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 22 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2822,7 +2556,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
-/* 23 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2888,7 +2622,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 24 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2902,13 +2636,13 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(25);
+__webpack_require__(22);
 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Item = __webpack_require__(27);
+var _Item = __webpack_require__(24);
 
 var _Item2 = _interopRequireDefault(_Item);
 
@@ -3018,13 +2752,13 @@ Message.storeItems = function (ref, key) {
 exports.default = Message;
 
 /***/ }),
-/* 25 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(26);
+var content = __webpack_require__(23);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -3049,7 +2783,7 @@ if(false) {
 }
 
 /***/ }),
-/* 26 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -3063,7 +2797,7 @@ exports.push([module.i, ".bc-message {\n  position: fixed;\n  width: 100%;\n  he
 
 
 /***/ }),
-/* 27 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3075,7 +2809,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(28);
+__webpack_require__(25);
 
 var _react = __webpack_require__(0);
 
@@ -3089,7 +2823,7 @@ var _Icon = __webpack_require__(8);
 
 var _Icon2 = _interopRequireDefault(_Icon);
 
-var _setClass2 = __webpack_require__(11);
+var _setClass2 = __webpack_require__(9);
 
 var _setClass3 = _interopRequireDefault(_setClass2);
 
@@ -3233,13 +2967,13 @@ Item.classPrefix = 'bc-messageItem';
 exports.default = Item;
 
 /***/ }),
-/* 28 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(29);
+var content = __webpack_require__(26);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -3264,7 +2998,7 @@ if(false) {
 }
 
 /***/ }),
-/* 29 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -3278,7 +3012,7 @@ exports.push([module.i, "/** 变量定义 **/\n/* 弹性盒子*/\n/*圆角*/\n/*
 
 
 /***/ }),
-/* 30 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3292,7 +3026,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(31);
+__webpack_require__(28);
 
 var _react = __webpack_require__(0);
 
@@ -3302,11 +3036,11 @@ var _propTypes = __webpack_require__(3);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _setClass2 = __webpack_require__(11);
+var _setClass2 = __webpack_require__(9);
 
 var _setClass3 = _interopRequireDefault(_setClass2);
 
-var _color = __webpack_require__(33);
+var _color = __webpack_require__(30);
 
 var _color2 = _interopRequireDefault(_color);
 
@@ -3371,13 +3105,13 @@ Icon.classPrefix = 'bc-icon';
 exports.default = Icon;
 
 /***/ }),
-/* 31 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(32);
+var content = __webpack_require__(29);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -3402,7 +3136,7 @@ if(false) {
 }
 
 /***/ }),
-/* 32 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -3416,7 +3150,7 @@ exports.push([module.i, "/** 变量定义 **/\n/* 弹性盒子*/\n/*圆角*/\n/*
 
 
 /***/ }),
-/* 33 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3447,134 +3181,13 @@ color.bg = function (key) {
 exports.default = color;
 
 /***/ }),
-/* 34 */
+/* 31 */
 /***/ (function(module, exports) {
 
 module.exports = ReactDOM;
 
 /***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _Select = __webpack_require__(36);
-
-var _Select2 = _interopRequireDefault(_Select);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _Select2.default; /**
-                                     * @author MG Ding (丁文强)
-                                     * @desc Select (下拉选择器)
-                                     */
-
-/***/ }),
-/* 36 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-__webpack_require__(37);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; } /**
-                                                                                                                                                                                                                              * @author MG Ding (丁文强)
-                                                                                                                                                                                                                              * @desc Select (下拉选择器)
-                                                                                                                                                                                                                              */
-
-
-var _window$supervar$util = window.supervar.util,
-    setClass = _window$supervar$util.setClass,
-    color = _window$supervar$util.color,
-    font = _window$supervar$util.font;
-
-var classPrefix = 'bc-select';
-
-var Select = function Select(props) {
-  var _setClass;
-
-  var className = props.className,
-      children = props.children,
-      rest = _objectWithoutProperties(props, ['className', 'children']);
-
-  return _react2.default.createElement(
-    'select',
-    _extends({
-      className: setClass((_setClass = {}, _defineProperty(_setClass, className, className), _defineProperty(_setClass, classPrefix, 1), _defineProperty(_setClass, color.border('border'), 1), _defineProperty(_setClass, color('text'), 1), _defineProperty(_setClass, font('text'), 1), _setClass))
-    }, rest),
-    children
-  );
-};
-
-exports.default = Select;
-
-/***/ }),
-/* 37 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(38);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(2)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/less-loader/dist/index.js!./Select.less", function() {
-			var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/less-loader/dist/index.js!./Select.less");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 38 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, "/** 变量定义 **/\n/* 弹性盒子*/\n/*圆角*/\n/* 文本溢出...*/\n/* 限制文本行数*/\n/* 阴影 */\n/*旋转函数*/\n/*过度动画*/\n/*css3 动画*/\n/*css3 transform*/\n.bc-select {\n  display: inline-block;\n  border-width: 1px;\n  border-style: solid;\n  height: 0.48rem;\n  border-radius: 2px;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  -ms-appearance: none;\n  padding: 0 0.48rem 0 0.2rem;\n  position: relative;\n  background: url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAFAQMAAACKM9XAAAAABlBMVEUAAAAwLi8h2mgqAAAAAXRSTlMAQObYZgAAABlJREFUCNdj+N/AwMBQzwAEdiBCBkRwADEAMW4CYaYy38MAAAAASUVORK5CYII=\") no-repeat scroll right center #fff;\n}\n.bc-select:focus {\n  outline: 0;\n}\n.bc-select:disabled {\n  cursor: not-allowed;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 39 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3586,15 +3199,21 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+__webpack_require__(33);
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(40);
+var _propTypes = __webpack_require__(3);
 
-var _Icon = __webpack_require__(8);
+var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Icon2 = _interopRequireDefault(_Icon);
+var _Link = __webpack_require__(6);
+
+var _Link2 = _interopRequireDefault(_Link);
+
+var _util = __webpack_require__(10);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3603,320 +3222,106 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Pagination分页组件
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * author: Alan
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * props:
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   style            : <object> 应用到Pagination组件的样式(默认{marginTop:"30px"})
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   language         : <string> 英文版:en;中文版:cn(默认)
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   totalPage        : <number> 总页数
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   totalRow         : <number> 总条数
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   pageNo           : <Number> 当前页
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   size             : <number> 尺寸，传入'sm'显示小尺寸，默认大尺寸
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   handleChangePage : <function> 分页时调用,传入目标页码(number)
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   onEndReached     : <Number> 滚动到距离最底部距离开始加载
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 注意:
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   传入的handleChangePage函数必须返回一个Promise对象,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   调用handleChangePage时,分页组件会被禁用,当promise触发resolve或reject时解除禁用,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   如果分页成功(resolve),可给resolve传入一个数字,滚动条会滚动到数字位置(scrollTop)
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   例如:
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   handleChangePage(n){
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       return new Promise((resolve,reject) => {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *           util.fetch('url',{page:n}).then(data=>{
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *               if(data.state === 0){
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                   resolve(0);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *               }else{
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *                   reject();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *               }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *           }).catch(err=>{
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *               reject();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *           });
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       });
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author Nero
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @desc 产品列表
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
+/* eslint-disable camelcase */
 
 
-var _window$supervar$util = window.supervar.util,
-    color = _window$supervar$util.color,
-    font = _window$supervar$util.font;
+var ItemsList = function (_React$Component) {
+  _inherits(ItemsList, _React$Component);
 
-// const {util} = window.supervar
+  function ItemsList() {
+    _classCallCheck(this, ItemsList);
 
-var modelCN = {
-  prev: '上一页',
-  next: '下一页',
-  page: ['共', '页，到第', '页'],
-  confirm: '确认'
-};
-
-var modelEN = {
-  prev: 'Previous',
-  next: 'Next',
-  page: ['Total ', ' page, to page ', ''],
-  confirm: 'Go'
-};
-
-var Pagination = function (_React$Component) {
-  _inherits(Pagination, _React$Component);
-
-  function Pagination() {
-    _classCallCheck(this, Pagination);
-
-    var _this = _possibleConstructorReturn(this, (Pagination.__proto__ || Object.getPrototypeOf(Pagination)).call(this));
-
-    _this.loadMore = true;
-    _this.direction = 'down';
-    _this.beforeScrollTop = 0;
-
-    _this.pullMore = function () {
-      // 文档高度
-      var sHeight = document.documentElement.scrollHeight;
-      //  可视区域高度
-      var cHeight = document.documentElement.clientHeight;
-      // 滚动条下拉高度 移动端和PC获取方式不一致
-      var sTop = document.body.scrollTop || document.documentElement.scrollTop;
-      // footer高度
-      var fHeight = document.getElementById('Footer-1').offsetHeight;
-      var _this$props$onEndReac = _this.props.onEndReached,
-          onEndReached = _this$props$onEndReac === undefined ? fHeight : _this$props$onEndReac;
-
-      var disY = sHeight - cHeight - sTop - onEndReached;
-      var delta = sTop - _this.beforeScrollTop;
-      _this.getDirection(delta > 0 ? 'down' : 'up');
-      _this.beforeScrollTop = sTop;
-      if (disY <= 20 && _this.direction === 'down') {
-        var pageNo = _this.props.pageNo;
-
-        var n = pageNo + 1;
-        if (n >= 1 && n <= _this.props.totalPage && _this.loadMore) {
-          _this.loadMore = false;
-          var loading = _this.props.handleChangePage(n);
-          loading.then(function (data) {
-            _this.loadMore = true;
-          }).catch(function () {
-            _this.loadMore = true;
-          });
-        }
-      }
-    };
-
-    _this.getDirection = function (direction) {
-      _this.direction = direction;
-    };
-
-    _this.bindScroll = function () {
-      _this.beforeScrollTop = document.documentElement.scrollTop;
-      window.onscroll = _this.pullMore;
-    };
-
-    _this.state = {
-      loading: false // 调用handleChangePage时被设置为true(组件被禁用),handleChangePage返回的Promise返回结果时被设置为false(组件解除禁用)
-    };
-    return _this;
+    return _possibleConstructorReturn(this, (ItemsList.__proto__ || Object.getPrototypeOf(ItemsList)).apply(this, arguments));
   }
 
-  /** 设置loading, 并且当loading成功时inputPage被设置为''(清空页码输入框)**/
-
-
-  _createClass(Pagination, [{
-    key: 'setLoading',
-    value: function setLoading(b) {
-      this.setState(function (state) {
-        return {
-          loading: b
-        };
-      });
-    }
-
-    /** 分页动作,参数n代表跳转到第几页(pageNo) **/
-
-  }, {
-    key: 'handleChangePage',
-    value: function handleChangePage(n) {
-      var _this2 = this;
-
-      if (n !== this.props.pageNo && n !== '' && n >= 1 && n <= this.props.totalPage) {
-        var loading = this.props.handleChangePage(n);
-        this.setLoading(true);
-
-        loading.then(function (data) {
-          // if (util.getConstructorName(data) === 'Number') {
-          //   util.setScrollTop(data) // 设置滚动条高度
-          // }
-          _this2.setLoading(false);
-        }).catch(function () {
-          _this2.setLoading(false);
-        });
-      }
-    }
-
-    /** 格式化页码按钮组(参考京东分页逻辑) **/
-
-  }, {
-    key: 'formatButtonGroup',
-    value: function formatButtonGroup() {
-      var buttonGroup = []; // 得到的结果是类似[1,2,null,6,7,8,9,10,null]这样的数组,数字表示页码,null表示省略号
-      var totalPage = this.props.totalPage;
-      var pageNo = this.props.pageNo;
-
-      /** 总页数小于等于5, 把所有页码都渲染出来 **/
-      if (totalPage <= 5) {
-        for (var i = 0; i < totalPage; i++) {
-          buttonGroup.push(i + 1);
-        }
-
-        /**
-         * 总页数大于5页, 只渲染部分页码:
-         *   1.当前页大于等于5页,始终渲染1,2,3页,当前页(pageNo)及左右各2页:
-         *      最右的页码小于总页码数,在右边添加省略号
-         *      左侧的页码大于4,在左边添加省略号
-         *   2.当前页小于5页,渲染前5页,右侧添加省略号
-         * **/
-      } else {
-        buttonGroup = [1, 2, 3];
-        if (pageNo - 3 >= 4) buttonGroup.push(null);
-
-        for (var _i = 0; _i < 5; _i++) {
-          var cachePage = pageNo - 2 + _i;
-          if (cachePage <= totalPage && cachePage > 3) buttonGroup.push(cachePage);
-        }
-        if (pageNo == 1) {
-          buttonGroup = buttonGroup.concat([4, 5]);
-        }
-        if (pageNo == 2) {
-          buttonGroup.push(5);
-        }
-        if (buttonGroup[buttonGroup.length - 1] < totalPage) buttonGroup.push(null);
-      }
-      return buttonGroup;
-    }
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
-      if (nextProps.scrollLoad) {
-        this.bindScroll();
-      } else {
-        window.onscroll = null;
-      }
-    }
-  }, {
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      // this.model = this.props.language === 'en' ? modelEN : modelCN
-      this.model = modelEN;
-      if (this.props.scrollLoad) {
-        this.bindScroll();
-      }
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      window.onscroll = null;
-    }
-  }, {
+  _createClass(ItemsList, [{
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var classPrefix = ItemsList.classPrefix;
+      var _props = this.props,
+          data = _props.data,
+          column = _props.column;
 
-      var buttonGroup = this.formatButtonGroup();
-      var pageNo = this.props.pageNo;
-      var totalPage = this.props.totalPage;
-      // let totalRow = this.props.totalRow
-      return _react2.default.createElement(
-        _react2.default.Fragment,
-        null,
-        !this.props.scrollLoad && _react2.default.createElement(
-          'div',
-          {
-            className: (this.state.loading ? 'm-pagination-loading' : '') + (this.props.size === 'sm' ? ' m-pagination-sm' : '') + ' m-pagination',
-            style: this.props.style },
-          _react2.default.createElement('div', { className: 'm-pagination-mask' }),
-          _react2.default.createElement(
-            'button',
-            {
-              className: 'button-prev ' + color('text') + ' ' + color.border('border') + ' ' + color.bg('button') + ' ' + font('text') + ' ',
-              disabled: pageNo <= 1,
-              onClick: this.handleChangePage.bind(this, pageNo - 1) },
-            _react2.default.createElement(_Icon2.default, {
-              type: 'back',
-              className: '' + font('subText'),
-              color: ''
-            }),
-            this.model.prev
-          ),
-          _react2.default.createElement(
-            'ul',
-            { className: 'button-group' },
-            buttonGroup.map(function (page, index) {
-              return page ? _react2.default.createElement(
-                'li',
-                { key: index },
-                _react2.default.createElement(
-                  'button',
-                  {
-                    className: color('text') + ' ' + color.border('border') + ' ' + color.bg('button') + ' ' + font('text') + ' ' + (page == pageNo ? 'active' : ''),
-                    onClick: _this3.handleChangePage.bind(_this3, page) },
-                  page
-                )
-              ) : _react2.default.createElement(
-                'li',
-                { key: index },
-                _react2.default.createElement(
-                  'span',
-                  { className: '' + color('text') },
-                  '...'
-                )
-              );
-            })
-          ),
-          _react2.default.createElement(
-            'button',
-            {
-              className: 'button-next ' + color('text') + ' ' + color.border('border') + ' ' + color.bg('button') + ' ' + font('text'),
-              disabled: pageNo >= totalPage,
-              onClick: this.handleChangePage.bind(this, pageNo + 1) },
-            this.model.next,
-            _react2.default.createElement(_Icon2.default, {
-              className: '' + font('subText'),
-              type: 'forward',
-              color: ''
-            })
-          )
-        ),
-        this.props.scrollLoad && pageNo >= totalPage && _react2.default.createElement(
-          'p',
-          { className: 'm-pagination-noMore ' + color('subText') + ' ' + font('text') },
-          'No More'
-        )
-      );
+
+      return data && data.length ? _react2.default.createElement(
+        'ul',
+        { className: classPrefix + ' column-' + column },
+        data.map(function (_ref, index) {
+          var sell_price = _ref.sell_price,
+              href = _ref.href,
+              couponhref = _ref.couponhref,
+              name = _ref.name,
+              main_img = _ref.main_img,
+              currency = _ref.currency,
+              sales_volume = _ref.sales_volume,
+              coupon = _ref.coupon;
+          return _react2.default.createElement(
+            'li',
+            { key: index },
+            _react2.default.createElement(
+              _Link2.default,
+              { href: couponhref || href, target: '_blank' },
+              _react2.default.createElement('div', { style: { backgroundImage: 'url(' + main_img + '_300x300)' } }),
+              _react2.default.createElement(
+                'p',
+                { className: (0, _util.color)('text') + ' ' + (0, _util.font)('secTitle') },
+                name
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                '\u5238\uFF1A',
+                coupon
+              )
+            ),
+            _react2.default.createElement(
+              'p',
+              { className: (0, _util.color)('price') + ' ' + (0, _util.font)('price') },
+              _react2.default.createElement(
+                'label',
+                null,
+                currency,
+                ' ',
+                sell_price
+              ),
+              _react2.default.createElement(
+                'label',
+                { className: (0, _util.font)('secTitle') + ' fr' },
+                '\u6708\u9500\uFF1A',
+                sales_volume
+              )
+            )
+          );
+        })
+      ) : null;
     }
   }]);
 
-  return Pagination;
+  return ItemsList;
 }(_react2.default.Component);
 
-Pagination.defaultProps = {
-  style: { marginTop: '30px', marginBottom: '30px' },
-  language: 'cn',
-  totalPage: 0,
-  pageNo: 0,
-  scrollLoad: false,
-  handleChangePage: function handleChangePage() {
-    return new Promise(function (resolve, reject) {
-      reject();
-    });
-  }
+ItemsList.propTypes = {
+  data: _propTypes2.default.array,
+  column: _propTypes2.default.number
 };
-
-exports.default = Pagination;
+ItemsList.defaultProps = {
+  data: [],
+  column: 5
+};
+ItemsList.classPrefix = 'm-search-itemsList';
+exports.default = ItemsList;
 
 /***/ }),
-/* 40 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(41);
+var content = __webpack_require__(34);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -3930,8 +3335,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/less-loader/dist/index.js!./Pagination.less", function() {
-			var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/less-loader/dist/index.js!./Pagination.less");
+		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/less-loader/dist/index.js!./ItemsList.less", function() {
+			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/less-loader/dist/index.js!./ItemsList.less");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -3941,7 +3346,7 @@ if(false) {
 }
 
 /***/ }),
-/* 41 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -3949,166 +3354,13 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, ".m-pagination {\n  width: 100%;\n  text-align: center;\n  position: relative;\n}\n.m-pagination > * {\n  display: inline-block;\n}\n.m-pagination button {\n  height: 0.3rem;\n  min-width: 0.3rem;\n  border-width: 0.01rem;\n  border-style: solid;\n  text-align: center;\n  line-height: 0.3rem;\n  cursor: pointer;\n  box-sizing: content-box;\n  position: relative;\n}\n.m-pagination button:focus {\n  outline: 0;\n}\n.m-pagination button:hover {\n  border-color: #ccc;\n  z-index: 2;\n}\n.m-pagination button:disabled {\n  color: #ccc;\n  cursor: default;\n  border-color: #eee;\n  z-index: 1;\n}\n.m-pagination button.active {\n  color: #fff;\n  background: #302E2F;\n  border-color: #302E2F;\n  z-index: 3;\n  cursor: default;\n}\n.m-pagination .button-prev {\n  padding: 0 0.15rem;\n}\n.m-pagination .button-next {\n  padding: 0 0.15rem;\n  background-position: right 0;\n}\n.m-pagination .button-prev .bc-icon,\n.m-pagination .button-next .bc-icon {\n  font-size: 12px;\n}\n.m-pagination .button-group {\n  margin-left: 0.11rem;\n  margin-right: 0.09rem;\n  vertical-align: top;\n}\n.m-pagination .button-group li {\n  display: inline-block;\n  margin-left: -0.01rem;\n  vertical-align: top;\n}\n.m-pagination .button-group li button {\n  display: inline-block;\n  min-width: 0.3rem;\n}\n.m-pagination .button-group li span {\n  display: block;\n  min-width: 0.3rem;\n  height: 0.3rem;\n  text-align: center;\n  border: 0.01rem solid transparent;\n  box-sizing: content-box;\n}\n.m-pagination.m-pagination-loading {\n  opacity: .5;\n}\n.m-pagination.m-pagination-loading .m-pagination-mask {\n  display: block;\n}\n.m-pagination .m-pagination-mask {\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 4;\n  background: transparent;\n  display: none;\n}\n.m-pagination.m-pagination-sm {\n  height: 0.3rem;\n}\n.m-pagination.m-pagination-sm > * {\n  height: 0.3rem;\n  line-height: 0.3rem;\n  vertical-align: middle;\n}\n.m-pagination.m-pagination-sm button {\n  height: 0.28rem;\n  line-height: 0.28rem;\n  font-size: 0.12rem;\n}\n.m-pagination.m-pagination-sm input {\n  width: 0.4rem;\n  height: 0.28rem;\n  line-height: 0.28rem;\n}\n.m-pagination.m-pagination-sm .button-confirm {\n  padding: 0 0.1rem;\n  font-size: 0.12rem;\n}\n.m-pagination.m-pagination-sm .button-group li button {\n  min-width: 0.2rem;\n}\n.m-pagination.m-pagination-sm .button-prev {\n  padding: 0 0.16rem;\n}\n.m-pagination.m-pagination-sm .button-next {\n  padding: 0 0.16rem;\n}\n.m-pagination-noMore {\n  text-align: center;\n}\n", ""]);
+exports.push([module.i, "/** 产品列表 **/\n/** 变量定义 **/\n/* 弹性盒子*/\n/*圆角*/\n/* 文本溢出...*/\n/* 限制文本行数*/\n/* 阴影 */\n/*旋转函数*/\n/*过度动画*/\n/*css3 动画*/\n/*css3 transform*/\n.m-search-itemsList {\n  margin-top: 0.4rem;\n  margin-bottom: 0.1rem;\n}\n.m-search-itemsList li {\n  display: inline-block;\n  vertical-align: top;\n  margin-bottom: 0.3rem;\n  width: 22.5%;\n  margin-right: 3.3%;\n}\n.m-search-itemsList li:nth-child(4n) {\n  margin-right: 0;\n}\n.m-search-itemsList li a {\n  display: inline-block;\n  width: 100%;\n}\n.m-search-itemsList li a > div {\n  width: 100%;\n  text-align: center;\n  vertical-align: top;\n  line-height: 0;\n  max-width: 100%;\n  background-position: center;\n  background-size: cover;\n  height: 2.7rem;\n}\n.m-search-itemsList li p {\n  line-height: 1.4em;\n  margin-top: 0.1rem;\n}\n.m-search-itemsList li p:first-of-type {\n  max-height: 2.8em;\n  overflow: hidden;\n  word-break: keep-all;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  display: -webkit-box;\n  -webkit-line-clamp: 2;\n  -webkit-box-orient: vertical;\n}\n.m-search-itemsList.column-2 li {\n  width: 45%;\n  margin-right: 10%;\n  margin-bottom: 0.35rem;\n}\n.m-search-itemsList.column-2 li:nth-child(2n) {\n  margin-right: 0;\n}\n.m-search-itemsList.column-3 li {\n  width: 31%;\n  margin-right: 3.5%;\n}\n.m-search-itemsList.column-3 li:nth-child(4n) {\n  margin-right: 3.5%;\n}\n.m-search-itemsList.column-3 li:nth-child(3n) {\n  margin-right: 0;\n}\n.m-search-itemsList.column-3 li p {\n  line-height: 1.5em;\n  margin-top: 0.15rem;\n}\n.m-search-itemsList.column-5 li {\n  width: 18%;\n  margin-right: 2.5%;\n}\n.m-search-itemsList.column-5 li:nth-child(5n) {\n  margin-right: 0;\n}\n.l-mobile .m-search-itemsList li {\n  width: 47% !important;\n  margin-right: 0 !important;\n}\n.l-mobile .m-search-itemsList li:nth-child(2n) {\n  margin-left: 3% !important;\n}\n.l-mobile .m-search-itemsList li:nth-child(2n + 1) {\n  margin-right: 3% !important;\n}\n@media screen and (max-width: 750px) {\n  .m-search-itemsList li a > div {\n    height: 1.8rem;\n  }\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 42 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _SubNav = __webpack_require__(43);
-
-var _SubNav2 = _interopRequireDefault(_SubNav);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _SubNav2.default; /**
-                                     * @author Gavin Yang (杨伟伟)
-                                     * @desc subNav (二级页面 导航条)
-                                     */
-
-/***/ }),
-/* 43 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-__webpack_require__(44);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Icon = __webpack_require__(8);
-
-var _Icon2 = _interopRequireDefault(_Icon);
-
-var _index = __webpack_require__(6);
-
-var _index2 = _interopRequireDefault(_index);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var classPrefix = 'bc-subnav';
-
-var SubNavigation = function (_React$Component) {
-  _inherits(SubNavigation, _React$Component);
-
-  function SubNavigation(props) {
-    _classCallCheck(this, SubNavigation);
-
-    var _this = _possibleConstructorReturn(this, (SubNavigation.__proto__ || Object.getPrototypeOf(SubNavigation)).call(this, props));
-
-    _this.state = {};
-    return _this;
-  }
-
-  _createClass(SubNavigation, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      // console.log(window.location)
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var route = this.props.route;
-
-      return _react2.default.createElement(
-        'div',
-        { className: classPrefix + '-container' },
-        _react2.default.createElement(
-          _index2.default,
-          { href: route[0].href },
-          route[0].name
-        ),
-        _react2.default.createElement(
-          _index2.default,
-          { href: '', className: 'arr' },
-          _react2.default.createElement(_Icon2.default, { type: 'forward' })
-        ),
-        _react2.default.createElement(
-          _index2.default,
-          { href: route[1].href },
-          route[1].name
-        )
-      );
-    }
-  }]);
-
-  return SubNavigation;
-}(_react2.default.Component);
-
-exports.default = SubNavigation;
-
-/***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(45);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(2)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/less-loader/dist/index.js!./SubNav.less", function() {
-			var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/less-loader/dist/index.js!./SubNav.less");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".bc-subnav-container {\n  display: flex;\n  max-width: 100%;\n  justify-content: flex-start;\n  align-items: center;\n  margin: 0.4rem 0;\n}\n.bc-subnav-container a {\n  display: block;\n  color: #302E2F;\n  text-decoration: underline;\n  border: none;\n  outline: 0;\n}\n.bc-subnav-container a.arr {\n  padding: 0 0.08rem;\n  text-decoration: none;\n}\n.bc-subnav-container a.arr i {\n  font-size: 0.14rem;\n  color: #8B8185;\n}\n.bc-subnav-container a:nth-last-of-type(1) {\n  color: #8B8185;\n  text-decoration: none;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 46 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4139,11 +3391,12 @@ exports.getBlogDetails = getBlogDetails;
 exports.getCollections = getCollections;
 exports.getHomeCollections = getHomeCollections;
 exports.fetchTopicsDedails = fetchTopicsDedails;
+exports.fetchRecommendTopic = fetchRecommendTopic;
 exports.getSinglePage = getSinglePage;
 
-var _util = __webpack_require__(7);
+var _util = __webpack_require__(10);
 
-var _common = __webpack_require__(47);
+var _common = __webpack_require__(36);
 
 /** 获取用户数据 **/
 function getUserInfo() {
@@ -4286,6 +3539,14 @@ function fetchTopicsDedails() {
   return (0, _util.fetch)(_common.APIRoot + '/collections/' + id + '/' + pageSize + '/' + page + '/');
 }
 
+/** 获取随机专题推荐详情 **/
+function fetchRecommendTopic() {
+  var _ref5 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      kind = _ref5.kind;
+
+  return (0, _util.fetch)(_common.APIRoot + '/recommend/' + kind + '/');
+}
+
 /** 获取单页数据 **/
 function getSinglePage(id) {
   return (0, _util.fetch)(_common.APIRoot + '/pages/' + id);
@@ -4297,7 +3558,7 @@ function getSinglePage(id) {
 // }
 
 /***/ }),
-/* 47 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4314,6 +3575,159 @@ Object.defineProperty(exports, "__esModule", {
 var APIRoot = 'https://www.' + window.supervar.domain + ':8686/web/v1';
 
 exports.APIRoot = APIRoot;
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _SubNav = __webpack_require__(38);
+
+var _SubNav2 = _interopRequireDefault(_SubNav);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _SubNav2.default; /**
+                                     * @author Gavin Yang (杨伟伟)
+                                     * @desc subNav (二级页面 导航条)
+                                     */
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+__webpack_require__(39);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Icon = __webpack_require__(8);
+
+var _Icon2 = _interopRequireDefault(_Icon);
+
+var _index = __webpack_require__(6);
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var classPrefix = 'bc-subnav';
+
+var SubNavigation = function (_React$Component) {
+  _inherits(SubNavigation, _React$Component);
+
+  function SubNavigation(props) {
+    _classCallCheck(this, SubNavigation);
+
+    var _this = _possibleConstructorReturn(this, (SubNavigation.__proto__ || Object.getPrototypeOf(SubNavigation)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(SubNavigation, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      // console.log(window.location)
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var route = this.props.route;
+
+      return _react2.default.createElement(
+        'div',
+        { className: classPrefix + '-container' },
+        _react2.default.createElement(
+          _index2.default,
+          { href: route[0].href },
+          route[0].name
+        ),
+        _react2.default.createElement(
+          _index2.default,
+          { href: '', className: 'arr' },
+          _react2.default.createElement(_Icon2.default, { type: 'forward' })
+        ),
+        _react2.default.createElement(
+          _index2.default,
+          { href: route[1].href },
+          route[1].name
+        )
+      );
+    }
+  }]);
+
+  return SubNavigation;
+}(_react2.default.Component);
+
+exports.default = SubNavigation;
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(40);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(2)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/less-loader/dist/index.js!./SubNav.less", function() {
+			var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/less-loader/dist/index.js!./SubNav.less");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".bc-subnav-container {\n  display: flex;\n  max-width: 100%;\n  justify-content: flex-start;\n  align-items: center;\n  margin: 0.4rem 0;\n}\n.bc-subnav-container a {\n  display: block;\n  color: #302E2F;\n  text-decoration: underline;\n  border: none;\n  outline: 0;\n}\n.bc-subnav-container a.arr {\n  padding: 0 0.08rem;\n  text-decoration: none;\n}\n.bc-subnav-container a.arr i {\n  font-size: 0.14rem;\n  color: #8B8185;\n}\n.bc-subnav-container a:nth-last-of-type(1) {\n  color: #8B8185;\n  text-decoration: none;\n}\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);

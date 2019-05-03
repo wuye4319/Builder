@@ -1,5 +1,5 @@
 /**
- * @author MG Ding (丁文强)
+ * @author Nero
  * @desc FeaturedCollection 特色商品推荐
  */
 /* eslint-disable standard/computed-property-even-spacing */

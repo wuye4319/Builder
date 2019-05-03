@@ -4,47 +4,6 @@
  * @date：2018.4.11
  **/
 
-/**
- 组件state中关键字段说明:
- product_list: [
- {
-   currency: "USD",
-   currency_symbol: "US $",
-   main_img: "",
-   market_price: 49.8,
-   platform: 9,
-   platform_name: "SELF",
-   product_id: "g9jP2e",
-   product_name: "",
-   sell_price: 11.95,
-   source_url: "",
-   spu_code: "91800012857512",
- },
- ...
- ]
- collectionInfo：{
-  id: "",
-  handle: "",
-  created_at: "",
-  description: "",
-  collect_type: "",
- }
-
- 组件中props说明：
- config: {
-    bgImg: "" //Banner背景图
-    checkbox: {
-      showTagCtrl: true, //是否显示Banner
-      showSortCtrl: false,  //是否显示价格筛选器
-      showCategoryCtrl: false // 是否显示分类筛选器
-    }
-    cols: 3 //需要显示的商品列数
-    key: 1 //(暂无用)
-    name: "TopicsDetails" //模块名（暂无用）
-  }
-
- **/
-
 import './TopicsDetails.less'
 import '../Search/ItemsList.less'
 
@@ -60,14 +19,14 @@ import { query2Obj } from '../../source/util'
 import { fetchTopicsDedails } from '../../source/service/page'
 
 const route = [
-  {name: '专题', href: '/topics/'},
-  {name: '详情', href: ''}
+  { name: '专题', href: '/topics/' },
+  { name: '详情', href: '' }
 ]
 
 class TopicsDetails extends React.Component {
   static classPrefix = 'm-topicsDetails'
 
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       page: 1, // 当前页码
@@ -78,15 +37,15 @@ class TopicsDetails extends React.Component {
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.getProductList()
   }
 
   getProductList = (n) => {
-    const {config} = this.props
-    let {cols} = config
+    const { pageMode, config } = this.props
+    let { cols } = config
     return (
-      fetchTopicsDedails({page: n, id: this.state.id, pageSize: cols * 8}).then(res => { // 请求集合详情信息
+      fetchTopicsDedails({ page: n, id: this.state.id, pageSize: cols * 8 }).then(res => { // 请求集合详情信息
         if (res.state !== 0) {
           Message.error(res.msg)
           return
@@ -96,8 +55,13 @@ class TopicsDetails extends React.Component {
           return
         }
 
+        let allproductlist
+        if (pageMode === 1 && this.state.product_list) {
+          allproductlist = this.state.product_list.concat(res.data.product_list)
+        }
+
         this.setState({
-          product_list: res.data.product_list,
+          product_list: allproductlist || res.data.product_list,
           page: res.current_page,
           totalPage: res.total_page,
           collectionInfo: res.data.collection
@@ -106,18 +70,18 @@ class TopicsDetails extends React.Component {
     )
   }
 
-  render () {
-    const {product_list} = this.state
+  render() {
+    const { product_list } = this.state
 
     if (!product_list || product_list.length === 0) {
-      return <span style={{color: '#ccc', display: 'block', margin: '80px auto', textAlign: 'center'}}>no data~</span>
+      return <span style={{ color: '#ccc', display: 'block', margin: '80px auto', textAlign: 'center' }}>no data~</span>
     }
 
-    const {classPrefix} = TopicsDetails
-    const {pageMode, config} = this.props
-    const {page, totalPage, collectionInfo} = this.state
+    const { classPrefix } = TopicsDetails
+    const { pageMode, config } = this.props
+    const { page, totalPage, collectionInfo } = this.state
 
-    let {checkbox, bgImg, cols} = config
+    let { checkbox, bgImg, cols } = config
     let isModile = (pageMode === 1)
 
     if (isModile) {
@@ -127,12 +91,12 @@ class TopicsDetails extends React.Component {
     return (
       <React.Fragment>
         <div className='l-centerBlock'>
-          <SubNavigation route={route}/>
+          <SubNavigation route={route} />
         </div>
         {
           checkbox['showTagCtrl'] &&
           <div className={`${classPrefix}-banner`}
-               style={{backgroundImage: `url(${collectionInfo.main_img || '/source/img/default.png'})`}}>
+            style={{ backgroundImage: `url(${collectionInfo.main_img || '/source/img/default.png'})` }}>
             <div className='banner-text'>
               <h2>{collectionInfo.title}</h2>
             </div>
@@ -141,7 +105,7 @@ class TopicsDetails extends React.Component {
         <div className={`${classPrefix}-centerBlock l-centerBlock`}>
           <div className={`${classPrefix}-container`}>
             <div className='topics-header'>
-              <h2 dangerouslySetInnerHTML={{__html: collectionInfo.description}}></h2>
+              <h2 dangerouslySetInnerHTML={{ __html: collectionInfo.description }}></h2>
               <div className='topics-ctrl'>
                 {
                   checkbox['showCategoryCtrl'] && <div className='ctrl-item'>
@@ -168,7 +132,7 @@ class TopicsDetails extends React.Component {
               </div>
             </div>
             <div className='products-list'>
-              <ItemsList data={product_list} column={cols}/>
+              <ItemsList data={product_list} column={cols} />
               <Pagination
                 pageNo={page}
                 totalPage={totalPage}

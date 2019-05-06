@@ -1839,7 +1839,7 @@ var Layout = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'l-header' },
-                    _react2.default.createElement(_Header2.default, { config: header, fetch: fetch, pageMode: pageMode, userInfo: userInfo, cartInfo: cartInfo })
+                    header ? _react2.default.createElement(_Header2.default, { config: header, fetch: fetch, pageMode: pageMode, userInfo: userInfo, cartInfo: cartInfo }) : ''
                 ),
                 _react2.default.createElement(
                     'div',
@@ -1853,7 +1853,7 @@ var Layout = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'l-footer' },
-                    _react2.default.createElement(_Footer2.default, { config: footer, fetch: fetch, pageMode: pageMode })
+                    footer ? _react2.default.createElement(_Footer2.default, { config: footer, fetch: fetch, pageMode: pageMode }) : ''
                 )
             );
         }

@@ -105,7 +105,7 @@ class TopicsDetails extends React.Component {
         <div className={`${classPrefix}-centerBlock l-centerBlock`}>
           <div className={`${classPrefix}-container`}>
             <div className='topics-header'>
-              <h2 dangerouslySetInnerHTML={{ __html: collectionInfo.description }}></h2>
+              {/* <h2 dangerouslySetInnerHTML={{ __html: collectionInfo.description }}></h2> */}
               <div className='topics-ctrl'>
                 {
                   checkbox['showCategoryCtrl'] && <div className='ctrl-item'>

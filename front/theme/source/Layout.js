@@ -20,7 +20,7 @@ export default class Layout extends React.Component {
         return (
             <div className={`l-wrap ${color.bg('bg')} ${color('text')} ${font('text')} ${setClass({ 'l-mobile': pageMode === 1 })}`}>
                 <div className='l-header'>
-                    <Header config={header} fetch={fetch} pageMode={pageMode} userInfo={userInfo} cartInfo={cartInfo} />
+                    {header ? <Header config={header} fetch={fetch} pageMode={pageMode} userInfo={userInfo} cartInfo={cartInfo} /> : ''}
                 </div>
                 <div className='l-main'>
                     {userCenter
@@ -33,7 +33,7 @@ export default class Layout extends React.Component {
                     }
                 </div>
                 <div className='l-footer'>
-                    <Footer config={footer} fetch={fetch} pageMode={pageMode} />
+                    {footer ? <Footer config={footer} fetch={fetch} pageMode={pageMode} /> : ''}
                 </div>
             </div>
         )

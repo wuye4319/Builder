@@ -6,7 +6,7 @@ const mime = require('mime')
 const fs = require('fs')
 
 class staticFiles {
-  async getfile (ctx, url, dir) {
+  async getfile(ctx, url, dir) {
     let rpath = ctx.request.path
     // file path
     let fp = path.join(dir, rpath)
@@ -27,7 +27,7 @@ class staticFiles {
     }
   }
 
-  addinitdata (ctx, fp) {
+  addinitdata(ctx, fp) {
     // add static data
     // var a=4;var reg='/[a-zA-Z0-9]{'+a+'}/'; eval(reg).test('test')
     let ishtml = /.html/.test(fp)
@@ -37,8 +37,7 @@ class staticFiles {
       let tempstr = fs.readFileSync(fp)
 
       // builder.test.com use testuser
-      let testcom = (ctx.hostname === 'localhost' || ctx.hostname.indexOf('.') !== -1 || ctx.hostname.indexOf('test.com') !== -1)
-      let user = (testcom ? 'default' : ctx.hostname)
+      let user = (ctx.hostname.indexOf('test.com') !== -1 ? 'we-wssso-com' : ctx.hostname.replace(/\./g, '-'))
 
       // get page name
       let pageindex = ctx.url.indexOf('page')

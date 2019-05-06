@@ -30,15 +30,14 @@ app.use(async (ctx, next) => {
   let myurl = ctx.url.substr(0, ctx.url.indexOf('http'))
   logger.myconsole(`${ctx.method} ${myurl || ctx.url} - ${ms}ms`)
   let alloworigin = [
-    'https://www.test.com',
     // 'http://192.168.8.176',
-    'https://www.wssso.com'
+    'https://www.wssso.com',
+    'https://we.wssso.com',
+    'https://www.test.com',
   ]
   for (let i in alloworigin) {
     if (alloworigin[i] === ctx.request.header.origin) {
       ctx.response.set('Access-Control-Allow-Origin', alloworigin[i])
-    } else {
-      ctx.response.set('Access-Control-Allow-Origin', alloworigin[0])
     }
   }
 

@@ -2,9 +2,6 @@
  * Created by nero on 2017/6/2.
  */
 const koa = require('../../koa/index')
-const fs = require('fs')
-const Writefile = require('keeper-core/lib/writefile')
-let writefile = new Writefile()
 const Builder = require('../service/builder')
 let builder = new Builder()
 
@@ -29,8 +26,8 @@ koa.addrouter('/shopbuilder/userpageconfig/:type/:user', async (ctx) => {
   }
   ctx.response.body = result
 })
-// koa.addrouter(globparam + 'collections/multiple', async (ctx) => {
-//   let result
-//   result = builder.collectionsmul()
-//   ctx.response.body = result
-// })
+koa.addrouter(globparam + 'prizeticket', async (ctx) => {
+  // let body = ctx.request.body
+  console.log('prizeticket')
+  ctx.response.body = 'sucessful'
+})

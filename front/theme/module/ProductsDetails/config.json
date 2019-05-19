@@ -1,0 +1,9 @@
+{
+  "name": "topics_details",
+  "module": [
+    {
+      "name": "TopicsDetails",
+      "key": 1
+    }
+  ]
+}

@@ -924,7 +924,7 @@ function _fetch(url) {
 
 /**
  * 请求方法
- * @author MG
+ * @author Nero
  */
 
 function fetch(url) {
@@ -1353,7 +1353,7 @@ Object.defineProperty(exports, "__esModule", {
  * @date 2018/9/26
  * @desc service config
  */
-var APIRoot = 'https://www.' + window.supervar.domain + ':8686/web/v1';
+var APIRoot = 'https://www.' + window.supervar.domain + '/web/v1';
 
 exports.APIRoot = APIRoot;
 
@@ -5038,6 +5038,7 @@ exports.getBlogDetails = getBlogDetails;
 exports.getCollections = getCollections;
 exports.getHomeCollections = getHomeCollections;
 exports.fetchTopicsDedails = fetchTopicsDedails;
+exports.fetchProductsDedails = fetchProductsDedails;
 exports.fetchRecommendTopic = fetchRecommendTopic;
 exports.getSinglePage = getSinglePage;
 
@@ -5186,10 +5187,18 @@ function fetchTopicsDedails() {
   return (0, _util.fetch)(_common.APIRoot + '/collections/' + id + '/' + pageSize + '/' + page + '/');
 }
 
+/** 获取商品详情 **/
+function fetchProductsDedails() {
+  var _ref5 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      id = _ref5.id;
+
+  return (0, _util.fetch)(_common.APIRoot + '/products/' + id + '/');
+}
+
 /** 获取随机专题推荐详情 **/
 function fetchRecommendTopic() {
-  var _ref5 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-      kind = _ref5.kind;
+  var _ref6 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      kind = _ref6.kind;
 
   return (0, _util.fetch)(_common.APIRoot + '/recommend/' + kind + '/');
 }

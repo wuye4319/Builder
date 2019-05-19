@@ -27,7 +27,7 @@ class mysql {
         id, page, size
       ], function (results) {
         let data = util.getarrt(results, [
-          'main_img', 'name', 'href', 'sell_price', 'currency', 'sales_volume', 'taoword', 'coupon', 'couponhref'
+          'pro_id', 'main_img', 'name', 'href', 'sell_price', 'currency', 'sales_volume', 'taoword', 'coupon', 'couponhref'
         ])
         resolve(data)
       })
@@ -41,7 +41,7 @@ class mysql {
         id, size
       ], function (results) {
         let data = util.getarrt(results, [
-          'main_img', 'name', 'href', 'sell_price', 'currency', 'sales_volume', 'taoword', 'coupon', 'couponhref'
+          'pro_id', 'main_img', 'name', 'href', 'sell_price', 'currency', 'sales_volume', 'taoword', 'coupon', 'couponhref'
         ])
         resolve(data)
       })

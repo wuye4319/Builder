@@ -29,6 +29,12 @@ koa.addrouter(globparam + 'searchpro/:key/:pagesize/:page', async (ctx) => {
 // http://builder.test.com:8080/web/v1/products/30/
 koa.addrouter(globparam + 'products/:id', async (ctx) => {
   let id = ctx.params.id
-  let result = await product.getPro(id)
+  let result = util.result(0)
+
+  let tempPro = await product.getPro(id)
+  if (tempPro) {
+    result.data.product_list = tempPro
+  }
+
   ctx.response.body = result
 })

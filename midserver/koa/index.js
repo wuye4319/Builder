@@ -4,13 +4,32 @@
 const Koa = require('koa')
 const app = new Koa()
 var fs = require('fs');
-const { default: enforceHttps } = require('koa-sslify');
+const sslify = require('koa-sslify').default;
 var https = require('https');
 const router = require('koa-router')()
 const koaBody = require('koa-body')
 // let staticFiles = require('./static')
 const Logger = require('keeper-core')
 let logger = new Logger()
+
+// test api
+var WechatAPI = require('wechat-api');
+var api = new WechatAPI('wx4ed5bcdb64111500', 'e89f298c7da7674816b320f6e642d703');
+api.getMenu(function (err, result) {
+  if (err) {
+    console.log(err)
+  } else {
+    console.log(result)
+  }
+});
+
+// wechat
+const wechat = require('co-wechat');
+const config = {
+  token: 'jxyhd11',
+  appid: 'wx4ed5bcdb64111500',
+  encodingAESKey: '6fGlKb8qKLnQ5a2k4xR8FldhtXejEQUW75GbQJF2HJT'
+};
 
 // SSL options
 const options = {
@@ -19,9 +38,7 @@ const options = {
 };
 
 // https
-app.use(enforceHttps({
-  port: 8686
-}));
+app.use(sslify());
 
 app.use(async (ctx, next) => {
   const start = Date.now()
@@ -50,6 +67,24 @@ app.use(async (ctx, next) => {
   }
 })
 
+app.use(wechat(config).middleware(async (message, ctx) => {
+  if (message.Content === '屌丝') {
+    return {
+      content: '呵呵',
+      type: 'text'
+    };
+  } else {
+    return [
+      {
+        title: '你来我家接我吧',
+        description: '这是女神与高富帅之间的对话',
+        picurl: 'http://nodeapi.cloudfoundry.com/qrcode.jpg',
+        url: 'http://www.wssso.com/index.php'
+      }
+    ];
+  }
+}))
+
 app.use(router.routes()).use(router.allowedMethods())
 // app.use(staticFiles('/static/', './static'))
 
@@ -58,7 +93,7 @@ app.on('error', function (err, ctx) {
   console.log('server error', err, ctx)
 })
 
-var lis = https.createServer(options, app.callback()).listen(8686);
+var lis = https.createServer(options, app.callback()).listen(443);
 console.log('The server is started!!!')
 
 var server = {

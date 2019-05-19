@@ -13,3 +13,11 @@ https://pub.alimama.com/common/code/getAuctionCode.json?auctionid=524244242771&a
 1.女性  --  化妆品，摄影美图
 2.男性  --  美女图，诱惑图，诱惑漫画，诱惑GIF图
 3.普通大众  --  动漫美图，漫画故事，搞笑GIF图
+
+### 微信token
+https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx4ed5bcdb64111500&secret=e89f298c7da7674816b320f6e642d703
+
+### 插件
+npm install co-wechat
+npm install --save koa-sslify
+npm install wechat-api

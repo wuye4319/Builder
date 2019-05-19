@@ -4,6 +4,7 @@
 const path = require('path')
 const mime = require('mime')
 const fs = require('fs')
+const spawn = require('child_process').spawn
 
 class staticFiles {
   async getfile(ctx, url, dir) {
@@ -27,6 +28,34 @@ class staticFiles {
     }
   }
 
+  async runphp(ctx, dir) {
+    return new Promise(resolve => {
+      let rpath = ctx.request.path
+      // file path
+      let fp = path.join(dir, rpath)
+      if (fs.existsSync(fp)) {
+        let phpserver = spawn('php', [fp, ctx.request.querystring])
+        let htmlbox
+        phpserver.stdout.on('data', function (data) {
+          if (data.indexOf('<!DOCTYPE html>') !== -1) {
+            htmlbox = ''
+          }
+          htmlbox += data.toString()
+        });
+        phpserver.stderr.on('data', function (data) {
+          console.log('stderr: ' + data);
+          resolve('error')
+        });
+        phpserver.on('exit', function () {
+          resolve(htmlbox)
+        });
+      } else {
+        // Not found
+        ctx.response.status = 404
+      }
+    })
+  }
+
   addinitdata(ctx, fp) {
     // add static data
     // var a=4;var reg='/[a-zA-Z0-9]{'+a+'}/'; eval(reg).test('test')
@@ -37,7 +66,7 @@ class staticFiles {
       let tempstr = fs.readFileSync(fp)
 
       // builder.test.com use testuser
-      let user = (ctx.hostname.indexOf('test.com') !== -1 ? 'we-wssso-com' : ctx.hostname.replace(/\./g, '-'))
+      let user = (ctx.hostname.indexOf('test.com') !== -1 ? 'www-wssso-com' : ctx.hostname.replace(/\./g, '-'))
 
       // get page name
       let pageindex = ctx.url.indexOf('page')

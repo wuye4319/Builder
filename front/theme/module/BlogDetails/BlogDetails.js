@@ -95,9 +95,7 @@ class BlogDetails extends React.Component {
         {/*)*/}
         {/*}*/}
         {/*</div>*/}
-        <div className='blog-content'>
-          {data.context}
-        </div>
+        <div className='blog-content' dangerouslySetInnerHTML={{ __html: data.context }} />
         {/* {
           !pageMode && <div className='blog-bottom'>
             <div className={`previous-box ${color('text')} ${font('text')}`}>

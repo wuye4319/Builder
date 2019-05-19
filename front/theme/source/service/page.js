@@ -115,6 +115,11 @@ export function fetchTopicsDedails({ id, pageSize, page = 1 } = {}) {
   return fetch(`${APIRoot}/collections/${id}/${pageSize}/${page}/`)
 }
 
+/** 获取商品详情 **/
+export function fetchProductsDedails({ id } = {}) {
+  return fetch(`${APIRoot}/products/${id}/`)
+}
+
 /** 获取随机专题推荐详情 **/
 export function fetchRecommendTopic({ kind } = {}) {
   return fetch(`${APIRoot}/recommend/${kind}/`)

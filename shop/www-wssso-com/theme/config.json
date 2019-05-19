@@ -20,9 +20,9 @@
               "imgAlt": "",
               "link": "http://builder.test.com/topics_details/?id=RqGv2P",
               "overLay": true,
-              "title": "Women SHOES123",
-              "content": "12313311231331123133112313311231331123133112313311231331",
-              "img": "https://img2.superbuy.com/images/p/2018/10/16/xwZMYiKKXZ4tWtxrGiYZfskWN2nfJd.jpg"
+              "title": "Women SHOES",
+              "content": "123",
+              "img": "http://img.alicdn.com/bao/uploaded/i2/2805768022/TB2g.3ypdBopuFjSZPcXXc9EpXa_!!2805768022.jpg"
             },
             {
               "imgAlign": "middle",
@@ -31,7 +31,7 @@
               "overLay": true,
               "title": "Dress",
               "content": "",
-              "img": "https://img2.superbuy.com/images/p/2018/10/15/rt7rzzPZj3sW2kThipP6zbGRZQSf73.jpg"
+              "img": "http://img.alicdn.com/bao/uploaded/i1/639295044/O1CN014Gma2i1n8CGv0odT5_!!639295044.jpg"
             },
             {
               "imgAlign": "middle",
@@ -40,7 +40,7 @@
               "overLay": true,
               "title": "Accessories",
               "content": "",
-              "img": "https://img2.superbuy.com/images/p/2018/10/15/nJjtCh8f48BTdphsFsiMpNjPnaNi7b.jpg"
+              "img": "http://img.alicdn.com/bao/uploaded/i3/775375243/O1CN01Obygd51obL3nQ8JEG_!!775375243.jpg"
             }
           ]
         },
@@ -69,7 +69,7 @@
           "buttonLabel": "View More",
           "buttonLink": "http://builder.test.com/topics_details/?id=OXb6X3",
           "content": "Top off your look with these head-turning styles! We're got everything from the best wardrobe staples to the hottest seasonal trends!",
-          "image": "https://img2.superbuy.com/images/p/2018/10/16/m7eRx7cchWAAD8x25FCRR4bGtHFXtp.jpg"
+          "image": "http://img.alicdn.com/bao/uploaded/i2/2805768022/TB2g.3ypdBopuFjSZPcXXc9EpXa_!!2805768022.jpg"
         },
         {
           "name": "HomeTopicsModule",
@@ -177,7 +177,21 @@
           "name": "TopicsDetails",
           "key": 1,
           "cols": 4,
-          "bgImg": "https://img2.superbuy.com/images/p/2018/10/15/QzG2637bm22rfb4e4aht8phpPzam8P.png",
+          "checkbox": {
+            "showTagCtrl": true,
+            "showSortCtrl": false,
+            "showCategoryCtrl": false
+          }
+        }
+      ]
+    },
+    "products_details": {
+      "name": "products_details",
+      "module": [
+        {
+          "name": "ProdcutsDetails",
+          "key": 1,
+          "cols": 4,
           "checkbox": {
             "showTagCtrl": true,
             "showSortCtrl": false,

@@ -2,7 +2,8 @@
  * Created by nero on 2017/6/2.
  */
 const koa = require('../index')
-const launcher = require('../static/launcher')
+// const launcher = require('../static/launcher')
+// const myhttp = require('../static/http')
 const Ctrl = require('./ctrl')
 let ctrl = new Ctrl()
 const StaticFiles = require('../static/static')
@@ -20,25 +21,33 @@ class rout {
 }
 
 // buy
-koa.addrouter(/^\/builder(?:\/|$)/, async (ctx) => {
-  await ctrl.filter(ctx, 'builder', true)
-})
-koa.addrouter('/wrapper/', async (ctx) => {
-  await ctrl.wrap()
-})
-koa.addrouter('/createshop/:user', async (ctx) => {
-  let user = ctx.params.user
-  await ctrl.filter(ctx, 'createshop', user)
-})
+// koa.addrouter(/^\/builder(?:\/|$)/, async (ctx) => {
+//   await ctrl.filter(ctx, 'builder', true)
+// })
+// koa.addrouter('/wrapper/', async (ctx) => {
+//   await ctrl.wrap()
+// })
+// koa.addrouter('/createshop/:user', async (ctx) => {
+//   let user = ctx.params.user
+//   await ctrl.filter(ctx, 'createshop', user)
+// })
 
 // static
-launcher.addrouter(/^\/builder(?:\/|$)/, async (ctx) => {
+koa.addrouter(/^\/builder(?:\/|$)/, async (ctx) => {
   await staticFiles.getfile(ctx, '', './static/')
 })
 // static
-launcher.addrouter(/^\/(\w+)(?:\/|$)/, async (ctx) => {
+koa.addrouter(/^\/(\w+)(?:\/|$)/, async (ctx) => {
   await staticFiles.getfile(ctx, '', './static/theme')
 })
-launcher.redirect('/', '/home')
+koa.redirect('/', '/home')
+
+// http
+// myhttp.addrouter(/^\/(\w*)/, async (ctx) => {
+//   let data = await staticFiles.runphp(ctx, './static/http')
+//   ctx.response.type = 'text/html'
+//   ctx.response.body = data
+// })
+// myhttp.redirect('/', '/index.php')
 
 module.exports = rout

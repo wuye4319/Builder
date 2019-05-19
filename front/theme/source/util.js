@@ -312,7 +312,7 @@ export function _fetch (url, options = {}) {
 
 /**
  * 请求方法
- * @author MG
+ * @author Nero
  */
 
 export function fetch (url, options = {}) {

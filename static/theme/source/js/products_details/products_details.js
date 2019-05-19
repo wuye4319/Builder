@@ -536,11 +536,11 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(17)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(20)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(20)();
+  module.exports = __webpack_require__(23)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
@@ -831,132 +831,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Message = __webpack_require__(21);
-
-var _Message2 = _interopRequireDefault(_Message);
-
-var _reactDom = __webpack_require__(31);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * @author MG Ding (丁文强)
- * @desc Message (全局提示)
- */
-var container = document.createElement('div');
-var instant = null;
-var initMessage = function initMessage() {
-  document.body.appendChild(container);
-  instant = _reactDom2.default.render(React.createElement(_Message2.default, null), container);
-};
-var add = function add(type, content, duration) {
-  !instant && initMessage();
-  return instant.add(type, content, duration);
-};
-
-var message = {
-  info: function info() {
-    for (var _len = arguments.length, rest = Array(_len), _key = 0; _key < _len; _key++) {
-      rest[_key] = arguments[_key];
-    }
-
-    return add.apply(undefined, ['info'].concat(rest));
-  },
-  success: function success() {
-    for (var _len2 = arguments.length, rest = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-      rest[_key2] = arguments[_key2];
-    }
-
-    return add.apply(undefined, ['success'].concat(rest));
-  },
-  error: function error() {
-    for (var _len3 = arguments.length, rest = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-      rest[_key3] = arguments[_key3];
-    }
-
-    return add.apply(undefined, ['error'].concat(rest));
-  },
-  warning: function warning() {
-    for (var _len4 = arguments.length, rest = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-      rest[_key4] = arguments[_key4];
-    }
-
-    return add.apply(undefined, ['warning'].concat(rest));
-  },
-  // loading: (...rest) => {
-  //   return add('loading', ...rest)
-  // },
-  hide: function hide(id) {
-    instant && instant.hide(id);
-  }
-
-};
-
-exports.default = message;
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _Icon = __webpack_require__(27);
-
-var _Icon2 = _interopRequireDefault(_Icon);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _Icon2.default; /**
-                                   * @author MG Ding (丁文强)
-                                   * @desc Icon (图标)
-                                   */
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = setClass;
-/**
- * 类名格式化
- * @author MG
- * @param data Object
- * @return String
- * */
-function setClass(data) {
-  try {
-    return Object.keys(data).filter(function (item) {
-      return data[item];
-    }).join(' ');
-  } catch (e) {
-    console.error(e);
-    return '';
-  }
-}
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; /* eslint-disable no-param-reassign,prefer-destructuring */
@@ -981,7 +855,7 @@ exports._fetch = _fetch;
 exports.fetch = fetch;
 exports.fetchLite = fetchLite;
 
-var _index = __webpack_require__(7);
+var _index = __webpack_require__(9);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -1409,6 +1283,132 @@ function fetchLite(fetch) {
 }
 
 /***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _Icon = __webpack_require__(30);
+
+var _Icon2 = _interopRequireDefault(_Icon);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _Icon2.default; /**
+                                   * @author MG Ding (丁文强)
+                                   * @desc Icon (图标)
+                                   */
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _Message = __webpack_require__(24);
+
+var _Message2 = _interopRequireDefault(_Message);
+
+var _reactDom = __webpack_require__(34);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * @author MG Ding (丁文强)
+ * @desc Message (全局提示)
+ */
+var container = document.createElement('div');
+var instant = null;
+var initMessage = function initMessage() {
+  document.body.appendChild(container);
+  instant = _reactDom2.default.render(React.createElement(_Message2.default, null), container);
+};
+var add = function add(type, content, duration) {
+  !instant && initMessage();
+  return instant.add(type, content, duration);
+};
+
+var message = {
+  info: function info() {
+    for (var _len = arguments.length, rest = Array(_len), _key = 0; _key < _len; _key++) {
+      rest[_key] = arguments[_key];
+    }
+
+    return add.apply(undefined, ['info'].concat(rest));
+  },
+  success: function success() {
+    for (var _len2 = arguments.length, rest = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      rest[_key2] = arguments[_key2];
+    }
+
+    return add.apply(undefined, ['success'].concat(rest));
+  },
+  error: function error() {
+    for (var _len3 = arguments.length, rest = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+      rest[_key3] = arguments[_key3];
+    }
+
+    return add.apply(undefined, ['error'].concat(rest));
+  },
+  warning: function warning() {
+    for (var _len4 = arguments.length, rest = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+      rest[_key4] = arguments[_key4];
+    }
+
+    return add.apply(undefined, ['warning'].concat(rest));
+  },
+  // loading: (...rest) => {
+  //   return add('loading', ...rest)
+  // },
+  hide: function hide(id) {
+    instant && instant.hide(id);
+  }
+
+};
+
+exports.default = message;
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = setClass;
+/**
+ * 类名格式化
+ * @author MG
+ * @param data Object
+ * @return String
+ * */
+function setClass(data) {
+  try {
+    return Object.keys(data).filter(function (item) {
+      return data[item];
+    }).join(' ');
+  } catch (e) {
+    console.error(e);
+    return '';
+  }
+}
+
+/***/ }),
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1422,17 +1422,15 @@ module.exports = __webpack_require__(12);
 "use strict";
 
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _BlogDetails = __webpack_require__(13);
+var _ProductsDetails = __webpack_require__(13);
 
-var _BlogDetails2 = _interopRequireDefault(_BlogDetails);
+var _ProductsDetails2 = _interopRequireDefault(_ProductsDetails);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1441,58 +1439,44 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author Nero
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @desc 博客详情
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author：Nero
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @desc：商品详情页
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @paramsDesc: 传入Topics的props说明
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  config: C端页面对应的builder配置文件
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  pageMode: C端页面模式 0 桌面版 1 移动版
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  userInfo: 用户信息
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @date：2018.4.11
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
 
-/** modules **/
+var Page = function (_React$Component) {
+  _inherits(Page, _React$Component);
 
+  function Page() {
+    _classCallCheck(this, Page);
 
-var _module = { BlogDetails: _BlogDetails2.default
-  /** modules **/
-  // const config = require('./config.json')
-
-};
-var Blogdetails = function (_React$Component) {
-  _inherits(Blogdetails, _React$Component);
-
-  function Blogdetails() {
-    _classCallCheck(this, Blogdetails);
-
-    return _possibleConstructorReturn(this, (Blogdetails.__proto__ || Object.getPrototypeOf(Blogdetails)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Page.__proto__ || Object.getPrototypeOf(Page)).apply(this, arguments));
   }
 
-  _createClass(Blogdetails, [{
+  _createClass(Page, [{
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var moduleConfig = this.props.config.module[0];
+      var _props = this.props,
+          userInfo = _props.userInfo,
+          pageMode = _props.pageMode;
 
-      var config = this.props.config;
-
-      return _react2.default.createElement(
-        'div',
-        null,
-        config.module.map(function (moduleConfig) {
-          var name = moduleConfig.name,
-              key = moduleConfig.key;
-
-          var id = name + '-' + key;
-          return _react2.default.createElement(
-            'div',
-            { id: id, key: id },
-            _react2.default.createElement(_module[name], _extends({}, _this2.props, {
-              config: moduleConfig
-            }))
-          );
-        })
-      );
+      return _react2.default.createElement(_ProductsDetails2.default, {
+        userInfo: userInfo,
+        pageMode: pageMode,
+        config: moduleConfig
+      });
     }
   }]);
 
-  return Blogdetails;
+  return Page;
 }(_react2.default.Component);
 
-window.wrapper(Blogdetails);
+window.wrapper(Page);
 
 /***/ }),
 /* 13 */
@@ -1513,23 +1497,21 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(3);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _Message = __webpack_require__(7);
-
-var _Message2 = _interopRequireDefault(_Message);
-
-var _ItemsList = __webpack_require__(32);
+var _ItemsList = __webpack_require__(17);
 
 var _ItemsList2 = _interopRequireDefault(_ItemsList);
 
-var _page = __webpack_require__(35);
+var _Message = __webpack_require__(9);
 
-var _SubNavigation = __webpack_require__(37);
+var _Message2 = _interopRequireDefault(_Message);
+
+var _SubNavigation = __webpack_require__(42);
 
 var _SubNavigation2 = _interopRequireDefault(_SubNavigation);
+
+var _util = __webpack_require__(7);
+
+var _page = __webpack_require__(46);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1538,119 +1520,133 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author Nero
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @desc 博客详情模块
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author：Nero
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @desc：专题集合页面
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @date：2018.4.11
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                **/
 
+var route = [{ name: '专题', href: '/topics/' }, { name: '详情', href: '' }];
 
-var _window$supervar$util = window.supervar.util,
-    font = _window$supervar$util.font,
-    color = _window$supervar$util.color,
-    fetchLite = _window$supervar$util.fetchLite,
-    query2Obj = _window$supervar$util.query2Obj;
+var TopicsDetails = function (_React$Component) {
+  _inherits(TopicsDetails, _React$Component);
 
+  function TopicsDetails(props) {
+    _classCallCheck(this, TopicsDetails);
 
-var route = [{ name: '美图区', href: '/blogs/' }, { name: '详情', href: '' }];
+    var _this = _possibleConstructorReturn(this, (TopicsDetails.__proto__ || Object.getPrototypeOf(TopicsDetails)).call(this, props));
 
-var BlogDetails = function (_React$Component) {
-  _inherits(BlogDetails, _React$Component);
+    _this.getProductList = function (n) {
+      var pageMode = _this.props.pageMode;
 
-  function BlogDetails(props) {
-    _classCallCheck(this, BlogDetails);
-
-    var _this = _possibleConstructorReturn(this, (BlogDetails.__proto__ || Object.getPrototypeOf(BlogDetails)).call(this, props));
-
-    _this.fetchProductList = function (kind) {
-      fetchLite(_page.fetchRecommendTopic.bind(null, {
-        kind: kind
-      }), {
-        done: function done(res) {
-          var data = res.data && res.data.product_list || null;
-          if (!data || data.length === 0) {
-            return;
-          }
-
-          _this.setState({
-            productList: data
-          });
-        }
-      });
-    };
-
-    _this.handleBlogDetails = function () {
-      return (0, _page.getBlogDetails)(_this.state.id).then(function (res) {
+      return (0, _page.fetchProductsDedails)({ id: _this.state.id }).then(function (res) {
+        // 请求集合详情信息
         if (res.state !== 0) {
           _Message2.default.error(res.msg);
-        } else {
-          if (!res.data) {
-            return;
-          }
-
-          // 获取关联专题
-          _this.fetchProductList(res.data.kind);
-          _this.setState({
-            data: res.data
-          });
+          return;
         }
+
+        if (!res.data || !res.data.product_list) {
+          return;
+        }
+
+        var allproductlist = void 0;
+        if (pageMode === 1 && _this.state.product_list) {
+          allproductlist = _this.state.product_list.concat(res.data.product_list);
+        }
+
+        _this.setState({
+          product_list: allproductlist || res.data.product_list
+        });
       });
     };
 
     _this.state = {
-      id: query2Obj()['id'], //专题ID
-      labelList: [{
-        label: 'Simple'
-      }],
-      data: '',
-      productList: null
+      page: 1, // 当前页码
+      id: (0, _util.query2Obj)()['id'] //专题ID
     };
     return _this;
   }
 
-  _createClass(BlogDetails, [{
+  _createClass(TopicsDetails, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      this.handleBlogDetails();
+      this.getProductList();
     }
   }, {
     key: 'render',
     value: function render() {
-      // const { pageMode } = this.props
-      var _state = this.state,
-          labelList = _state.labelList,
-          data = _state.data,
-          productList = _state.productList;
+      var product_list = this.state.product_list;
+
+
+      if (!product_list || product_list.length === 0) {
+        return _react2.default.createElement(
+          'span',
+          { style: { color: '#ccc', display: 'block', margin: '80px auto', textAlign: 'center' } },
+          'no data~'
+        );
+      }
+
+      var classPrefix = TopicsDetails.classPrefix;
+      var _props = this.props,
+          pageMode = _props.pageMode,
+          config = _props.config;
+      var collectionInfo = this.state.collectionInfo;
+      var cols = config.cols;
+
+      var isModile = pageMode === 1;
+      if (isModile) {
+        cols = 2;
+      }
 
       return _react2.default.createElement(
-        'div',
-        { className: 'm-BlogDetails-wrap l-BlogDetails-wrap l-centerBlock' },
-        _react2.default.createElement(_SubNavigation2.default, { route: route }),
+        _react2.default.Fragment,
+        null,
         _react2.default.createElement(
-          'h2',
-          { className: 'blog-title ' + color('title') + ' ' + font('title') },
-          data.title
+          'div',
+          { className: 'l-centerBlock' },
+          _react2.default.createElement(_SubNavigation2.default, { route: route })
         ),
         _react2.default.createElement(
           'div',
-          { className: 'blog-info ' + color('subText') + ' ' + font('text') },
+          { className: classPrefix + '-banner',
+            style: { backgroundImage: 'url(' + (product_list.main_img || '/source/img/default.png') + ')' } },
           _react2.default.createElement(
-            'span',
-            { className: 'date' },
-            data.edit_date
+            'div',
+            { className: 'banner-text' },
+            _react2.default.createElement(
+              'h2',
+              null,
+              product_list.name
+            )
           )
         ),
-        _react2.default.createElement('div', { className: 'blog-content', dangerouslySetInnerHTML: { __html: data.context } }),
-        _react2.default.createElement(_ItemsList2.default, { data: productList, column: 2 })
+        _react2.default.createElement(
+          'div',
+          { 'class': 'procontext' },
+          '\u5546\u54C1\u8BE6\u60C5'
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: classPrefix + '-centerBlock l-centerBlock' },
+          _react2.default.createElement(
+            'div',
+            { className: classPrefix + '-container' },
+            _react2.default.createElement(
+              'div',
+              { className: 'products-list' },
+              _react2.default.createElement(_ItemsList2.default, { data: product_list, column: cols })
+            )
+          )
+        )
       );
     }
   }]);
 
-  return BlogDetails;
+  return TopicsDetails;
 }(_react2.default.Component);
 
-BlogDetails.propTypes = {
-  config: _propTypes2.default.object.isRequired
-};
-exports.default = BlogDetails;
+TopicsDetails.classPrefix = 'm-topicsDetails';
+exports.default = TopicsDetails;
 
 /***/ }),
 /* 14 */
@@ -1673,8 +1669,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/less-loader/dist/index.js!./BlogDetails.less", function() {
-			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/less-loader/dist/index.js!./BlogDetails.less");
+		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/less-loader/dist/index.js!./ProductsDetails.less", function() {
+			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/less-loader/dist/index.js!./ProductsDetails.less");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -1692,7 +1688,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, ".m-BlogDetails-wrap {\n  width: 100%;\n}\n.m-BlogDetails-wrap .nav-wrap {\n  margin: 0.4rem 0;\n  line-height: 1;\n}\n.m-BlogDetails-wrap .nav-wrap .sup-nav {\n  text-decoration: underline;\n}\n.m-BlogDetails-wrap .nav-wrap i {\n  margin-right: 0.08rem;\n}\n.m-BlogDetails-wrap .nav-wrap .sub-nav {\n  color: #8B8185;\n}\n.m-BlogDetails-wrap .blog-title {\n  text-align: center;\n  line-height: 1;\n}\n.m-BlogDetails-wrap .blog-info {\n  margin-top: 0.2rem;\n  line-height: 1;\n  text-align: center;\n}\n.m-BlogDetails-wrap .blog-info .date {\n  margin-bottom: 20px;\n  display: inline-block;\n}\n.m-BlogDetails-wrap .blog-info .author {\n  margin-left: 0.2rem;\n}\n.m-BlogDetails-wrap .blog-label {\n  display: flex;\n  justify-content: center;\n  flex-wrap: wrap;\n  padding: 0.3rem 0;\n}\n.m-BlogDetails-wrap .blog-label span {\n  display: block;\n  line-height: 1;\n  padding: 0.11rem 0.16rem;\n  border-width: 0.01rem;\n  border-style: solid;\n  margin: 0.05rem;\n}\n.m-BlogDetails-wrap .blog-content {\n  width: 100%;\n  max-width: 9.6rem;\n  margin: 0 auto;\n  padding: 0.4rem 0;\n  border-top: 0.01rem solid #EDE9EA;\n  border-bottom: 0.01rem solid #EDE9EA;\n}\n.m-BlogDetails-wrap .blog-content p {\n  margin-bottom: 0.4rem;\n}\n.m-BlogDetails-wrap .blog-content img {\n  display: block;\n  width: 6rem;\n  height: 6rem;\n  margin: 0.36rem auto 0;\n}\n.m-BlogDetails-wrap .blog-bottom {\n  width: 100%;\n  max-width: 9.6rem;\n  margin: 0 auto;\n  padding: 0.4rem 0 0.8rem;\n}\n.m-BlogDetails-wrap .blog-bottom .previous-box {\n  margin-bottom: 0.2rem;\n}\n.m-BlogDetails-wrap .blog-bottom div {\n  display: flex;\n}\n.m-BlogDetails-wrap .blog-bottom div span {\n  display: block;\n  width: 0.9rem;\n}\n.m-BlogDetails-wrap .blog-bottom div a.disable {\n  color: #B2AFB0;\n  cursor: not-allowed;\n}\n.m-BlogDetails-wrap .blog-bottom div a {\n  font-size: 16px;\n  color: #302E2F;\n}\n@media screen and (max-width: 749px) {\n  .m-BlogDetails-wrap.l-BlogDetails-wrap {\n    padding: 0 0.2rem;\n    box-sizing: border-box;\n  }\n  .m-BlogDetails-wrap.l-BlogDetails-wrap .bc-subnav-container {\n    display: none !important;\n  }\n  .m-BlogDetails-wrap.l-BlogDetails-wrap h2.blog-title {\n    text-align: left;\n    margin-top: 0.46rem;\n  }\n  .m-BlogDetails-wrap.l-BlogDetails-wrap .blog-info {\n    text-align: left;\n  }\n  .m-BlogDetails-wrap.l-BlogDetails-wrap .blog-label {\n    justify-content: flex-start;\n  }\n  .m-BlogDetails-wrap.l-BlogDetails-wrap .blog-content img {\n    width: 80%;\n    height: auto;\n  }\n  .m-BlogDetails-wrap.l-BlogDetails-wrap .blog-content p {\n    margin-bottom: 0.2rem;\n  }\n}\n", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n}\n/** 变量定义 **/\n/* 弹性盒子*/\n/*圆角*/\n/* 文本溢出...*/\n/* 限制文本行数*/\n/* 阴影 */\n/*旋转函数*/\n/*过度动画*/\n/*css3 动画*/\n/*css3 transform*/\n.m-topicsDetails-banner {\n  position: relative;\n  width: 100%;\n  height: 3rem;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  overflow: hidden;\n}\n.m-topicsDetails-banner .banner-text {\n  display: flex;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.28);\n  justify-content: center;\n  align-items: center;\n}\n.m-topicsDetails-banner .banner-text h2 {\n  font-size: 0.48rem;\n  color: #FFFFFF;\n  text-align: center;\n}\n.m-topicsDetails-centerBlock .m-topicsDetails-container .topics-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0.4rem 0;\n  border-bottom: 1px solid #EDE9EA;\n}\n.m-topicsDetails-centerBlock .m-topicsDetails-container .topics-header .topics-ctrl {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.m-topicsDetails-centerBlock .m-topicsDetails-container .topics-header .topics-ctrl .ctrl-item span {\n  padding: 0 0.1rem 0 0.4rem;\n}\n.m-topicsDetails-centerBlock .m-topicsDetails-container .products-list {\n  padding-bottom: 0.15rem;\n}\n@media screen and (max-width: 750px) {\n  .m-topicsDetails-banner .banner-text h2 {\n    font-size: 0.32rem;\n  }\n  .bc-subnav-container {\n    display: none !important;\n  }\n  .l-mobile .l-centerBlock {\n    padding: 0 0.2rem;\n  }\n  .l-mobile .l-centerBlock .m-topicsDetails-container .topics-header {\n    display: block;\n    padding: 0.1rem 0;\n  }\n  .l-mobile .l-centerBlock .m-topicsDetails-container .topics-header h2 {\n    width: 100%;\n    text-align: center;\n    overflow: hidden;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n    /* IE/Safari */\n    -ms-text-overflow: ellipsis;\n    -o-text-overflow: ellipsis;\n    /* Opera */\n  }\n  .l-mobile .l-centerBlock .m-topicsDetails-container .topics-header .topics-ctrl .ctrl-item {\n    width: 48.5%;\n  }\n  .l-mobile .l-centerBlock .m-topicsDetails-container .topics-header .topics-ctrl .ctrl-item span {\n    display: none;\n  }\n  .l-mobile .l-centerBlock .m-topicsDetails-container .topics-header .topics-ctrl .ctrl-item select {\n    width: 100%;\n  }\n}\n", ""]);
 
 // exports
 
@@ -1797,6 +1793,179 @@ module.exports = function (css) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+__webpack_require__(18);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Link = __webpack_require__(6);
+
+var _Link2 = _interopRequireDefault(_Link);
+
+var _util = __webpack_require__(7);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author Nero
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @desc 产品列表
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+/* eslint-disable camelcase */
+
+
+var ItemsList = function (_React$Component) {
+  _inherits(ItemsList, _React$Component);
+
+  function ItemsList() {
+    _classCallCheck(this, ItemsList);
+
+    return _possibleConstructorReturn(this, (ItemsList.__proto__ || Object.getPrototypeOf(ItemsList)).apply(this, arguments));
+  }
+
+  _createClass(ItemsList, [{
+    key: 'render',
+    value: function render() {
+      var classPrefix = ItemsList.classPrefix;
+      var _props = this.props,
+          data = _props.data,
+          column = _props.column;
+
+
+      return data && data.length ? _react2.default.createElement(
+        'ul',
+        { className: classPrefix + ' column-' + column },
+        data.map(function (_ref, index) {
+          var sell_price = _ref.sell_price,
+              href = _ref.href,
+              couponhref = _ref.couponhref,
+              name = _ref.name,
+              main_img = _ref.main_img,
+              currency = _ref.currency,
+              sales_volume = _ref.sales_volume,
+              coupon = _ref.coupon;
+          return _react2.default.createElement(
+            'li',
+            { key: index },
+            _react2.default.createElement(
+              _Link2.default,
+              { href: couponhref || href, target: '_blank' },
+              _react2.default.createElement('div', { style: { backgroundImage: 'url(' + main_img + '_300x300)' } }),
+              _react2.default.createElement(
+                'p',
+                { className: (0, _util.color)('text') + ' ' + (0, _util.font)('secTitle') },
+                name
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                '\u5238\uFF1A',
+                coupon
+              )
+            ),
+            _react2.default.createElement(
+              'p',
+              { className: (0, _util.color)('price') + ' ' + (0, _util.font)('price') },
+              _react2.default.createElement(
+                'label',
+                null,
+                currency,
+                ' ',
+                sell_price
+              ),
+              _react2.default.createElement(
+                'label',
+                { className: (0, _util.font)('secTitle') + ' fr' },
+                '\u6708\u9500\uFF1A',
+                sales_volume
+              )
+            )
+          );
+        })
+      ) : null;
+    }
+  }]);
+
+  return ItemsList;
+}(_react2.default.Component);
+
+ItemsList.propTypes = {
+  data: _propTypes2.default.array,
+  column: _propTypes2.default.number
+};
+ItemsList.defaultProps = {
+  data: [],
+  column: 4
+};
+ItemsList.classPrefix = 'm-search-itemsList';
+exports.default = ItemsList;
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(19);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(2)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/less-loader/dist/index.js!./ItemsList.less", function() {
+			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/less-loader/dist/index.js!./ItemsList.less");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "/** 产品列表 **/\n/** 变量定义 **/\n/* 弹性盒子*/\n/*圆角*/\n/* 文本溢出...*/\n/* 限制文本行数*/\n/* 阴影 */\n/*旋转函数*/\n/*过度动画*/\n/*css3 动画*/\n/*css3 transform*/\n.m-search-itemsList {\n  margin-top: 0.2rem;\n  margin-bottom: 0.1rem;\n}\n.m-search-itemsList li {\n  display: inline-block;\n  vertical-align: top;\n  margin-bottom: 0.3rem;\n  width: 22.5%;\n  margin-right: 3.3%;\n}\n.m-search-itemsList li:nth-child(4n) {\n  margin-right: 0;\n}\n.m-search-itemsList li a {\n  display: inline-block;\n  width: 100%;\n}\n.m-search-itemsList li a > div {\n  width: 100%;\n  text-align: center;\n  vertical-align: top;\n  line-height: 0;\n  max-width: 100%;\n  background-position: center;\n  background-size: cover;\n  height: 2.7rem;\n  margin-bottom: 8px;\n}\n.m-search-itemsList li p {\n  line-height: 1.4em;\n}\n.m-search-itemsList li p:first-of-type {\n  max-height: 2.8em;\n  overflow: hidden;\n  word-break: keep-all;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  -webkit-line-clamp: 2;\n  -webkit-box-orient: vertical;\n}\n.m-search-itemsList.column-2 li {\n  width: 45%;\n  margin-right: 10%;\n  margin-bottom: 0.2rem;\n}\n.m-search-itemsList.column-2 li:nth-child(2n) {\n  margin-right: 0;\n}\n.m-search-itemsList.column-3 li {\n  width: 31%;\n  margin-right: 3.5%;\n}\n.m-search-itemsList.column-3 li:nth-child(4n) {\n  margin-right: 3.5%;\n}\n.m-search-itemsList.column-3 li:nth-child(3n) {\n  margin-right: 0;\n}\n.m-search-itemsList.column-3 li p {\n  line-height: 1.5em;\n  margin-top: 0.15rem;\n}\n.m-search-itemsList.column-5 li {\n  width: 18%;\n  margin-right: 2.5%;\n}\n.m-search-itemsList.column-5 li:nth-child(5n) {\n  margin-right: 0;\n}\n.l-mobile .m-search-itemsList li {\n  width: 47% !important;\n  margin-right: 0 !important;\n}\n.l-mobile .m-search-itemsList li:nth-child(2n) {\n  margin-left: 3% !important;\n}\n.l-mobile .m-search-itemsList li:nth-child(2n + 1) {\n  margin-right: 3% !important;\n}\n@media screen and (max-width: 750px) {\n  .m-search-itemsList li a > div {\n    height: 1.8rem;\n  }\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -1806,10 +1975,10 @@ module.exports = function (css) {
 
 
 
-var assign = __webpack_require__(18);
+var assign = __webpack_require__(21);
 
 var ReactPropTypesSecret = __webpack_require__(5);
-var checkPropTypes = __webpack_require__(19);
+var checkPropTypes = __webpack_require__(22);
 
 var printWarning = function() {};
 
@@ -2356,7 +2525,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
-/* 18 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2453,7 +2622,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 19 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2552,7 +2721,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
-/* 20 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2618,7 +2787,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 21 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2632,13 +2801,13 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(22);
+__webpack_require__(25);
 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Item = __webpack_require__(24);
+var _Item = __webpack_require__(27);
 
 var _Item2 = _interopRequireDefault(_Item);
 
@@ -2748,13 +2917,13 @@ Message.storeItems = function (ref, key) {
 exports.default = Message;
 
 /***/ }),
-/* 22 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(23);
+var content = __webpack_require__(26);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -2779,7 +2948,7 @@ if(false) {
 }
 
 /***/ }),
-/* 23 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -2793,7 +2962,7 @@ exports.push([module.i, ".bc-message {\n  position: fixed;\n  width: 100%;\n  he
 
 
 /***/ }),
-/* 24 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2805,7 +2974,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(25);
+__webpack_require__(28);
 
 var _react = __webpack_require__(0);
 
@@ -2819,7 +2988,7 @@ var _Icon = __webpack_require__(8);
 
 var _Icon2 = _interopRequireDefault(_Icon);
 
-var _setClass2 = __webpack_require__(9);
+var _setClass2 = __webpack_require__(10);
 
 var _setClass3 = _interopRequireDefault(_setClass2);
 
@@ -2963,13 +3132,13 @@ Item.classPrefix = 'bc-messageItem';
 exports.default = Item;
 
 /***/ }),
-/* 25 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(26);
+var content = __webpack_require__(29);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -2994,7 +3163,7 @@ if(false) {
 }
 
 /***/ }),
-/* 26 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -3008,7 +3177,7 @@ exports.push([module.i, "/** 变量定义 **/\n/* 弹性盒子*/\n/*圆角*/\n/*
 
 
 /***/ }),
-/* 27 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3022,7 +3191,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(28);
+__webpack_require__(31);
 
 var _react = __webpack_require__(0);
 
@@ -3032,11 +3201,11 @@ var _propTypes = __webpack_require__(3);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _setClass2 = __webpack_require__(9);
+var _setClass2 = __webpack_require__(10);
 
 var _setClass3 = _interopRequireDefault(_setClass2);
 
-var _color = __webpack_require__(30);
+var _color = __webpack_require__(33);
 
 var _color2 = _interopRequireDefault(_color);
 
@@ -3101,13 +3270,13 @@ Icon.classPrefix = 'bc-icon';
 exports.default = Icon;
 
 /***/ }),
-/* 28 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(29);
+var content = __webpack_require__(32);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -3132,7 +3301,7 @@ if(false) {
 }
 
 /***/ }),
-/* 29 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -3146,7 +3315,7 @@ exports.push([module.i, "/** 变量定义 **/\n/* 弹性盒子*/\n/*圆角*/\n/*
 
 
 /***/ }),
-/* 30 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3177,13 +3346,42 @@ color.bg = function (key) {
 exports.default = color;
 
 /***/ }),
-/* 31 */
+/* 34 */
 /***/ (function(module, exports) {
 
 module.exports = ReactDOM;
 
 /***/ }),
-/* 32 */
+/* 35 */,
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _SubNav = __webpack_require__(43);
+
+var _SubNav2 = _interopRequireDefault(_SubNav);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _SubNav2.default; /**
+                                     * @author Gavin Yang (杨伟伟)
+                                     * @desc subNav (二级页面 导航条)
+                                     */
+
+/***/ }),
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3195,21 +3393,19 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(33);
+__webpack_require__(44);
 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(3);
+var _Icon = __webpack_require__(8);
 
-var _propTypes2 = _interopRequireDefault(_propTypes);
+var _Icon2 = _interopRequireDefault(_Icon);
 
-var _Link = __webpack_require__(6);
+var _index = __webpack_require__(6);
 
-var _Link2 = _interopRequireDefault(_Link);
-
-var _util = __webpack_require__(10);
+var _index2 = _interopRequireDefault(_index);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3217,107 +3413,67 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author Nero
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @desc 产品列表
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-/* eslint-disable camelcase */
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var classPrefix = 'bc-subnav';
 
-var ItemsList = function (_React$Component) {
-  _inherits(ItemsList, _React$Component);
+var SubNavigation = function (_React$Component) {
+  _inherits(SubNavigation, _React$Component);
 
-  function ItemsList() {
-    _classCallCheck(this, ItemsList);
+  function SubNavigation(props) {
+    _classCallCheck(this, SubNavigation);
 
-    return _possibleConstructorReturn(this, (ItemsList.__proto__ || Object.getPrototypeOf(ItemsList)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (SubNavigation.__proto__ || Object.getPrototypeOf(SubNavigation)).call(this, props));
+
+    _this.state = {};
+    return _this;
   }
 
-  _createClass(ItemsList, [{
+  _createClass(SubNavigation, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      // console.log(window.location)
+    }
+  }, {
     key: 'render',
     value: function render() {
-      var classPrefix = ItemsList.classPrefix;
-      var _props = this.props,
-          data = _props.data,
-          column = _props.column;
+      var route = this.props.route;
 
-
-      return data && data.length ? _react2.default.createElement(
-        'ul',
-        { className: classPrefix + ' column-' + column },
-        data.map(function (_ref, index) {
-          var sell_price = _ref.sell_price,
-              href = _ref.href,
-              couponhref = _ref.couponhref,
-              name = _ref.name,
-              main_img = _ref.main_img,
-              currency = _ref.currency,
-              sales_volume = _ref.sales_volume,
-              coupon = _ref.coupon;
-          return _react2.default.createElement(
-            'li',
-            { key: index },
-            _react2.default.createElement(
-              _Link2.default,
-              { href: couponhref || href, target: '_blank' },
-              _react2.default.createElement('div', { style: { backgroundImage: 'url(' + main_img + '_300x300)' } }),
-              _react2.default.createElement(
-                'p',
-                { className: (0, _util.color)('text') + ' ' + (0, _util.font)('secTitle') },
-                name
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                '\u5238\uFF1A',
-                coupon
-              )
-            ),
-            _react2.default.createElement(
-              'p',
-              { className: (0, _util.color)('price') + ' ' + (0, _util.font)('price') },
-              _react2.default.createElement(
-                'label',
-                null,
-                currency,
-                ' ',
-                sell_price
-              ),
-              _react2.default.createElement(
-                'label',
-                { className: (0, _util.font)('secTitle') + ' fr' },
-                '\u6708\u9500\uFF1A',
-                sales_volume
-              )
-            )
-          );
-        })
-      ) : null;
+      return _react2.default.createElement(
+        'div',
+        { className: classPrefix + '-container' },
+        _react2.default.createElement(
+          _index2.default,
+          { href: route[0].href },
+          route[0].name
+        ),
+        _react2.default.createElement(
+          _index2.default,
+          { href: '', className: 'arr' },
+          _react2.default.createElement(_Icon2.default, { type: 'forward' })
+        ),
+        _react2.default.createElement(
+          _index2.default,
+          { href: route[1].href },
+          route[1].name
+        )
+      );
     }
   }]);
 
-  return ItemsList;
+  return SubNavigation;
 }(_react2.default.Component);
 
-ItemsList.propTypes = {
-  data: _propTypes2.default.array,
-  column: _propTypes2.default.number
-};
-ItemsList.defaultProps = {
-  data: [],
-  column: 4
-};
-ItemsList.classPrefix = 'm-search-itemsList';
-exports.default = ItemsList;
+exports.default = SubNavigation;
 
 /***/ }),
-/* 33 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(34);
+var content = __webpack_require__(45);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -3331,8 +3487,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/less-loader/dist/index.js!./ItemsList.less", function() {
-			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/less-loader/dist/index.js!./ItemsList.less");
+		module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/less-loader/dist/index.js!./SubNav.less", function() {
+			var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/less-loader/dist/index.js!./SubNav.less");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -3342,7 +3498,7 @@ if(false) {
 }
 
 /***/ }),
-/* 34 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -3350,13 +3506,13 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, "/** 产品列表 **/\n/** 变量定义 **/\n/* 弹性盒子*/\n/*圆角*/\n/* 文本溢出...*/\n/* 限制文本行数*/\n/* 阴影 */\n/*旋转函数*/\n/*过度动画*/\n/*css3 动画*/\n/*css3 transform*/\n.m-search-itemsList {\n  margin-top: 0.2rem;\n  margin-bottom: 0.1rem;\n}\n.m-search-itemsList li {\n  display: inline-block;\n  vertical-align: top;\n  margin-bottom: 0.3rem;\n  width: 22.5%;\n  margin-right: 3.3%;\n}\n.m-search-itemsList li:nth-child(4n) {\n  margin-right: 0;\n}\n.m-search-itemsList li a {\n  display: inline-block;\n  width: 100%;\n}\n.m-search-itemsList li a > div {\n  width: 100%;\n  text-align: center;\n  vertical-align: top;\n  line-height: 0;\n  max-width: 100%;\n  background-position: center;\n  background-size: cover;\n  height: 2.7rem;\n  margin-bottom: 8px;\n}\n.m-search-itemsList li p {\n  line-height: 1.4em;\n}\n.m-search-itemsList li p:first-of-type {\n  max-height: 2.8em;\n  overflow: hidden;\n  word-break: keep-all;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  -webkit-line-clamp: 2;\n  -webkit-box-orient: vertical;\n}\n.m-search-itemsList.column-2 li {\n  width: 45%;\n  margin-right: 10%;\n  margin-bottom: 0.2rem;\n}\n.m-search-itemsList.column-2 li:nth-child(2n) {\n  margin-right: 0;\n}\n.m-search-itemsList.column-3 li {\n  width: 31%;\n  margin-right: 3.5%;\n}\n.m-search-itemsList.column-3 li:nth-child(4n) {\n  margin-right: 3.5%;\n}\n.m-search-itemsList.column-3 li:nth-child(3n) {\n  margin-right: 0;\n}\n.m-search-itemsList.column-3 li p {\n  line-height: 1.5em;\n  margin-top: 0.15rem;\n}\n.m-search-itemsList.column-5 li {\n  width: 18%;\n  margin-right: 2.5%;\n}\n.m-search-itemsList.column-5 li:nth-child(5n) {\n  margin-right: 0;\n}\n.l-mobile .m-search-itemsList li {\n  width: 47% !important;\n  margin-right: 0 !important;\n}\n.l-mobile .m-search-itemsList li:nth-child(2n) {\n  margin-left: 3% !important;\n}\n.l-mobile .m-search-itemsList li:nth-child(2n + 1) {\n  margin-right: 3% !important;\n}\n@media screen and (max-width: 750px) {\n  .m-search-itemsList li a > div {\n    height: 1.8rem;\n  }\n}\n", ""]);
+exports.push([module.i, ".bc-subnav-container {\n  display: flex;\n  max-width: 100%;\n  justify-content: flex-start;\n  align-items: center;\n  margin: 0.4rem 0;\n}\n.bc-subnav-container a {\n  display: block;\n  color: #302E2F;\n  text-decoration: underline;\n  border: none;\n  outline: 0;\n}\n.bc-subnav-container a.arr {\n  padding: 0 0.08rem;\n  text-decoration: none;\n}\n.bc-subnav-container a.arr i {\n  font-size: 0.14rem;\n  color: #8B8185;\n}\n.bc-subnav-container a:nth-last-of-type(1) {\n  color: #8B8185;\n  text-decoration: none;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 35 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3391,9 +3547,9 @@ exports.fetchProductsDedails = fetchProductsDedails;
 exports.fetchRecommendTopic = fetchRecommendTopic;
 exports.getSinglePage = getSinglePage;
 
-var _util = __webpack_require__(10);
+var _util = __webpack_require__(7);
 
-var _common = __webpack_require__(36);
+var _common = __webpack_require__(47);
 
 /** 获取用户数据 **/
 function getUserInfo() {
@@ -3563,7 +3719,7 @@ function getSinglePage(id) {
 // }
 
 /***/ }),
-/* 36 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3580,159 +3736,6 @@ Object.defineProperty(exports, "__esModule", {
 var APIRoot = 'https://www.' + window.supervar.domain + ':8686/web/v1';
 
 exports.APIRoot = APIRoot;
-
-/***/ }),
-/* 37 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _SubNav = __webpack_require__(38);
-
-var _SubNav2 = _interopRequireDefault(_SubNav);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _SubNav2.default; /**
-                                     * @author Gavin Yang (杨伟伟)
-                                     * @desc subNav (二级页面 导航条)
-                                     */
-
-/***/ }),
-/* 38 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-__webpack_require__(39);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Icon = __webpack_require__(8);
-
-var _Icon2 = _interopRequireDefault(_Icon);
-
-var _index = __webpack_require__(6);
-
-var _index2 = _interopRequireDefault(_index);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var classPrefix = 'bc-subnav';
-
-var SubNavigation = function (_React$Component) {
-  _inherits(SubNavigation, _React$Component);
-
-  function SubNavigation(props) {
-    _classCallCheck(this, SubNavigation);
-
-    var _this = _possibleConstructorReturn(this, (SubNavigation.__proto__ || Object.getPrototypeOf(SubNavigation)).call(this, props));
-
-    _this.state = {};
-    return _this;
-  }
-
-  _createClass(SubNavigation, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      // console.log(window.location)
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var route = this.props.route;
-
-      return _react2.default.createElement(
-        'div',
-        { className: classPrefix + '-container' },
-        _react2.default.createElement(
-          _index2.default,
-          { href: route[0].href },
-          route[0].name
-        ),
-        _react2.default.createElement(
-          _index2.default,
-          { href: '', className: 'arr' },
-          _react2.default.createElement(_Icon2.default, { type: 'forward' })
-        ),
-        _react2.default.createElement(
-          _index2.default,
-          { href: route[1].href },
-          route[1].name
-        )
-      );
-    }
-  }]);
-
-  return SubNavigation;
-}(_react2.default.Component);
-
-exports.default = SubNavigation;
-
-/***/ }),
-/* 39 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(40);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(2)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/less-loader/dist/index.js!./SubNav.less", function() {
-			var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/less-loader/dist/index.js!./SubNav.less");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 40 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".bc-subnav-container {\n  display: flex;\n  max-width: 100%;\n  justify-content: flex-start;\n  align-items: center;\n  margin: 0.4rem 0;\n}\n.bc-subnav-container a {\n  display: block;\n  color: #302E2F;\n  text-decoration: underline;\n  border: none;\n  outline: 0;\n}\n.bc-subnav-container a.arr {\n  padding: 0 0.08rem;\n  text-decoration: none;\n}\n.bc-subnav-container a.arr i {\n  font-size: 0.14rem;\n  color: #8B8185;\n}\n.bc-subnav-container a:nth-last-of-type(1) {\n  color: #8B8185;\n  text-decoration: none;\n}\n", ""]);
-
-// exports
-
 
 /***/ })
 /******/ ]);

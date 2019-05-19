@@ -3,11 +3,8 @@
  */
 const Proxy = require('../../lib/proxy')
 let proxy = new Proxy()
-let Delay = require('keeper-core/lib/delay')
-let delay = new Delay()
 const Logger = require('keeper-core')
 let logger = new Logger()
-const path = require('path')
 
 let internumb = 0
 let urlbox = []

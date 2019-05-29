@@ -1,9 +1,9 @@
 /**
  * Created by nero on 2017/6/2.
  */
-const koa = require('../index')
+const myhttp = require('../index')
 // const launcher = require('../static/launcher')
-// const myhttp = require('../static/http')
+const koa = require('../http')
 const Ctrl = require('./ctrl')
 let ctrl = new Ctrl()
 const StaticFiles = require('../static/static')

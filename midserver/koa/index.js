@@ -11,17 +11,19 @@ const koaBody = require('koa-body')
 // let staticFiles = require('./static')
 const Logger = require('keeper-core')
 let logger = new Logger()
+const Wanswer = require('./wanswer')
+let wanswer = new Wanswer()
 
 // test api
-var WechatAPI = require('wechat-api');
-var api = new WechatAPI('wx4ed5bcdb64111500', 'e89f298c7da7674816b320f6e642d703');
-api.getMenu(function (err, result) {
-  if (err) {
-    console.log(err)
-  } else {
-    console.log(result)
-  }
-});
+// var WechatAPI = require('wechat-api');
+// var api = new WechatAPI('wx4ed5bcdb64111500', 'e89f298c7da7674816b320f6e642d703');
+// api.getMenu(function (err, result) {
+//   if (err) {
+//     console.log(err)
+//   } else {
+//     console.log(result)
+//   }
+// });
 
 // wechat
 const wechat = require('co-wechat');
@@ -68,21 +70,7 @@ app.use(async (ctx, next) => {
 })
 
 app.use(wechat(config).middleware(async (message, ctx) => {
-  if (message.Content === '屌丝') {
-    return {
-      content: '呵呵',
-      type: 'text'
-    };
-  } else {
-    return [
-      {
-        title: '你来我家接我吧',
-        description: '这是女神与高富帅之间的对话',
-        picurl: 'http://nodeapi.cloudfoundry.com/qrcode.jpg',
-        url: 'http://www.wssso.com/index.php'
-      }
-    ];
-  }
+  return wanswer.answer(message)
 }))
 
 app.use(router.routes()).use(router.allowedMethods())

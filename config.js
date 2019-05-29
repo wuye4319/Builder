@@ -5,7 +5,7 @@
  */
 const config = {
   version: '1.2.2',
-  myModule: 'topics_details', // myModule:1级目录
+  myModule: 'home', // myModule:1级目录
   childModule: '', // childModule:2级目录
   currTheme: 'theme',
   basepath: '',

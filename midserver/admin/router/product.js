@@ -1,7 +1,7 @@
 /**
  * Created by nero on 2017/6/2.
  */
-const koa = require('../../koa/index')
+const koa = require('../../koa/http')
 const fs = require('fs')
 const Writefile = require('keeper-core/lib/writefile')
 let writefile = new Writefile()

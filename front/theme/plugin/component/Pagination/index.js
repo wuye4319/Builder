@@ -55,7 +55,7 @@ class Pagination extends React.Component {
   direction = 'down'
   beforeScrollTop = 0
 
-  constructor () {
+  constructor() {
     super()
     this.state = {
       loading: false // 调用handleChangePage时被设置为true(组件被禁用),handleChangePage返回的Promise返回结果时被设置为false(组件解除禁用)
@@ -63,14 +63,14 @@ class Pagination extends React.Component {
   }
 
   /** 设置loading, 并且当loading成功时inputPage被设置为''(清空页码输入框)**/
-  setLoading (b) {
+  setLoading(b) {
     this.setState((state) => ({
       loading: b
     }))
   }
 
   /** 分页动作,参数n代表跳转到第几页(pageNo) **/
-  handleChangePage (n) {
+  handleChangePage(n) {
     if (n !== this.props.pageNo && n !== '' && n >= 1 && n <= this.props.totalPage) {
       let loading = this.props.handleChangePage(n)
       this.setLoading(true)
@@ -87,7 +87,7 @@ class Pagination extends React.Component {
   }
 
   /** 格式化页码按钮组(参考京东分页逻辑) **/
-  formatButtonGroup () {
+  formatButtonGroup() {
     let buttonGroup = [] // 得到的结果是类似[1,2,null,6,7,8,9,10,null]这样的数组,数字表示页码,null表示省略号
     let totalPage = this.props.totalPage
     let pageNo = this.props.pageNo
@@ -132,14 +132,14 @@ class Pagination extends React.Component {
     // 滚动条下拉高度 移动端和PC获取方式不一致
     const sTop = document.body.scrollTop || document.documentElement.scrollTop
     // footer高度
-    const fHeight = document.getElementById('Footer-1').offsetHeight
-    const {onEndReached = fHeight} = this.props
+    const fHeight = document.getElementById('Footer-1') ? document.getElementById('Footer-1').offsetHeight : 0
+    const { onEndReached = fHeight } = this.props
     const disY = sHeight - cHeight - sTop - onEndReached
     let delta = sTop - this.beforeScrollTop
     this.getDirection(delta > 0 ? 'down' : 'up')
     this.beforeScrollTop = sTop
     if (disY <= 20 && this.direction === 'down') {
-      const {pageNo} = this.props
+      const { pageNo } = this.props
       const n = pageNo + 1
       if (n >= 1 && n <= this.props.totalPage && this.loadMore) {
         this.loadMore = false
@@ -160,7 +160,7 @@ class Pagination extends React.Component {
     window.onscroll = this.pullMore
   }
 
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps(nextProps) {
     if (nextProps.scrollLoad) {
       this.bindScroll()
     } else {
@@ -168,7 +168,7 @@ class Pagination extends React.Component {
     }
   }
 
-  componentWillMount () {
+  componentWillMount() {
     // this.model = this.props.language === 'en' ? modelEN : modelCN
     this.model = modelEN
     if (this.props.scrollLoad) {
@@ -176,11 +176,11 @@ class Pagination extends React.Component {
     }
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     window.onscroll = null
   }
 
-  render () {
+  render() {
     let buttonGroup = this.formatButtonGroup()
     let pageNo = this.props.pageNo
     let totalPage = this.props.totalPage
@@ -236,12 +236,12 @@ class Pagination extends React.Component {
 }
 
 Pagination.defaultProps = {
-  style: {marginTop: '30px', marginBottom: '30px'},
+  style: { marginTop: '30px', marginBottom: '30px' },
   language: 'cn',
   totalPage: 0,
   pageNo: 0,
   scrollLoad: false,
-  handleChangePage () {
+  handleChangePage() {
     return new Promise((resolve, reject) => {
       reject()
     })

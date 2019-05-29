@@ -1,7 +1,7 @@
 /**
  * Created by nero on 2017/6/2.
  */
-const koa = require('../../koa/index')
+const koa = require('../../koa/http')
 const Topic = require('../service/topic')
 let topic = new Topic()
 const Util = require('../util')

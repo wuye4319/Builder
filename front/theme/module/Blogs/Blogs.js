@@ -159,7 +159,9 @@ class Blogs extends React.Component {
                       item.map((val, index) =>
                         <div className='blog-rows' key={index} onClick={this.goDetails.bind(this, val.id)}>
                           <div className={`blog-img ${blogStyle}`}
-                            style={{ backgroundImage: 'url(' + val['main_img'] + '_400x400)' }} />
+                            // style={{ backgroundImage: 'url(' + val['main_img'] + '_400x400)' }}
+                            style={{ backgroundImage: 'url(' + val['main_img'] + ')' }}
+                          />
                           <div className='content-wrap'>
                             <div className='blog-content'>
                               <div className={`date-author ${font('subText')} ${color('subText')}`}>

@@ -12,7 +12,7 @@ import Select from '../../../../builder/plugin/component/Selection'
 import Checkbox from '../../../../builder/plugin/component/Checkbox'
 import ActionList from '../../../../builder/plugin/component/ActionList'
 import { CollPanel, CollItemList, CollItem } from './component'
-import { collection } from '../TEST_DATA'
+// import { collection } from '../TEST_DATA'
 
 class TopicsCtrl extends React.Component {
   state = {

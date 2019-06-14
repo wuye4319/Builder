@@ -1731,7 +1731,7 @@ exports.getImages = getImages;
 
 var _util = __webpack_require__(5);
 
-var APIRoot = 'http://buckydrop.test.com/supersell/rest/php/bs/admin/';
+var APIRoot = 'http://www.test.com/supersell/rest/php/bs/admin/';
 
 /** 获取全部的上架集合**/
 /**
@@ -3086,7 +3086,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _SlipPanel = __webpack_require__(370);
+var _SlipPanel = __webpack_require__(369);
 
 var _SlipPanel2 = _interopRequireDefault(_SlipPanel);
 
@@ -5063,7 +5063,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _ItemCard = __webpack_require__(366);
+var _ItemCard = __webpack_require__(365);
 
 var _ItemCard2 = _interopRequireDefault(_ItemCard);
 
@@ -5098,7 +5098,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-__webpack_require__(390);
+__webpack_require__(389);
 
 exports.default = function (props) {
   return React.createElement(
@@ -5161,7 +5161,7 @@ var _Message = __webpack_require__(22);
 
 var _Message2 = _interopRequireDefault(_Message);
 
-var _koa = __webpack_require__(399);
+var _koa = __webpack_require__(398);
 
 var _api = __webpack_require__(25);
 
@@ -5188,7 +5188,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * sort: 页面的排序,数值越小越靠前，-1表示在builder中不显示
  * */
 
-var routerMap = __webpack_require__(400);
+var routerMap = __webpack_require__(399);
 window.myreflux = _myreflux2.default;
 window.shopBuilder = true;
 
@@ -8108,7 +8108,7 @@ var _CtrlPanel = __webpack_require__(139);
 
 var _CtrlPanel2 = _interopRequireDefault(_CtrlPanel);
 
-var _CtrlThemePanel = __webpack_require__(392);
+var _CtrlThemePanel = __webpack_require__(391);
 
 var _CtrlThemePanel2 = _interopRequireDefault(_CtrlThemePanel);
 
@@ -8384,31 +8384,31 @@ var _Topics = __webpack_require__(355);
 
 var _Topics2 = _interopRequireDefault(_Topics);
 
-var _Blogs = __webpack_require__(360);
+var _Blogs = __webpack_require__(359);
 
 var _Blogs2 = _interopRequireDefault(_Blogs);
 
-var _HomeBlog = __webpack_require__(363);
+var _HomeBlog = __webpack_require__(362);
 
 var _HomeBlog2 = _interopRequireDefault(_HomeBlog);
 
-var _HomeTopicsModule = __webpack_require__(373);
+var _HomeTopicsModule = __webpack_require__(372);
 
 var _HomeTopicsModule2 = _interopRequireDefault(_HomeTopicsModule);
 
-var _BlogDetails = __webpack_require__(377);
+var _BlogDetails = __webpack_require__(376);
 
 var _BlogDetails2 = _interopRequireDefault(_BlogDetails);
 
-var _ErrorPage = __webpack_require__(380);
+var _ErrorPage = __webpack_require__(379);
 
 var _ErrorPage2 = _interopRequireDefault(_ErrorPage);
 
-var _Search = __webpack_require__(383);
+var _Search = __webpack_require__(382);
 
 var _Search2 = _interopRequireDefault(_Search);
 
-var _FeaturedCollection = __webpack_require__(386);
+var _FeaturedCollection = __webpack_require__(385);
 
 var _FeaturedCollection2 = _interopRequireDefault(_FeaturedCollection);
 
@@ -16340,7 +16340,7 @@ if (typeof module !== "undefined" && module.exports) {
 }
 // AMD/requirejs: Define the module
 else if (true) {
-    !(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {return tinycolor;}).call(exports, __webpack_require__, exports, module),
+    !(__WEBPACK_AMD_DEFINE_RESULT__ = function () {return tinycolor;}.call(exports, __webpack_require__, exports, module),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 }
 // Browser: Expose to window
@@ -24311,8 +24311,6 @@ var _ActionList2 = _interopRequireDefault(_ActionList);
 
 var _component = __webpack_require__(358);
 
-var _TEST_DATA = __webpack_require__(359);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -24323,6 +24321,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * @author Gavin Yang (杨伟伟)
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * @desc 专题页控制器
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
+
+// import { collection } from '../TEST_DATA'
 
 var TopicsCtrl = function (_React$Component) {
   _inherits(TopicsCtrl, _React$Component);
@@ -24349,13 +24349,13 @@ var TopicsCtrl = function (_React$Component) {
     }, _this.filterCollect = function () {
       var collectId = [];
       var collectList = [];
-      for (var i = 0, len = _TEST_DATA.collection.length; i < len; i++) {
-        if (!_TEST_DATA.collection[i]['title']) {
-          _TEST_DATA.collection[i]['title'] = _react2.default.createElement(_component.CollItem, { data: _TEST_DATA.collection[i] });
+      for (var i = 0, len = collection.length; i < len; i++) {
+        if (!collection[i]['title']) {
+          collection[i]['title'] = _react2.default.createElement(_component.CollItem, { data: collection[i] });
         }
-        if (_TEST_DATA.collection[i]['selected'] === 1) {
-          collectList.push(_TEST_DATA.collection[i]);
-          collectId.push(_TEST_DATA.collection[i]['id']);
+        if (collection[i]['selected'] === 1) {
+          collectList.push(collection[i]);
+          collectId.push(collection[i]['id']);
         }
       }
       return { collectList: collectList, collectId: collectId };
@@ -24813,133 +24813,6 @@ var CollItemList = exports.CollItemList = function CollItemList(props) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var img_src = '/source/img/';
-var topics = exports.topics = [{
-  collectId: '01',
-  srcImg: img_src + 'photo_01.jpg',
-  des: 'Aimé Leon Dore Logo Tee Yellow, And the Aimé Leon Dore Logo Yellow,  Tee Yellow',
-  price: '234.56'
-}, {
-  collectId: '02',
-  srcImg: img_src + 'photo_02.jpg',
-  des: 'Aimé Leon Dore Logo Tee Yellow, And the Aimé Leon Dore Logo Yellow,  Tee Yellow',
-  price: '24.56'
-}, {
-  collectId: '03',
-  srcImg: img_src + 'photo_03.jpg',
-  des: 'Aimé Leon Dore Logo Tee Yellow, And the Aimé Leon Dore Logo Yellow,  Tee Yellow',
-  price: '214.56'
-}, {
-  collectId: '04',
-  srcImg: img_src + 'photo_04.jpg',
-  des: 'Aimé Leon Dore Logo Tee Yellow, And the Aimé Leon Dore Logo Yellow,  Tee Yellow',
-  price: '124.56'
-}, {
-  collectId: '05',
-  srcImg: img_src + 'photo_05.jpg',
-  des: 'Aimé Leon Dore Logo Tee Yellow, And the Aimé Leon Dore Logo Yellow,  Tee Yellow',
-  price: '244.46'
-}, {
-  collectId: '06',
-  srcImg: img_src + 'photo_06.jpg',
-  des: 'Aimé Leon Dore Logo Tee Yellow, And the Aimé Leon Dore Logo Yellow,  Tee Yellow',
-  price: '274.56'
-}];
-var collection = exports.collection = [{
-  id: '01',
-  selected: 0,
-  name: 'Collection1',
-  srcImg: img_src + 'photo_01.jpg'
-}, {
-  id: '02',
-  selected: 1,
-  name: 'Collection1',
-  srcImg: img_src + 'photo_02.jpg'
-
-}, {
-  id: '03',
-  selected: 0,
-  name: 'Collection1',
-  srcImg: img_src + 'photo_03.jpg'
-}, {
-  id: '04',
-  selected: 1,
-  name: 'Collection1',
-  srcImg: img_src + 'photo_04.jpg'
-}, {
-  id: '05',
-  selected: 1,
-  name: 'Collection1',
-  srcImg: img_src + 'photo_05.jpg'
-}, {
-  id: '06',
-  selected: 1,
-  name: 'Collection1',
-  srcImg: img_src + 'photo_06.jpg'
-}];
-
-var products = exports.products = [{
-  spu_id: '1',
-  spu_img: 'https://img.alicdn.com/bao/uploaded/i1/1744930853/TB1WIrGcEo09KJjSZFDXXb9npXa_!!0-item_pic.jpg_430x430q90.jpg',
-  product_name: 'Aimé Leon Dore Logo Tee Yellow,And the Aimé Leon Dore Logo',
-  market_price: '32.44'
-}, {
-  spu_id: '2',
-  spu_img: 'https://img.alicdn.com/bao/uploaded/i1/1744930853/TB1WIrGcEo09KJjSZFDXXb9npXa_!!0-item_pic.jpg_430x430q90.jpg',
-  product_name: 'Aimé Leon Dore Logo Tee Yellow,And the Aimé Leon Dore Logo',
-  market_price: '32.44'
-}, {
-  spu_id: '3',
-  spu_img: 'https://img.alicdn.com/bao/uploaded/i1/1744930853/TB1WIrGcEo09KJjSZFDXXb9npXa_!!0-item_pic.jpg_430x430q90.jpg',
-  product_name: 'Aimé Leon Dore Logo Tee Yellow,And the Aimé Leon Dore Logo',
-  market_price: '32.44'
-}, {
-  spu_id: '4',
-  spu_img: 'https://img.alicdn.com/bao/uploaded/i1/1744930853/TB1WIrGcEo09KJjSZFDXXb9npXa_!!0-item_pic.jpg_430x430q90.jpg',
-  product_name: 'Aimé Leon Dore Logo Tee Yellow,And the Aimé Leon Dore Logo',
-  market_price: '32.44'
-}, {
-  spu_id: '5',
-  spu_img: 'https://img.alicdn.com/bao/uploaded/i1/1744930853/TB1WIrGcEo09KJjSZFDXXb9npXa_!!0-item_pic.jpg_430x430q90.jpg',
-  product_name: 'Aimé Leon Dore Logo Tee Yellow,And the Aimé Leon Dore Logo',
-  market_price: '32.44'
-}, {
-  spu_id: '6',
-  spu_img: 'https://img.alicdn.com/bao/uploaded/i1/1744930853/TB1WIrGcEo09KJjSZFDXXb9npXa_!!0-item_pic.jpg_430x430q90.jpg',
-  product_name: 'Aimé Leon Dore Logo Tee Yellow,And the Aimé Leon Dore Logo',
-  market_price: '32.44'
-}, {
-  spu_id: '7',
-  spu_img: 'https://img.alicdn.com/bao/uploaded/i1/1744930853/TB1WIrGcEo09KJjSZFDXXb9npXa_!!0-item_pic.jpg_430x430q90.jpg',
-  product_name: 'Aimé Leon Dore Logo Tee Yellow,And the Aimé Leon Dore Logo',
-  market_price: '32.44'
-}, {
-  spu_id: '8',
-  spu_img: 'https://img.alicdn.com/bao/uploaded/i1/1744930853/TB1WIrGcEo09KJjSZFDXXb9npXa_!!0-item_pic.jpg_430x430q90.jpg',
-  product_name: 'Aimé Leon Dore Logo Tee Yellow,And the Aimé Leon Dore Logo',
-  market_price: '32.44'
-}, {
-  spu_id: '9',
-  spu_img: 'https://img.alicdn.com/bao/uploaded/i1/1744930853/TB1WIrGcEo09KJjSZFDXXb9npXa_!!0-item_pic.jpg_430x430q90.jpg',
-  product_name: 'Aimé Leon Dore Logo Tee Yellow,And the Aimé Leon Dore Logo',
-  market_price: '32.44'
-}, {
-  spu_id: '10',
-  spu_img: 'https://img.alicdn.com/bao/uploaded/i1/1744930853/TB1WIrGcEo09KJjSZFDXXb9npXa_!!0-item_pic.jpg_430x430q90.jpg',
-  product_name: 'Aimé Leon Dore Logo Tee Yellow,And the Aimé Leon Dore Logo',
-  market_price: '32.44'
-}];
-
-/***/ }),
-/* 360 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -24951,7 +24824,7 @@ var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-__webpack_require__(361);
+__webpack_require__(360);
 
 var _Selection = __webpack_require__(17);
 
@@ -25110,13 +24983,13 @@ BlogsCtrl.defaultProps = {
 exports.default = BlogsCtrl;
 
 /***/ }),
-/* 361 */
+/* 360 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(362);
+var content = __webpack_require__(361);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -25141,7 +25014,7 @@ if(false) {
 }
 
 /***/ }),
-/* 362 */
+/* 361 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -25155,7 +25028,7 @@ exports.push([module.i, ".m-blogs-ctrl-wrap {\n  padding: 0 20px;\n}\n.m-blogs-c
 
 
 /***/ }),
-/* 363 */
+/* 362 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25175,7 +25048,7 @@ var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-__webpack_require__(364);
+__webpack_require__(363);
 
 var _Checkbox = __webpack_require__(12);
 
@@ -25205,7 +25078,7 @@ var _ItemCard = __webpack_require__(97);
 
 var _ItemCard2 = _interopRequireDefault(_ItemCard);
 
-var _BlogAssembleList = __webpack_require__(369);
+var _BlogAssembleList = __webpack_require__(368);
 
 var _BlogAssembleList2 = _interopRequireDefault(_BlogAssembleList);
 
@@ -25549,13 +25422,13 @@ HomeBlogCtrl.defaultProps = {
 exports.default = HomeBlogCtrl;
 
 /***/ }),
-/* 364 */
+/* 363 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(365);
+var content = __webpack_require__(364);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -25580,7 +25453,7 @@ if(false) {
 }
 
 /***/ }),
-/* 365 */
+/* 364 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -25594,7 +25467,7 @@ exports.push([module.i, "/*icon*/\n/* public path */\n/* page width */\n/* css3.
 
 
 /***/ }),
-/* 366 */
+/* 365 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25606,7 +25479,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(367);
+__webpack_require__(366);
 
 var _react = __webpack_require__(0);
 
@@ -25709,13 +25582,13 @@ var ItemCard = function (_React$Component) {
 exports.default = ItemCard;
 
 /***/ }),
-/* 367 */
+/* 366 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(368);
+var content = __webpack_require__(367);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -25740,7 +25613,7 @@ if(false) {
 }
 
 /***/ }),
-/* 368 */
+/* 367 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -25754,7 +25627,7 @@ exports.push([module.i, "/*icon*/\n/* public path */\n/* page width */\n/* css3.
 
 
 /***/ }),
-/* 369 */
+/* 368 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25935,7 +25808,7 @@ var BlogAssembleList = function (_React$Component) {
 exports.default = BlogAssembleList;
 
 /***/ }),
-/* 370 */
+/* 369 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25947,7 +25820,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(371);
+__webpack_require__(370);
 
 var _react = __webpack_require__(0);
 
@@ -26115,13 +25988,13 @@ SlipPanel.propTypes = {
 exports.default = SlipPanel;
 
 /***/ }),
-/* 371 */
+/* 370 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(372);
+var content = __webpack_require__(371);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -26146,7 +26019,7 @@ if(false) {
 }
 
 /***/ }),
-/* 372 */
+/* 371 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -26160,7 +26033,7 @@ exports.push([module.i, "/*icon*/\n/* public path */\n/* page width */\n/* css3.
 
 
 /***/ }),
-/* 373 */
+/* 372 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26176,7 +26049,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(374);
+__webpack_require__(373);
 
 var _react = __webpack_require__(0);
 
@@ -26214,7 +26087,7 @@ var _ItemCard = __webpack_require__(97);
 
 var _ItemCard2 = _interopRequireDefault(_ItemCard);
 
-var _component = __webpack_require__(376);
+var _component = __webpack_require__(375);
 
 var _util = __webpack_require__(5);
 
@@ -26653,13 +26526,13 @@ var Collectionlist = function (_React$Component) {
 exports.default = Collectionlist;
 
 /***/ }),
-/* 374 */
+/* 373 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(375);
+var content = __webpack_require__(374);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -26684,7 +26557,7 @@ if(false) {
 }
 
 /***/ }),
-/* 375 */
+/* 374 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -26698,7 +26571,7 @@ exports.push([module.i, "/*icon*/\n/* public path */\n/* page width */\n/* css3.
 
 
 /***/ }),
-/* 376 */
+/* 375 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26913,7 +26786,7 @@ var CollItemList = exports.CollItemList = function (_React$Component) {
 }(_react2.default.Component);
 
 /***/ }),
-/* 377 */
+/* 376 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26933,7 +26806,7 @@ var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-__webpack_require__(378);
+__webpack_require__(377);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26989,13 +26862,13 @@ BlogDetailsCtrl.defaultProps = {
 exports.default = BlogDetailsCtrl;
 
 /***/ }),
-/* 378 */
+/* 377 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(379);
+var content = __webpack_require__(378);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -27020,7 +26893,7 @@ if(false) {
 }
 
 /***/ }),
-/* 379 */
+/* 378 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -27034,7 +26907,7 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 380 */
+/* 379 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27054,7 +26927,7 @@ var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-__webpack_require__(381);
+__webpack_require__(380);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27110,13 +26983,13 @@ ErrorPageCtrl.defaultProps = {
 exports.default = ErrorPageCtrl;
 
 /***/ }),
-/* 381 */
+/* 380 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(382);
+var content = __webpack_require__(381);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -27141,7 +27014,7 @@ if(false) {
 }
 
 /***/ }),
-/* 382 */
+/* 381 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -27155,7 +27028,7 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 383 */
+/* 382 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27175,7 +27048,7 @@ var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-__webpack_require__(384);
+__webpack_require__(383);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27264,13 +27137,13 @@ ProductsCtrl.classPrefix = 'ctrl-search';
 exports.default = ProductsCtrl;
 
 /***/ }),
-/* 384 */
+/* 383 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(385);
+var content = __webpack_require__(384);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -27295,7 +27168,7 @@ if(false) {
 }
 
 /***/ }),
-/* 385 */
+/* 384 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -27309,7 +27182,7 @@ exports.push([module.i, "/** Search **/\n.ctrl-search {\n  position: relative;\n
 
 
 /***/ }),
-/* 386 */
+/* 385 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27325,7 +27198,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(387);
+__webpack_require__(386);
 
 var _react = __webpack_require__(0);
 
@@ -27353,7 +27226,7 @@ var _Text2 = _interopRequireDefault(_Text);
 
 var _api = __webpack_require__(25);
 
-var _component = __webpack_require__(389);
+var _component = __webpack_require__(388);
 
 var _util = __webpack_require__(5);
 
@@ -27677,13 +27550,13 @@ FeaturedCollectionCtrl.heightMap = [{ name: 'Low', value: 'low' }, { name: 'Medi
 exports.default = FeaturedCollectionCtrl;
 
 /***/ }),
-/* 387 */
+/* 386 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(388);
+var content = __webpack_require__(387);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -27708,7 +27581,7 @@ if(false) {
 }
 
 /***/ }),
-/* 388 */
+/* 387 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -27722,7 +27595,7 @@ exports.push([module.i, "/** SliderShow **/\n/*icon*/\n/* public path */\n/* pag
 
 
 /***/ }),
-/* 389 */
+/* 388 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27977,13 +27850,13 @@ var ProductsCollection = exports.ProductsCollection = function (_React$Component
 }(_react2.default.Component);
 
 /***/ }),
-/* 390 */
+/* 389 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(391);
+var content = __webpack_require__(390);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -28008,7 +27881,7 @@ if(false) {
 }
 
 /***/ }),
-/* 391 */
+/* 390 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -28022,7 +27895,7 @@ exports.push([module.i, ".bc-section-cont {\n  overflow: hidden;\n}\n.bc-section
 
 
 /***/ }),
-/* 392 */
+/* 391 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28050,11 +27923,11 @@ var _ActionList = __webpack_require__(21);
 
 var _ActionList2 = _interopRequireDefault(_ActionList);
 
-var _Colors = __webpack_require__(393);
+var _Colors = __webpack_require__(392);
 
 var _Colors2 = _interopRequireDefault(_Colors);
 
-var _Favicon = __webpack_require__(396);
+var _Favicon = __webpack_require__(395);
 
 var _Favicon2 = _interopRequireDefault(_Favicon);
 
@@ -28225,7 +28098,7 @@ var CtrlPanel = function (_React$PureComponent) {
 exports.default = CtrlPanel;
 
 /***/ }),
-/* 393 */
+/* 392 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28239,7 +28112,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(394);
+__webpack_require__(393);
 
 var _Section = __webpack_require__(98);
 
@@ -28341,13 +28214,13 @@ var ColorCtrl = function (_React$PureComponent) {
 exports.default = ColorCtrl;
 
 /***/ }),
-/* 394 */
+/* 393 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(395);
+var content = __webpack_require__(394);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -28372,7 +28245,7 @@ if(false) {
 }
 
 /***/ }),
-/* 395 */
+/* 394 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -28386,7 +28259,7 @@ exports.push([module.i, ".theme-ctrl-color-item {\n  padding: 0px 20px;\n  backg
 
 
 /***/ }),
-/* 396 */
+/* 395 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28398,7 +28271,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(397);
+__webpack_require__(396);
 
 var _react = __webpack_require__(0);
 
@@ -28468,13 +28341,13 @@ var FaviconCtrl = function (_React$Component) {
 exports.default = FaviconCtrl;
 
 /***/ }),
-/* 397 */
+/* 396 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(398);
+var content = __webpack_require__(397);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -28499,7 +28372,7 @@ if(false) {
 }
 
 /***/ }),
-/* 398 */
+/* 397 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -28513,7 +28386,7 @@ exports.push([module.i, ".bc-favicon {\n  padding: 20px;\n}\n.bc-favicon .favico
 
 
 /***/ }),
-/* 399 */
+/* 398 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28529,7 +28402,8 @@ exports.updatePageConfig = updatePageConfig;
  * @desc koa接口
  */
 // import {fetch} from '../../../../source/util'
-var APIRoot = 'http://builder.test.com:8080/shopbuilder/';
+// const APIRoot = 'http://builder.test.com:8080/shopbuilder/'
+var APIRoot = 'http://www.' + window.supervar.domain + ':8081/shopbuilder/';
 
 function getPageConfig(shop) {
     return window.fetch(APIRoot + 'userpageconfig/get/' + shop + '/').then(function (response) {
@@ -28558,10 +28432,10 @@ function updatePageConfig(shop, config) {
 }
 
 /***/ }),
-/* 400 */
+/* 399 */
 /***/ (function(module, exports) {
 
-module.exports = [{"title":"Home page","name":"home","path":"/home/","sort":0},{"title":"Product pages","name":"products","path":"/products/","sort":1},{"title":"Order confirm page","name":"order_confirm","path":"/order_confirm/","sort":-1},{"title":"Cart","name":"cart","path":"/cart/","sort":4},{"title":"Payment","name":"payment","path":"/payment/","sort":-1},{"title":"Pay Result","name":"pay_result","path":"/pay_result/","sort":-1},{"title":"Search page","name":"search","path":"/search/","sort":-1},{"title":"Collection list","name":"topics","path":"/topics/","sort":3},{"title":"Collections pages","name":"topics_details","path":"/topics_details/","sort":2},{"title":"Blogs","name":"blogs","path":"/blogs/","sort":-1},{"title":"Error page","name":"error_page","path":"error_page","sort":-1},{"title":"Blog page","name":"blog_details","path":"/blog_details/","sort":-1},{"title":"Rgister page","name":"register","path":"/register/","sort":-1},{"title":"Login page","name":"login","path":"/login/","sort":-1},{"title":"Send email","name":"send_email","path":"/send_email/","sort":-1},{"title":"Emainl result","name":"email_result","path":"/email_result/","sort":-1},{"title":"Rest password","name":"reset_password","path":"/reset_password/","sort":-1},{"title":"Orders","name":"orders","path":"/orders/","sort":-1},{"title":"Order details","name":"order_details","path":"/order_details/","sort":-1},{"title":"Address","name":"address","path":"/address/","sort":-1},{"title":"Account information","name":"account_information","path":"/account_information/","sort":-1},{"title":"Coustom page","name":"single","path":"/single/","sort":6}]
+module.exports = [{"title":"Home page","name":"home","path":"/home/","sort":0},{"title":"Product pages","name":"products","path":"/products/","sort":-1},{"title":"Order confirm page","name":"order_confirm","path":"/order_confirm/","sort":-1},{"title":"Cart","name":"cart","path":"/cart/","sort":-1},{"title":"Payment","name":"payment","path":"/payment/","sort":-1},{"title":"Pay Result","name":"pay_result","path":"/pay_result/","sort":-1},{"title":"Search page","name":"search","path":"/search/","sort":-1},{"title":"Collection list","name":"topics","path":"/topics/","sort":3},{"title":"Collections pages","name":"topics_details","path":"/topics_details/","sort":-1},{"title":"Blogs","name":"blogs","path":"/blogs/","sort":-1},{"title":"Error page","name":"error_page","path":"error_page","sort":-1},{"title":"Blog page","name":"blog_details","path":"/blog_details/","sort":-1},{"title":"Rgister page","name":"register","path":"/register/","sort":-1},{"title":"Login page","name":"login","path":"/login/","sort":-1},{"title":"Send email","name":"send_email","path":"/send_email/","sort":-1},{"title":"Emainl result","name":"email_result","path":"/email_result/","sort":-1},{"title":"Rest password","name":"reset_password","path":"/reset_password/","sort":-1},{"title":"Orders","name":"orders","path":"/orders/","sort":-1},{"title":"Order details","name":"order_details","path":"/order_details/","sort":-1},{"title":"Address","name":"address","path":"/address/","sort":-1},{"title":"Account information","name":"account_information","path":"/account_information/","sort":-1},{"title":"Coustom page","name":"single","path":"/single/","sort":-1}]
 
 /***/ })
 /******/ ]);

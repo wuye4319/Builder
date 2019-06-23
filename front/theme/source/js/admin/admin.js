@@ -15,6 +15,7 @@ class Content extends React.Component {
             <div className="url">
               <label>解析ID：</label>
               <input type="text" placeholder="请输入解析ID" className="bc-input-input" />
+              <button>解析</button>
             </div>
             <div className="blog-type">
               <label>博客类型：</label>

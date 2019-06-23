@@ -127,7 +127,12 @@ var Content = function (_React$Component) {
                 null,
                 '\u89E3\u6790ID\uFF1A'
               ),
-              React.createElement('input', { type: 'text', placeholder: '\u8BF7\u8F93\u5165\u89E3\u6790ID', className: 'bc-input-input' })
+              React.createElement('input', { type: 'text', placeholder: '\u8BF7\u8F93\u5165\u89E3\u6790ID', className: 'bc-input-input' }),
+              React.createElement(
+                'button',
+                null,
+                '\u89E3\u6790'
+              )
             ),
             React.createElement(
               'div',

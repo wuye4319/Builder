@@ -316,8 +316,40 @@
     }
   },
   "layout": {
-    "header": "",
-    "footer": ""
+    "header": {
+      "name": "Header",
+      "key": 1,
+      "logo": "",
+      "logoAlign": "left",
+      "menuId": "OXb6X3",
+      "menuAlign": "center",
+      "menuColors": 1,
+      "menuBg": "#ffffff",
+      "menuFont": "#302E2F",
+      "cartIcon": 1,
+      "messageVisible": false,
+      "messageOnlyAtHome": false,
+      "messageCanClose": true,
+      "message": "Winter sale is coming soon.",
+      "messageLink": "https://www.baidu.com/",
+      "messageBg": "#f12651",
+      "messageFont": "#FFFFFF",
+      "menu": "main"
+    },
+    "footer": {
+      "name": "Footer",
+      "key": 1,
+      "menuId": "628mqm",
+      "showInfo": true,
+      "infoTitle": "温馨提示",
+      "infoContent": "本网站内容均来源于网络，如有侵权，请联系本站进行删除，谢谢合作。\n联系qq邮箱：173134330@qq.com",
+      "infoWidth": 0,
+      "infoAlign": "center",
+      "infoFontSize": "small",
+      "colors": 1,
+      "bgColor": "#FBFAFA",
+      "fontColor": "#302E2F"
+    }
   },
   "theme": {
     "colors": {

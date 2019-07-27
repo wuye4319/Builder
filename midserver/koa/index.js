@@ -11,8 +11,8 @@ const koaBody = require('koa-body')
 // let staticFiles = require('./static')
 const Logger = require('keeper-core')
 let logger = new Logger()
-const Wanswer = require('./wanswer')
-let wanswer = new Wanswer()
+// const Wanswer = require('./wanswer')
+// let wanswer = new Wanswer()
 
 // test api
 // var WechatAPI = require('wechat-api');
@@ -26,12 +26,12 @@ let wanswer = new Wanswer()
 // });
 
 // wechat
-const wechat = require('co-wechat');
-const config = {
-  token: 'jxyhd11',
-  appid: 'wx4ed5bcdb64111500',
-  encodingAESKey: '6fGlKb8qKLnQ5a2k4xR8FldhtXejEQUW75GbQJF2HJT'
-};
+// const wechat = require('co-wechat');
+// const config = {
+//   token: 'jxyhd11',
+//   appid: 'wx4ed5bcdb64111500',
+//   encodingAESKey: '6fGlKb8qKLnQ5a2k4xR8FldhtXejEQUW75GbQJF2HJT'
+// };
 
 // SSL options
 const options = {
@@ -49,9 +49,7 @@ app.use(async (ctx, next) => {
   let myurl = ctx.url.substr(0, ctx.url.indexOf('http'))
   logger.myconsole(`${ctx.method} ${myurl || ctx.url} - ${ms}ms`)
   let alloworigin = [
-    // 'http://192.168.8.176',
     'https://www.wssso.com',
-    'https://we.wssso.com',
     'https://www.test.com',
   ]
   for (let i in alloworigin) {
@@ -69,9 +67,9 @@ app.use(async (ctx, next) => {
   }
 })
 
-app.use(wechat(config).middleware(async (message, ctx) => {
-  return wanswer.answer(message)
-}))
+// app.use(wechat(config).middleware(async (message, ctx) => {
+//   return wanswer.answer(message)
+// }))
 
 app.use(router.routes()).use(router.allowedMethods())
 // app.use(staticFiles('/static/', './static'))
